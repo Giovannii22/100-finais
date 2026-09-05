@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Artefato do Claude</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        iframe { border: none; width: 100%; height: 100%; }
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #ffffff; }
+        iframe { border: none; width: 100%; height: 100%; display: block; }
     </style>
 </head>
 <body>
-    <iframe src="COLE_O_LINK_DO_SEU_ARTEFATO_AQUI"></iframe>
+    <iframe 
+        src="COLE_O_LINK_DO_SEU_ARTEFATO_AQUI"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
+        allow="clipboard-write; geolocation; microphone; camera"
+        loading="lazy">
+    </iframe>
 </body>
 </html>
