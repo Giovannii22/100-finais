@@ -3,7 +3,7 @@
 Todas as sequências de lances são pré-calculadas aqui (python-chess),
 então a página não precisa de nenhuma biblioteca de xadrez no navegador.
 """
-import sys, os, json, html, re
+import sys, os, json, html, re, urllib.parse
 import chess
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -194,7 +194,22 @@ def render():
     return "\n".join(body), store
 
 
-HTML_TOP = """<title>Os Nove Finais Básicos</title>
+# Favicon: peão sobre o verde do tabuleiro, em SVG embutido como data URI —
+# sem arquivo externo e nítido em qualquer resolução. O SVG é percent-encoded
+# porque "#" numa data URI seria lido como início de âncora.
+_FAV_SVG = (
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">'
+    '<rect width="32" height="32" rx="6.5" fill="#6f8a70"/>'
+    '<circle cx="16" cy="9.6" r="4.6" fill="#f4f2ea"/>'
+    '<path d="M12.4 13.8h7.2l-1.1 3.6c2.8 1.7 4.6 4.5 4.6 7.6H8.9'
+    'c0-3.1 1.8-5.9 4.6-7.6z" fill="#f4f2ea"/>'
+    '<rect x="8.1" y="24.3" width="15.8" height="3.7" rx="1.7" fill="#f4f2ea"/>'
+    '</svg>'
+)
+FAVICON = "data:image/svg+xml," + urllib.parse.quote(_FAV_SVG, safe="")
+
+HTML_TOP = f"""<title>100 Finais</title>
+<link rel="icon" href="{FAVICON}">""" + """
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Symbols+2&display=swap">
