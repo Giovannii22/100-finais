@@ -208,7 +208,7 @@ _FAV_SVG = (
 )
 FAVICON = "data:image/svg+xml," + urllib.parse.quote(_FAV_SVG, safe="")
 
-HTML_TOP = f"""<title>100 Finais</title>
+HTML_TOP = f"""<title>100 Finais de Xadrez</title>
 <link rel="icon" href="{FAVICON}">""" + """
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
