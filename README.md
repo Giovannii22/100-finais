@@ -1,7 +1,8 @@
 # 100 Finais — estudo de finais de xadrez em português
 
 Página de estudo com posições de finais navegáveis lance a lance. O capítulo 1
-está pronto: 9 finais, 23 posições.
+está pronto e versionado (`v1.0.1`): 9 finais, 23 posições. O capítulo 2 está
+em desenvolvimento numa branch separada.
 
 **A página publicada é o `index.html`.** Ele é autocontido: todo o CSS, o
 JavaScript, os dados das posições e os desenhos das peças estão dentro do
@@ -28,6 +29,23 @@ arquivo. A única coisa externa são as fontes do Google.
 4. `git add . && git commit && git push` — o GitHub Pages publica sozinho.
 
 Na prática, os passos 1 a 3 são feitos pelo Claude; o passo 4 é seu.
+
+## Versionamento e branches
+
+Cada capítulo é desenvolvido numa branch própria (`capitulo-N-descricao`),
+criada a partir da `main`, e só é mesclado de volta quando o capítulo está
+verificado e completo. A branch `main` reflete sempre o que está publicado.
+
+Releases são marcadas com tags Git seguindo versionamento semântico:
+
+- `vX.0` — novo capítulo completo adicionado
+- `vX.Y.Z` — correção ou ajuste pequeno, sem conteúdo novo (patch)
+- `vX+1.0` — mudança estrutural grande
+
+Uma tag já publicada não é movida — uma correção depois da publicação vira uma
+nova tag patch. Tags publicadas até agora: `v1.0` (primeira versão do
+capítulo 1) e `v1.0.1` (correções de título, favicon, créditos e SVGs
+versionados).
 
 ## Para rodar os scripts localmente (opcional)
 
