@@ -8,6 +8,35 @@ em desenvolvimento numa branch separada.
 JavaScript, os dados das posições e os desenhos das peças estão dentro do
 arquivo. A única coisa externa são as fontes do Google.
 
+## Arquitetura
+
+Site estático, **sem backend, sem banco de dados, sem API**. Um script Python
+lê os dados de todas as posições, pré-calcula todas as sequências de lances
+com a biblioteca `python-chess`, e gera um único HTML autocontido.
+
+O navegador do usuário final não executa nenhuma lógica de xadrez — só
+percorre listas de posições (FEN) já calculadas. Não há bundler, transpiler
+ou build step de frontend: o HTML gerado já é o artefato final.
+
+```
+dados.py (conteúdo) ──┐
+                       ├──► gerar.py ──► index.html (GitHub Pages)
+pecas.py (peças SVG) ──┤              └─► finais.html (Claude Artifact)
+                       │
+verificar.py ──────────┘ (valida dados.py com Stockfish)
+```
+
+## Tecnologias
+
+| Camada | Tecnologia |
+|---|---|
+| Geração/validação | Python 3 |
+| Estrutura da página | HTML5 |
+| Estilo | CSS puro (Grid, custom properties, `color-mix`, `container-type`) |
+| Interatividade | JavaScript vanilla — sem frameworks |
+| Peças do tabuleiro | SVG inline (`<symbol>`/`<use>`), conjunto Merida |
+| Tipografia | Google Fonts via CDN: Zilla Slab, Spectral, IBM Plex Mono, Noto Sans Symbols 2 |
+
 ## Como o projeto está organizado
 
 | arquivo | o que é |
@@ -17,9 +46,45 @@ arquivo. A única coisa externa são as fontes do Google.
 | `pecas.py` | Carrega o conjunto de peças e isola os `id` de cada SVG. |
 | `medir_pecas.py` | Mede a caixa da união das 12 peças e grava a `viewBox` comum em `pecas.py`. Rodar só se o conjunto de peças mudar. |
 | `verificar.py` | Passa cada posição e cada lance pelo Stockfish. |
-| `sets/merida/` | As 12 peças, em SVG. |
+| `sets/merida/` | As 12 peças, em SVG, com `LICENSE.txt` próprio. |
 | `index.html` | A página pronta, gerada. **É o que o GitHub Pages publica.** |
 | `finais.html` | Mesmo conteúdo sem o invólucro `<html>`, para publicar como Artifact do Claude. |
+
+## Estrutura de dados (`dados.py`)
+
+```python
+DIAGRAMAS = [
+    "1.1–1.2",   # referência ao diagrama do livro, na ordem de aparição
+    ...
+]
+
+CAPITULO = {
+    "numero": 1,
+    "titulo": "Finais básicos",
+    "intro": "...",
+    "secoes": [
+        {
+            "id": "rei-peao",
+            "titulo": "Rei e peão contra rei",
+            "resumo": "...",
+            "finais": [
+                {
+                    "n": 1,
+                    "titulo": "A regra do quadrado",
+                    "conceito": "...",
+                    "texto": ["parágrafo 1", "parágrafo 2"],
+                    "posicoes": [
+                        {"fen": "...", "resultado": "Brancas ganham", "linha": ["a4", "Kf7", ...]},
+                    ],
+                },
+            ],
+        },
+    ],
+}
+```
+
+O gerador confere se `len(DIAGRAMAS)` bate com o número total de posições e
+falha se alguém adicionar uma posição sem registrar a referência.
 
 ## Como atualizar
 
@@ -27,8 +92,9 @@ arquivo. A única coisa externa são as fontes do Google.
 2. `python verificar.py` — confere cada posição e cada lance com o Stockfish.
 3. `python gerar.py` — regenera `index.html` e `finais.html`.
 4. `git add . && git commit && git push` — o GitHub Pages publica sozinho.
+5. Republicar o Claude Artifact com o novo `finais.html` (processo manual).
 
-Na prática, os passos 1 a 3 são feitos pelo Claude; o passo 4 é seu.
+Na prática, os passos 1 a 3 são feitos pelo Claude; os passos 4 e 5 são seus.
 
 ## Versionamento e branches
 
@@ -46,6 +112,17 @@ Uma tag já publicada não é movida — uma correção depois da publicação v
 nova tag patch. Tags publicadas até agora: `v1.0` (primeira versão do
 capítulo 1) e `v1.0.1` (correções de título, favicon, créditos e SVGs
 versionados).
+
+## Deploy
+
+Dois destinos independentes, sincronizados manualmente a cada mudança:
+
+| Destino | O que serve | Como atualiza |
+|---|---|---|
+| **GitHub Pages** | `index.html` (raiz do repositório) | Automático a cada `git push` na `main` |
+| **Claude Artifact** | Conteúdo de `finais.html` | Manual — não tem versionamento próprio, reflete só o último conteúdo publicado |
+
+Não há CI/CD automatizado.
 
 ## Para rodar os scripts localmente (opcional)
 
@@ -73,10 +150,12 @@ posição que só é legal com as pretas a jogar.
 
 ## Sobre a origem do material
 
-O roteiro de quais finais estudar segue *Los 100 finales que hay que saber*, de
-Jesús de la Villa. **Este repositório não contém o livro nem tradução dele.**
-As posições e os lances são fatos, não protegidos por direito autoral; os
-textos explicativos foram escritos do zero para esta página.
+O roteiro de quais finais estudar segue *Los 100 finales que hay que saber*,
+de Jesús de la Villa García (2ª edición revisada, Esfera Editorial, 2008).
+**Este repositório não contém o livro nem tradução dele.** As posições e os
+lances são fatos, não protegidos por direito autoral; os textos explicativos
+foram escritos do zero para esta página. Trabalho sem fins comerciais, feito
+exclusivamente para estudo pessoal.
 
 O PDF do livro não deve ser adicionado ao repositório.
 
