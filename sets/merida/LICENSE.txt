@@ -1,0 +1,13 @@
+Conjunto de peças de xadrez "Merida"
+
+Autor: Armando Hernandez Marroquin
+Licença: GNU General Public License v2.0 ou posterior (GPLv2+)
+
+Os arquivos SVG deste diretório foram obtidos do repositório público do
+Lichess (github.com/lichess-org/lila, public/piece/merida), que distribui
+o conjunto Merida sob os termos da GPLv2+.
+
+A licença completa está disponível em:
+https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+
+Este aviso acompanha os arquivos conforme exigido pelos termos da licença.
