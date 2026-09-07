@@ -11,6 +11,9 @@ sys.path.insert(0, BASE)
 from dados import CAPITULO, DIAGRAMAS
 from pecas import symbols as pecas_symbols, CREDITO as PECAS_CREDITO
 
+# Versao publicada (git tag correspondente). Atualizar manualmente a cada release.
+VERSAO = "v1.0.1"
+
 
 def expandir(pos):
     b = chess.Board(pos["fen"])
@@ -542,6 +545,7 @@ numeração, mas os textos e análises desta página são originais. Este é um 
 comerciais, feito exclusivamente para fins de estudo pessoal.</p>
 <p>{PECAS_CREDITO} O texto da licença está em
 <a href="https://www.gnu.org/licenses/gpl-2.0.txt">gnu.org/licenses/gpl-2.0.txt</a>.</p>
+<p><code>{VERSAO}</code></p>
 </footer>
 <script>
 const DADOS = {json.dumps(store, ensure_ascii=False)};
