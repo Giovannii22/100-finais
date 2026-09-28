@@ -44,7 +44,14 @@ def localizar_stockfish():
 
 
 SF = localizar_stockfish()
-DEPTH = 34
+
+# Profundidade padrão: 20 já é sobra para estes finais (poucas peças, sem
+# meio-jogo complexo; K+P vs K é resolvido de forma exata pela bitbase KPK
+# interna do Stockfish independente da profundidade). Para uma posição
+# específica que pareça "em cima do muro", aumente só ali, adicionando
+# "profundidade": 40 (ou o valor que quiser) no dicionário da posição em
+# dados.py — não precisa mexer aqui nem afetar as outras posições.
+DEPTH = 20
 
 
 def classify(info):
@@ -57,26 +64,56 @@ def classify(info):
     return ("Brancas ganham" if v > 0 else "Pretas ganham"), f"{v}cp"
 
 
+def contar_posicoes():
+    total = 0
+    for sec in CAPITULO["secoes"]:
+        for fin in sec["finais"]:
+            total += len(fin["posicoes"])
+            ep = fin.get("exemplo_pratico")
+            if ep:
+                total += len(ep["posicoes"])
+    return total
+
+
 def main():
+    total = contar_posicoes()
+    print(f"Verificando {total} posições com Stockfish (profundidade padrão {DEPTH},"
+          f" pode variar por posição) — cada linha aparece assim que termina;"
+          f" pode levar alguns minutos no total.")
+    print(f"Motor: {SF}")
     engine = chess.engine.SimpleEngine.popen_uci(SF)
     engine.configure({"Threads": 4, "Hash": 256})
 
     relatorio, problemas = [], []
+    contador = [0]
 
-    def avaliar(board):
-        return classify(engine.analyse(board, chess.engine.Limit(depth=DEPTH)))
+    def avaliar(board, profundidade=DEPTH):
+        return classify(engine.analyse(board, chess.engine.Limit(depth=profundidade)))
+
+    def imprimir_item(it):
+        marca = "FALHA" if it["erros"] else "  ok "
+        prof = f" (d={it['profundidade']})" if "profundidade" in it else ""
+        print(f"{marca} [{contador[0]}/{total}] {it['contexto'][:30]:30s} "
+              f"{it['rotulo'][:26]:26s} decl={it['esperado']:16s} "
+              f"sf={it.get('sf','?')} {it.get('sf_bruto','')}{prof}", flush=True)
+        for e in it["erros"]:
+            print(f"       !! {e}", flush=True)
 
     def checar(pos, contexto):
+        contador[0] += 1
         fen = pos["fen"]
         esperado = pos["resultado"]
+        profundidade = pos.get("profundidade", DEPTH)
         item = {"contexto": contexto, "rotulo": pos["rotulo"], "fen": fen,
                 "esperado": esperado, "erros": []}
+        if profundidade != DEPTH:
+            item["profundidade"] = profundidade
         board = chess.Board(fen)
         if not board.is_valid():
             item["erros"].append("FEN não representa posição legal")
-            problemas.append(item); relatorio.append(item); return
+            problemas.append(item); relatorio.append(item); imprimir_item(item); return
 
-        veredito, bruto = avaliar(board)
+        veredito, bruto = avaliar(board, profundidade)
         item["sf"] = veredito
         item["sf_bruto"] = bruto
         alvo = "Empate" if esperado == "Empate teórico" else esperado
@@ -97,7 +134,7 @@ def main():
             fens.append(b.fen())
             if b.is_game_over():
                 break
-            v2, r2 = avaliar(b)
+            v2, r2 = avaliar(b, profundidade)
             if v2 != alvo:
                 item["erros"].append(f"após {i+1}.{san} o resultado vira '{v2}' ({r2})")
         item["fens"] = fens
@@ -123,7 +160,9 @@ def main():
         if item["erros"]:
             problemas.append(item)
         relatorio.append(item)
+        imprimir_item(item)
 
+    print("=" * 78, flush=True)
     for sec in CAPITULO["secoes"]:
         for fin in sec["finais"]:
             for pos in fin["posicoes"]:
@@ -135,13 +174,6 @@ def main():
 
     engine.quit()
 
-    print("=" * 78)
-    for it in relatorio:
-        marca = "FALHA" if it["erros"] else "  ok "
-        print(f"{marca} {it['contexto'][:30]:30s} {it['rotulo'][:26]:26s} "
-              f"decl={it['esperado']:16s} sf={it.get('sf','?')} {it.get('sf_bruto','')}")
-        for e in it["erros"]:
-            print(f"       !! {e}")
     print("=" * 78)
     print(f"{len(relatorio)} posições verificadas — {len(problemas)} com problema")
 
