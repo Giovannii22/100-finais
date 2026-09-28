@@ -245,8 +245,8 @@ h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(2rem,5.2vw,2.9rem);
 .note:empty::before{content:"Use ▶ para percorrer a solução.";color:var(--ink-3);font-style:italic}
 .alt-wrap{display:flex;flex-direction:column;gap:.3rem;margin-top:.1rem}
 .alt-btn{font-family:var(--f-mono);font-size:.7rem;text-align:left;padding:.35rem .5rem;
-  background:none;border:1px dashed var(--line);border-radius:2px;color:var(--ink-2);cursor:pointer}
-.alt-btn[aria-pressed="true"]{background:var(--accent-soft);border-style:solid;color:var(--ink)}
+  background:var(--accent-soft);border:1px dashed var(--accent);border-radius:2px;color:var(--ink);cursor:pointer}
+.alt-btn[aria-pressed="true"]{background:var(--accent);border-style:solid;border-color:var(--accent);color:var(--paper)}
 .alt-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .rule-inline{margin:0;padding:.75rem .9rem;border-top:1px solid var(--line);
   background:var(--ochre-soft);font-size:.93rem;color:var(--ink)}
@@ -994,7 +994,7 @@ class Viewer {
       data.alts.forEach((alt, k) => {
         const b = document.createElement("button");
         b.type = "button"; b.className = "alt-btn"; b.setAttribute("aria-pressed", "false");
-        b.textContent = alt.titulo;
+        b.textContent = data.alts.length > 1 ? `Lance alternativo ${k + 1}` : "Lance alternativo";
         b.addEventListener("click", () => this.toggleAlt(k, b));
         wrap.appendChild(b);
       });
