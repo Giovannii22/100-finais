@@ -2,8 +2,9 @@
 """Verificação objetiva das posições e linhas do capítulo.
 
 1. Legalidade de cada FEN e de cada lance de cada linha (python-chess).
-2. Stockfish 16 avalia cada posição. Para rei+peão contra rei o Stockfish
-   consulta a sua bitbase KPK interna, que é exata (não é heurística).
+2. Stockfish 19 avalia cada posição (profundidade padrão 20, ver DEPTH
+   abaixo). Para rei+peão contra rei o Stockfish consulta a sua bitbase
+   KPK interna, que é exata (não é heurística).
 3. Checagem lance a lance: depois de cada lance da linha principal o
    resultado objetivo tem que continuar sendo o declarado. É isso que
    pega uma linha "quase certa".

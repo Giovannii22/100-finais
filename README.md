@@ -52,7 +52,7 @@ página mostra" e "o que é de fato uma posição/lance legal".
 |---|---|---|
 | Geração/validação | Python 3 | Roda só no ambiente de desenvolvimento, nunca no navegador |
 | Motor de regras de xadrez | [`python-chess`](https://pypi.org/project/chess/) | Parsing de FEN/SAN, validação de lances, detecção de xeque-mate/afogamento |
-| Verificação objetiva | Stockfish 16 (binário externo) | Só para conferir se os lances não pioram o resultado teórico |
+| Verificação objetiva | Stockfish 19 (binário externo) | Só para conferir se os lances não pioram o resultado teórico |
 | Estrutura da página | HTML5 semântico | `<figure>`, `<nav>`, `<section>`, `<article>`, `role="img"`, `aria-*` |
 | Estilo | CSS puro | Grid, custom properties (design tokens), `color-mix()`, `container-type`, `aspect-ratio`, `@media (prefers-color-scheme)` |
 | Interatividade | JavaScript vanilla (ES6+) | Sem frameworks — nenhum React/Vue/Angular, nenhuma dependência de runtime |
@@ -98,7 +98,7 @@ lugar nenhum).
 | `gerar.py` | O gerador. Importa `dados.py` e `pecas.py`, expande todas as sequências de lances com `python-chess`, monta o HTML (sumário, seções, tabuleiros) e escreve `index.html` / `finais.html`. Contém também todo o CSS e o JavaScript da página, como strings Python (f-strings). |
 | `pecas.py` | Lê os 12 arquivos SVG de `sets/merida/`, isola os `id`s internos de cada um (gradientes, principalmente) para não colidirem quando embutidos juntos, e envolve cada peça em um `<symbol>` com uma `viewBox` comum. |
 | `medir_pecas.py` | Utilitário que roda com Playwright: abre as 12 peças no navegador, mede a caixa delimitadora da **união** das doze e grava essa `viewBox` comum em `pecas.py`. Só precisa rodar de novo se o conjunto de peças for trocado. |
-| `verificar.py` | Ferramenta de QA. Para cada posição e cada lance de `dados.py`, consulta o Stockfish 16 em profundidade 34 (e a bitbase interna KPK do próprio Stockfish nos finais de rei e peão) para confirmar que o resultado teórico não muda ao longo da linha. |
+| `verificar.py` | Ferramenta de QA. Para cada posição e cada lance de `dados.py`, consulta o Stockfish 19 em profundidade 20 (com override por posição via `"profundidade"`, e a bitbase interna KPK do próprio Stockfish nos finais de rei e peão) para confirmar que o resultado teórico não muda ao longo da linha. |
 | `sets/merida/*.svg` | As 12 peças originais do conjunto Merida (wK, bK, wQ, bQ, wR, bR, wB, bB, wN, bN, wP, bP), sem modificação. |
 | `sets/merida/LICENSE.txt` | Licença original do conjunto Merida (GPLv2+), mantida junto aos arquivos por exigência da licença. |
 | `index.html` | **Saída publicada no GitHub Pages.** HTML completo, com `<!doctype>`/`<html>`/`<head>`/`<body>`. É o único artefato realmente "em produção". |
@@ -302,19 +302,23 @@ etc.) por causa da cláusula de uso não comercial.
 
 `verificar.py` audita `dados.py` independentemente do gerador: para cada
 posição e cada lance de cada linha (principal e alternativas), consulta o
-Stockfish 16 em **profundidade 34** para confirmar que o resultado objetivo
-do final (vitória de brancas/pretas ou empate) não muda em nenhum ponto da
-linha. Em finais de rei e peão contra rei, o Stockfish consulta sua bitbase
-interna de KPK (exaustiva, não é estimativa).
+Stockfish 19 em **profundidade 20** (padrão) para confirmar que o resultado
+objetivo do final (vitória de brancas/pretas ou empate) não muda em nenhum
+ponto da linha. Em finais de rei e peão contra rei, o Stockfish consulta sua
+bitbase interna de KPK (exaustiva, não é estimativa). Se uma posição
+específica exigir mais rigor, é possível aumentar a profundidade só para
+ela com o campo opcional `"profundidade"` no dicionário da posição em
+`dados.py` — não afeta as demais.
 
 Esse processo já encontrou e corrigiu quatro erros de transcrição no
 capítulo 1: dois lances ilegais, um lance de torre que na verdade era de
 rei, e uma posição que só é legal com as pretas a jogar.
 
-O caminho do binário do Stockfish é configurado numa constante no início de
-`verificar.py` (no Windows, algo como `C:/Stockfish/stockfish.exe`; no
-Linux/WSL, `stockfish` já resolve se instalado via `apt-get install
-stockfish`).
+`verificar.py` localiza o binário do Stockfish automaticamente
+(`localizar_stockfish()`): tenta a variável de ambiente `STOCKFISH_PATH`,
+depois o `PATH` do sistema, depois alguns caminhos comuns no Windows/Linux.
+Não é preciso editar o script por máquina — basta ter o Stockfish instalado
+e no PATH, ou definir `STOCKFISH_PATH` apontando para o executável.
 
 ## Como atualizar o conteúdo
 
