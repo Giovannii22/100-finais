@@ -12,7 +12,7 @@ from dados import CAPITULOS, DIAGRAMAS
 from pecas import symbols as pecas_symbols, CREDITO as PECAS_CREDITO
 
 # Versao publicada (git tag correspondente). Atualizar manualmente a cada release.
-VERSAO = "v1.0.6"
+VERSAO = "v2.0"
 
 
 def expandir(pos):

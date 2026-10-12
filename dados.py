@@ -32,6 +32,25 @@ DIAGRAMAS = [
     "1.23",           # Final 9 — casa boba do cavalo
     "1.24",           # Final 9 — Kamsky–Bacrot (posição do diagrama)
     "1.24.1",         # Final 9 — Kamsky–Bacrot, defesa correta depois de 5.Rf3 (derivada, não é do livro)
+    "3.1",  # Capitulo 2
+    "3.2",  # Capitulo 2
+    "3.3",  # Capitulo 2
+    "3.4",  # Capitulo 2
+    "3.5–3.6",  # Capitulo 2
+    "3.7",  # Capitulo 2
+    "3.9",  # Capitulo 2
+    "3.10",  # Capitulo 2
+    "4.1",  # Capitulo 2
+    "4.2",  # Capitulo 2
+    "4.3",  # Capitulo 2
+    "4.4",  # Capitulo 2
+    "4.6",  # Capitulo 2
+    "4.7",  # Capitulo 2
+    "4.8",  # Capitulo 2
+    "4.9",  # Capitulo 2
+    "4.10–4.11",  # Capitulo 2
+    "4.12",  # Capitulo 2
+    "4.13",  # Capitulo 2
 ]
 
 CAPITULO_1 = {
@@ -613,5 +632,2404 @@ CAPITULO_1 = {
     ],
 }
 
-# Lista de capitulos, na ordem de publicacao. Cada capitulo novo entra aqui.
-CAPITULOS = [CAPITULO_1]
+CAPITULO_2 = {   'numero': 2,
+    'titulo': 'Cavalo e dama contra peão',
+    'intro': 'Este capítulo cobre o duelo mais simples de peça menor contra peão passado — o '
+             'cavalo — e o mais comum de todos os finais de dama — a dama contra peão, que costuma '
+             'aparecer como desfecho natural de uma corrida de peões. São posições de cálculo '
+             'preciso, cheias de regras curtas e memorizáveis, mas também de armadilhas conhecidas '
+             'que continuam decidindo partidas de jogadores experientes.',
+    'secoes': [   {   'id': 'cavalo-peao',
+                      'titulo': 'Cavalo contra peão',
+                      'resumo': 'Seis finais que ensinam quando um cavalo sozinho segura um peão '
+                                'passado — incluindo as exceções perigosas dos peões de torre e de '
+                                'cavalo, perto da borda.',
+                      'finais': [   {   'n': 10,
+                                        'titulo': 'Cavalo contra peão na sétima',
+                                        'conceito': 'O cavalo sozinho consegue parar um peão que '
+                                                    'já chegou à sétima fila?',
+                                        'texto': [   'Este é o alicerce de todo o capítulo: se '
+                                                     'dominarmos bem o duelo de cavalo contra '
+                                                     'peão, depois será muito mais fácil calcular '
+                                                     'finais parecidos com mais peças no '
+                                                     "tabuleiro, e também 'sentir' com confiança "
+                                                     'quando uma posição complexa se reduz a um '
+                                                     'empate conhecido.',
+                                                     'A ideia central é simples de enunciar: o '
+                                                     'cavalo quer se colocar **à frente do peão**. '
+                                                     'Uma vez ali, ele consegue manobrar para os '
+                                                     'dois lados e nunca fica preso. Isso vale '
+                                                     'para qualquer peão das quatro colunas '
+                                                     'centrais (c, d, e, f), mesmo que ele já '
+                                                     'esteja na sétima fila.',
+                                                     'Mas nem sempre o cavalo chega a tempo de '
+                                                     'bloquear o peão. A segunda posição deste '
+                                                     'final mostra o que fazer quando isso não é '
+                                                     'possível: em vez de ficar na frente, o '
+                                                     'cavalo controla a casa de coroação **pelo '
+                                                     'lado** — uma ideia menos intuitiva, mas '
+                                                     'igualmente eficaz.'],
+                                        'posicoes': [   {   'rotulo': 'O cavalo bloqueia o peão',
+                                                            'fen': '8/K7/8/8/8/1k6/1N1p4/8 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Empate',
+                                                            'linha': [   'Nd1',
+                                                                         'Kc2',
+                                                                         'Nf2',
+                                                                         'Kc3',
+                                                                         'Ka6',
+                                                                         'Kd4',
+                                                                         'Kb5',
+                                                                         'Ke3',
+                                                                         'Nd1+',
+                                                                         'Ke2',
+                                                                         'Nb2'],
+                                                            'notas': {   0: 'O único lance, mas '
+                                                                            'também o certo: o '
+                                                                            'cavalo ocupa a casa '
+                                                                            'de coroação. À frente '
+                                                                            'do peão ele pode '
+                                                                            'manobrar pelos dois '
+                                                                            'lados e as pretas não '
+                                                                            'conseguem criar '
+                                                                            'problemas.',
+                                                                         1: 'O rei preto ataca o '
+                                                                            'cavalo — começa a '
+                                                                            'única tentativa de '
+                                                                            'progresso das pretas.',
+                                                                         2: 'A forma mais simples '
+                                                                            'de fugir: o cavalo se '
+                                                                            'afasta do rei '
+                                                                            'adversário. **2.Ne3** '
+                                                                            'também empatava.',
+                                                                         3: 'Sem conseguir nada em '
+                                                                            'c3, o rei preto '
+                                                                            'precisa iniciar uma '
+                                                                            'longa caminhada até o '
+                                                                            'outro lado para '
+                                                                            'atacar o cavalo de '
+                                                                            'novo.',
+                                                                         4: 'Lances de espera do '
+                                                                            'rei branco: o cavalo '
+                                                                            'em f2 já controla d1 '
+                                                                            "'pelo lado' (a mesma "
+                                                                            'ideia da próxima '
+                                                                            'posição), então o '
+                                                                            'peão não pode coroar '
+                                                                            'enquanto o rei preto '
+                                                                            'não chega perto o '
+                                                                            'bastante.',
+                                                                         8: 'Quando o rei preto '
+                                                                            'finalmente ameaça o '
+                                                                            'cavalo em f2, ele '
+                                                                            'volta à casa de '
+                                                                            'coroação — e ainda dá '
+                                                                            'xeque de quebra.',
+                                                                         10: 'A posição do lance 2 '
+                                                                             'se reproduz, agora '
+                                                                             'do lado oposto. '
+                                                                             'Empate evidente: as '
+                                                                             'pretas podem repetir '
+                                                                             'a caminhada para o '
+                                                                             'outro lado, mas o '
+                                                                             'resultado nunca '
+                                                                             'muda.'},
+                                                            'regra_destaque': 'Se o cavalo '
+                                                                              'consegue se colocar '
+                                                                              'à frente do peão, é '
+                                                                              'empate contra '
+                                                                              'qualquer peão das '
+                                                                              'quatro colunas '
+                                                                              'centrais, mesmo na '
+                                                                              'sétima fila.'},
+                                                        {   'rotulo': 'Controlando a casa de '
+                                                                      'coroação pelo lado',
+                                                            'fen': '8/8/8/8/5N2/8/2p4K/2k5 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Empate',
+                                                            'linha': [   'Ne2+',
+                                                                         'Kd1',
+                                                                         'Nc3+',
+                                                                         'Kd2',
+                                                                         'Na2'],
+                                                            'notas': {   0: 'O cavalo não chega a '
+                                                                            'tempo de bloquear o '
+                                                                            'peão em c1, mas pode '
+                                                                            'controlá-lo de outra '
+                                                                            'forma: colocando-se '
+                                                                            'na segunda fila, em '
+                                                                            'e2, ele tem acesso a '
+                                                                            'dois circuitos de '
+                                                                            'controle — e2-c3-a2 '
+                                                                            'ou e2-d4-b3-c1.',
+                                                                         1: '**1...Rd2 empata na '
+                                                                            'hora**: o cavalo '
+                                                                            'simplesmente fica em '
+                                                                            'e2, controlando c1 '
+                                                                            'para sempre. A linha '
+                                                                            'principal é a réplica '
+                                                                            'mais exigente, '
+                                                                            '**1...Rd1**, que '
+                                                                            'tenta expulsar o '
+                                                                            'cavalo do circuito '
+                                                                            'bom.',
+                                                                         2: 'O cavalo troca de '
+                                                                            'circuito sem perder o '
+                                                                            'controle da casa de '
+                                                                            'coroação.',
+                                                                         4: 'O cavalo chega à casa '
+                                                                            'ideal do outro '
+                                                                            'circuito (a2) e '
+                                                                            'mantém o controle de '
+                                                                            'c1 indefinidamente.'},
+                                                            'alternativas': [   {   'titulo': 'O '
+                                                                                              'lance '
+                                                                                              'natural '
+                                                                                              'que '
+                                                                                              'perde',
+                                                                                    'linha': [   'Nd3+',
+                                                                                                 'Kd2',
+                                                                                                 'Nc5',
+                                                                                                 'Kc3',
+                                                                                                 'Ne4+',
+                                                                                                 'Kd3',
+                                                                                                 'Nc5+',
+                                                                                                 'Kc4'],
+                                                                                    'nota': '**1.Nd3+??** '
+                                                                                            'parece '
+                                                                                            'controlar '
+                                                                                            'o '
+                                                                                            'mesmo '
+                                                                                            'tipo '
+                                                                                            'de '
+                                                                                            'casa, '
+                                                                                            'mas '
+                                                                                            'expulsa '
+                                                                                            'o '
+                                                                                            'próprio '
+                                                                                            'cavalo '
+                                                                                            'do '
+                                                                                            'circuito '
+                                                                                            'bom: '
+                                                                                            'depois '
+                                                                                            'de '
+                                                                                            '**1...Rd2!** '
+                                                                                            'não '
+                                                                                            'há '
+                                                                                            'mais '
+                                                                                            'como '
+                                                                                            'impedir '
+                                                                                            'a '
+                                                                                            'coroação. '
+                                                                                            '**2.Nc5!?** '
+                                                                                            'é a '
+                                                                                            'última '
+                                                                                            'armadilha '
+                                                                                            '— um '
+                                                                                            'erro '
+                                                                                            'de '
+                                                                                            'cálculo '
+                                                                                            'típico '
+                                                                                            'deste '
+                                                                                            'final, '
+                                                                                            'porque '
+                                                                                            'parece '
+                                                                                            'reconquistar '
+                                                                                            'o '
+                                                                                            'controle '
+                                                                                            '— mas '
+                                                                                            '**2...Rc3!** '
+                                                                                            'evita '
+                                                                                            'o '
+                                                                                            'truque, '
+                                                                                            'ameaça '
+                                                                                            'a '
+                                                                                            'coroação '
+                                                                                            'e '
+                                                                                            'controla '
+                                                                                            'as '
+                                                                                            'duas '
+                                                                                            'casas '
+                                                                                            "'boas' "
+                                                                                            'do '
+                                                                                            'cavalo '
+                                                                                            '(b3 e '
+                                                                                            'd3). '
+                                                                                            'Todas '
+                                                                                            'as '
+                                                                                            'réplicas '
+                                                                                            'já '
+                                                                                            'perdem; '
+                                                                                            'o '
+                                                                                            'resto '
+                                                                                            'é só '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'se '
+                                                                                            'debatendo '
+                                                                                            'antes '
+                                                                                            'do '
+                                                                                            'peão '
+                                                                                            'coroar.'},
+                                                                                {   'titulo': 'A '
+                                                                                              'outra '
+                                                                                              'forma '
+                                                                                              'de '
+                                                                                              'alcançar '
+                                                                                              'a2',
+                                                                                    'linha': [   'Ne2+',
+                                                                                                 'Kd1',
+                                                                                                 'Nd4',
+                                                                                                 'Kc1',
+                                                                                                 'Nb3+'],
+                                                                                    'nota': 'Um '
+                                                                                            'segundo '
+                                                                                            'caminho '
+                                                                                            'até a '
+                                                                                            'casa '
+                                                                                            'de '
+                                                                                            'controle, '
+                                                                                            'usando '
+                                                                                            'o '
+                                                                                            'outro '
+                                                                                            'circuito '
+                                                                                            '(e2-d4-b3-c1): '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'também '
+                                                                                            'chega '
+                                                                                            'a '
+                                                                                            'tempo '
+                                                                                            'e dá '
+                                                                                            'xeque '
+                                                                                            'ao '
+                                                                                            'ocupar '
+                                                                                            'b3.'}]}],
+                                        'regras': [   'Contra qualquer peão das quatro colunas '
+                                                      'centrais (c, d, e, f) na sétima fila: se o '
+                                                      'cavalo consegue se colocar à frente do '
+                                                      'peão, é empate.',
+                                                      'Se não consegue se colocar à frente, mas '
+                                                      "controla a casa de coroação 'pelo lado' (a "
+                                                      'partir da segunda fila, na mesma fila da '
+                                                      'casa de coroação), também é empate.',
+                                                      'Se não consegue nenhuma das duas coisas, o '
+                                                      'peão coroa.']},
+                                    {   'n': 11,
+                                        'titulo': 'O peão de cavalo',
+                                        'conceito': 'Por que o peão de cavalo (coluna b ou g) '
+                                                    'quebra a regra do final anterior?',
+                                        'texto': [   'Até agora falamos sempre de peões das quatro '
+                                                     'colunas centrais. Com os dois peões mais '
+                                                     'próximos da borda — o peão de cavalo e o '
+                                                     'peão de torre — aparecem exceções, porque a '
+                                                     'proximidade do canto tira do cavalo a '
+                                                     'liberdade de manobrar para os dois lados.',
+                                                     'O peão de cavalo na sétima é o primeiro '
+                                                     'caso, e o mais drástico: se o cavalo não '
+                                                     'consegue se colocar à frente do peão a '
+                                                     'tempo, **não existe mais a alternativa de '
+                                                     'controlar a casa de coroação pelo lado.** Do '
+                                                     'lado do canto, o cavalo simplesmente não tem '
+                                                     'essa casa boa.'],
+                                        'posicoes': [   {   'rotulo': 'O cavalo não chega a tempo',
+                                                            'fen': '8/8/8/8/4N3/1p6/7K/1k6 b - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Pretas ganham',
+                                                            'linha': [   'b2',
+                                                                         'Nd2+',
+                                                                         'Kc1',
+                                                                         'Nb3+',
+                                                                         'Kd1'],
+                                                            'notas': {   0: '**1...b2!** — um '
+                                                                            'lance excelente e '
+                                                                            'fácil de encontrar, '
+                                                                            'sabendo a regra: com '
+                                                                            'o peão de cavalo na '
+                                                                            'sétima, se o cavalo '
+                                                                            'não consegue se '
+                                                                            'colocar à frente '
+                                                                            'dele, não há como '
+                                                                            'detê-lo.',
+                                                                         1: 'O único xeque '
+                                                                            'disponível, mas o '
+                                                                            'cavalo não tem mais '
+                                                                            'recursos depois dele.',
+                                                                         2: 'Aqui está a diferença '
+                                                                            'em relação ao peão '
+                                                                            'central: do outro '
+                                                                            'lado do peão não '
+                                                                            "existe 'casa boa' "
+                                                                            'para o cavalo '
+                                                                            'continuar controlando '
+                                                                            'a coroação.',
+                                                                         4: 'E o peão promove no '
+                                                                            'lance seguinte — o '
+                                                                            'cavalo esgotou os '
+                                                                            'xeques.'},
+                                                            'alternativas': [   {   'titulo': 'O '
+                                                                                              'erro '
+                                                                                              'que '
+                                                                                              'salva '
+                                                                                              'as '
+                                                                                              'brancas: '
+                                                                                              '1...Rc2?',
+                                                                                    'linha': [   'Kc2',
+                                                                                                 'Nd6',
+                                                                                                 'Kc3',
+                                                                                                 'Ne4+',
+                                                                                                 'Kd4',
+                                                                                                 'Nd2',
+                                                                                                 'b2',
+                                                                                                 'Nb1',
+                                                                                                 'Kd3',
+                                                                                                 'Kg2',
+                                                                                                 'Kc2',
+                                                                                                 'Na3+',
+                                                                                                 'Kb3',
+                                                                                                 'Nb1'],
+                                                                                    'nota': 'Tentar '
+                                                                                            'impedir '
+                                                                                            'a '
+                                                                                            'aproximação '
+                                                                                            'do '
+                                                                                            'cavalo '
+                                                                                            'com o '
+                                                                                            'rei, '
+                                                                                            'em '
+                                                                                            'vez '
+                                                                                            'de '
+                                                                                            'empurrar '
+                                                                                            'o '
+                                                                                            'peão '
+                                                                                            'imediatamente, '
+                                                                                            'é um '
+                                                                                            'erro '
+                                                                                            'instrutivo. '
+                                                                                            '**2.Nd6!** '
+                                                                                            'é o '
+                                                                                            'detalhe '
+                                                                                            'tático '
+                                                                                            'que '
+                                                                                            'salva '
+                                                                                            'as '
+                                                                                            'brancas: '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'se '
+                                                                                            'afasta '
+                                                                                            'temporariamente '
+                                                                                            'do '
+                                                                                            'peão '
+                                                                                            '— um '
+                                                                                            'recurso '
+                                                                                            'muito '
+                                                                                            'comum '
+                                                                                            'nesta '
+                                                                                            'luta '
+                                                                                            '— '
+                                                                                            'porque '
+                                                                                            'mesmo '
+                                                                                            'longe '
+                                                                                            'ele '
+                                                                                            'volta '
+                                                                                            'a '
+                                                                                            'tempo '
+                                                                                            'de '
+                                                                                            'bloquear. '
+                                                                                            'Depois '
+                                                                                            'de '
+                                                                                            '**4...b2 '
+                                                                                            '5.Nb1** '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'já '
+                                                                                            'está '
+                                                                                            'à '
+                                                                                            'frente '
+                                                                                            'do '
+                                                                                            'peão, '
+                                                                                            'e '
+                                                                                            'embora '
+                                                                                            'tenha '
+                                                                                            'menos '
+                                                                                            'mobilidade '
+                                                                                            'que '
+                                                                                            'no '
+                                                                                            'caso '
+                                                                                            'central '
+                                                                                            '(o '
+                                                                                            'canto '
+                                                                                            'limita '
+                                                                                            'seus '
+                                                                                            'saltos), '
+                                                                                            'ainda '
+                                                                                            'é '
+                                                                                            'suficiente: '
+                                                                                            'quando '
+                                                                                            'o rei '
+                                                                                            'preto '
+                                                                                            'finalmente '
+                                                                                            'ataca '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'em '
+                                                                                            'b1, '
+                                                                                            '**7.Na3+!** '
+                                                                                            'dá um '
+                                                                                            'xeque '
+                                                                                            'de '
+                                                                                            'desvio '
+                                                                                            'que '
+                                                                                            'ganha '
+                                                                                            'o '
+                                                                                            'tempo '
+                                                                                            'necessário '
+                                                                                            'para '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'voltar '
+                                                                                            'à '
+                                                                                            'casa '
+                                                                                            'de '
+                                                                                            'bloqueio. '
+                                                                                            'O '
+                                                                                            'cerco '
+                                                                                            'nunca '
+                                                                                            'se '
+                                                                                            'fecha.'}]}],
+                                        'regras': [   'Com o peão de cavalo na sétima: se o cavalo '
+                                                      'se coloca à frente do peão, é empate.',
+                                                      'Se o cavalo não consegue se colocar à '
+                                                      'frente, o peão coroa — ao contrário do peão '
+                                                      'central, aqui não existe a opção de '
+                                                      'controlar a casa de coroação pelo lado.']},
+                                    {   'n': 12,
+                                        'titulo': 'O peão de torre na sexta',
+                                        'conceito': 'Com o peão mais perigoso de todos — o de '
+                                                    'torre — o que muda em relação ao peão '
+                                                    'central?',
+                                        'texto': [   'Como quase sempre no xadrez, o peão de torre '
+                                                     'tem regras próprias. Na luta do cavalo '
+                                                     'contra peão, ele é o mais perigoso dos oito: '
+                                                     'a proximidade da borda tira do cavalo boa '
+                                                     'parte da liberdade de manobra.',
+                                                     'Começamos pelo peão de torre na sexta fila — '
+                                                     'aqui, por sorte, as chances de empate ainda '
+                                                     'são parecidas com as do peão central na '
+                                                     'sétima.',
+                                                     'Se o cavalo consegue a casa à frente do '
+                                                     'peão, não há problema. Se só consegue '
+                                                     'controlar a casa de avanço, então o empate '
+                                                     'exige encontrar o **circuito certo**: no '
+                                                     'caso do peão h, as quatro casas '
+                                                     'g4-e3-f1-h2.'],
+                                        'posicoes': [   {   'rotulo': 'O circuito correto',
+                                                            'fen': '8/8/K7/4N3/8/7p/7k/8 w - - 0 1',
+                                                            'resultado': 'Empate',
+                                                            'linha': [   'Ng4+',
+                                                                         'Kg3',
+                                                                         'Ne3',
+                                                                         'Kf3',
+                                                                         'Nf1',
+                                                                         'Kf2',
+                                                                         'Nh2'],
+                                                            'notas': {   0: 'O cavalo entra direto '
+                                                                            'no circuito certo.',
+                                                                         6: 'O cavalo roda pelas '
+                                                                            'quatro casas do '
+                                                                            'circuito '
+                                                                            '(h2-f1-e3-g4) e o rei '
+                                                                            'preto nunca consegue '
+                                                                            'expulsá-lo de lá. '
+                                                                            'Empate.'},
+                                                            'alternativas': [   {   'titulo': 'Outro '
+                                                                                              'caminho '
+                                                                                              'até '
+                                                                                              'o '
+                                                                                              'circuito: '
+                                                                                              '1.Nc4',
+                                                                                    'linha': [   'Nc4',
+                                                                                                 'Kg2',
+                                                                                                 'Ne3+'],
+                                                                                    'nota': 'Também '
+                                                                                            'empata, '
+                                                                                            'graças '
+                                                                                            'a um '
+                                                                                            'detalhe '
+                                                                                            'tático '
+                                                                                            'curioso '
+                                                                                            'e um '
+                                                                                            'tanto '
+                                                                                            'paradoxal: '
+                                                                                            'partindo '
+                                                                                            'de '
+                                                                                            'longe '
+                                                                                            '(como '
+                                                                                            'aqui), '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'consegue '
+                                                                                            'atravessar '
+                                                                                            'o '
+                                                                                            'tabuleiro '
+                                                                                            'a '
+                                                                                            'tempo '
+                                                                                            'de '
+                                                                                            'encontrar '
+                                                                                            'o '
+                                                                                            'circuito '
+                                                                                            'certo, '
+                                                                                            'usando '
+                                                                                            'os '
+                                                                                            'xeques '
+                                                                                            'como '
+                                                                                            'atalho '
+                                                                                            '— '
+                                                                                            'algo '
+                                                                                            'que, '
+                                                                                            'veremos '
+                                                                                            'a '
+                                                                                            'seguir, '
+                                                                                            'nem '
+                                                                                            'sempre '
+                                                                                            'funciona '
+                                                                                            'partindo '
+                                                                                            'de '
+                                                                                            'perto.'},
+                                                                                {   'titulo': '1.Nc4 '
+                                                                                              'Rg1 '
+                                                                                              '— o '
+                                                                                              'detalhe '
+                                                                                              'que '
+                                                                                              'falta '
+                                                                                              'explorar',
+                                                                                    'linha': [   'Nc4',
+                                                                                                 'Kg1',
+                                                                                                 'Ne5',
+                                                                                                 'Kf1',
+                                                                                                 'Ng4'],
+                                                                                    'nota': 'O '
+                                                                                            'ponto '
+                                                                                            'fino '
+                                                                                            'da '
+                                                                                            'linha: '
+                                                                                            'com o '
+                                                                                            'rei '
+                                                                                            'em g1 '
+                                                                                            'o '
+                                                                                            'peão '
+                                                                                            'não '
+                                                                                            'consegue '
+                                                                                            'avançar, '
+                                                                                            'e o '
+                                                                                            'cavalo '
+                                                                                            'chega '
+                                                                                            'a g4 '
+                                                                                            'de '
+                                                                                            'qualquer '
+                                                                                            'forma '
+                                                                                            '— o '
+                                                                                            'circuito '
+                                                                                            'certo, '
+                                                                                            'outra '
+                                                                                            'vez.'},
+                                                                                {   'titulo': '1.Nc4 '
+                                                                                              'Rg3 '
+                                                                                              '— '
+                                                                                              'ainda '
+                                                                                              'mais '
+                                                                                              'direto',
+                                                                                    'linha': [   'Nc4',
+                                                                                                 'Kg3',
+                                                                                                 'Ne3'],
+                                                                                    'nota': 'O '
+                                                                                            'caminho '
+                                                                                            'mais '
+                                                                                            'curto '
+                                                                                            'de '
+                                                                                            'todos '
+                                                                                            'até a '
+                                                                                            'casa '
+                                                                                            'e3, '
+                                                                                            'dentro '
+                                                                                            'do '
+                                                                                            'circuito.'},
+                                                                                {   'titulo': 'O '
+                                                                                              'erro '
+                                                                                              'aparentemente '
+                                                                                              'natural: '
+                                                                                              '1.Nf3+?',
+                                                                                    'linha': [   'Nf3+',
+                                                                                                 'Kg2',
+                                                                                                 'Nh4+',
+                                                                                                 'Kf2'],
+                                                                                    'nota': 'Parece '
+                                                                                            'levar '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'para '
+                                                                                            'perto '
+                                                                                            'da '
+                                                                                            'ação, '
+                                                                                            'mas '
+                                                                                            'na '
+                                                                                            'verdade '
+                                                                                            'o '
+                                                                                            'joga '
+                                                                                            'num '
+                                                                                            '**circuito '
+                                                                                            'errado**, '
+                                                                                            'do '
+                                                                                            'qual '
+                                                                                            'acaba '
+                                                                                            'sendo '
+                                                                                            'expulso '
+                                                                                            'pelo '
+                                                                                            'próprio '
+                                                                                            'rei '
+                                                                                            'adversário '
+                                                                                            '— e o '
+                                                                                            'peão '
+                                                                                            'corona.'},
+                                                                                {   'titulo': '1.Nf3+? '
+                                                                                              'Rg2 '
+                                                                                              '2.Ne1+ '
+                                                                                              '— '
+                                                                                              'mesmo '
+                                                                                              'problema',
+                                                                                    'linha': [   'Nf3+',
+                                                                                                 'Kg2',
+                                                                                                 'Ne1+',
+                                                                                                 'Kg3'],
+                                                                                    'nota': 'Qualquer '
+                                                                                            'xeque '
+                                                                                            'a '
+                                                                                            'partir '
+                                                                                            'do '
+                                                                                            'circuito '
+                                                                                            'errado '
+                                                                                            'só '
+                                                                                            'adia '
+                                                                                            'o '
+                                                                                            'problema: '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'acaba '
+                                                                                            'preso '
+                                                                                            'e '
+                                                                                            'perdido.'}]}],
+                                        'regras': [   'O cavalo empata contra o peão de torre na '
+                                                      'sexta se consegue se colocar à frente dele.',
+                                                      'Se só controla a casa de avanço, precisa '
+                                                      'fazer isso a partir do circuito correto '
+                                                      '(g4-e3-f1, visando o canto h1) — e não a '
+                                                      'partir de f3, que é um circuito errado.']},
+                                    {   'n': 13,
+                                        'titulo': 'O peão de torre na sétima — a barreira',
+                                        'conceito': 'Com o peão já na sétima, o cavalo sozinho não '
+                                                    'segura mais nada — mas ainda pode ganhar '
+                                                    'tempo?',
+                                        'texto': [   'Falta analisar o caso mais extremo: o peão '
+                                                     'de torre na sétima fila. Aqui o cavalo '
+                                                     'sempre pode ser expulsado ou capturado pelo '
+                                                     'rei adversário — sozinho, ele não seca mais '
+                                                     'o peão. As esperanças de empate dependem da '
+                                                     'ajuda do próprio rei, mas são bem maiores do '
+                                                     'que parece à primeira vista.',
+                                                     'O recurso chave é a **barreira**: mesmo sem '
+                                                     'conseguir deter o peão, o cavalo consegue '
+                                                     'ocupar uma casa a partir da qual controla '
+                                                     'uma diagonal inteira de casas, impedindo o '
+                                                     'rei adversário de atravessá-la em linha '
+                                                     'reta. O rei preto precisa contornar essa '
+                                                     'barreira por um caminho bem mais longo — e é '
+                                                     'exatamente esse tempo extra que permite ao '
+                                                     'rei branco chegar a tempo de ajudar.'],
+                                        'posicoes': [   {   'rotulo': 'A primeira barreira',
+                                                            'fen': 'K7/8/8/5N2/8/3k3p/8/8 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Empate',
+                                                            'linha': ['Ng3', 'h2', 'Kb7'],
+                                                            'notas': {   0: 'O rei branco está '
+                                                                            'muito longe, e à '
+                                                                            'primeira vista parece '
+                                                                            'desesperador para o '
+                                                                            'lado do cavalo — mas '
+                                                                            'é empate.',
+                                                                         2: 'O cavalo já ergueu '
+                                                                            'uma barreira: as '
+                                                                            'casas d2-e2-e3-e4, em '
+                                                                            'forma de L, impedem o '
+                                                                            'rei preto de '
+                                                                            'atravessar direto. '
+                                                                            'Para contorná-la ele '
+                                                                            'precisa de uma rota '
+                                                                            'bem mais longa — '
+                                                                            'd4-e5-f4 ou '
+                                                                            'c2-d1-e1-f2 — e '
+                                                                            'qualquer uma das duas '
+                                                                            'dá tempo ao rei '
+                                                                            'branco de se '
+                                                                            'aproximar.'},
+                                                            'alternativas': [   {   'titulo': '1...Rc2 '
+                                                                                              '— '
+                                                                                              'contornando '
+                                                                                              'a '
+                                                                                              'barreira '
+                                                                                              'por '
+                                                                                              'baixo',
+                                                                                    'linha': [   'Ng3',
+                                                                                                 'h2',
+                                                                                                 'Kb7',
+                                                                                                 'Kc2',
+                                                                                                 'Kc6',
+                                                                                                 'Kd1',
+                                                                                                 'Kd5',
+                                                                                                 'Ke1',
+                                                                                                 'Ke4',
+                                                                                                 'Kf2',
+                                                                                                 'Kf4'],
+                                                                                    'nota': 'O '
+                                                                                            'caminho '
+                                                                                            'por '
+                                                                                            'baixo '
+                                                                                            'também '
+                                                                                            'é '
+                                                                                            'muito '
+                                                                                            'longo, '
+                                                                                            'e dá '
+                                                                                            'exatamente '
+                                                                                            'o '
+                                                                                            'mesmo '
+                                                                                            'tempo '
+                                                                                            'ao '
+                                                                                            'rei '
+                                                                                            'branco.'},
+                                                                                {   'titulo': '1...Re3 '
+                                                                                              '— '
+                                                                                              'tentando '
+                                                                                              'evitar '
+                                                                                              'a '
+                                                                                              'barreira '
+                                                                                              'logo '
+                                                                                              'de '
+                                                                                              'início',
+                                                                                    'linha': [   'Ng3',
+                                                                                                 'Ke3',
+                                                                                                 'Nf1+'],
+                                                                                    'nota': 'Em '
+                                                                                            'vez '
+                                                                                            'de '
+                                                                                            'deixar '
+                                                                                            'o '
+                                                                                            'peão '
+                                                                                            'avançar, '
+                                                                                            'as '
+                                                                                            'pretas '
+                                                                                            'tentam '
+                                                                                            'atacar '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'direto '
+                                                                                            '— mas '
+                                                                                            'ele '
+                                                                                            'chega '
+                                                                                            'a h2 '
+                                                                                            'de '
+                                                                                            'qualquer '
+                                                                                            'forma, '
+                                                                                            'com '
+                                                                                            'xeque.'},
+                                                                                {   'titulo': '1...Rd4 '
+                                                                                              '— '
+                                                                                              'contornando '
+                                                                                              'a '
+                                                                                              'barreira '
+                                                                                              'por '
+                                                                                              'cima',
+                                                                                    'linha': [   'Ng3',
+                                                                                                 'h2',
+                                                                                                 'Kb7',
+                                                                                                 'Kd4',
+                                                                                                 'Kc6',
+                                                                                                 'Ke5',
+                                                                                                 'Kc5',
+                                                                                                 'Kf4',
+                                                                                                 'Nh1',
+                                                                                                 'Kf3',
+                                                                                                 'Kd4',
+                                                                                                 'Kg2',
+                                                                                                 'Ke3',
+                                                                                                 'Kxh1',
+                                                                                                 'Kf2'],
+                                                                                    'nota': 'O rei '
+                                                                                            'branco '
+                                                                                            'chega '
+                                                                                            'bem a '
+                                                                                            'tempo '
+                                                                                            'de '
+                                                                                            'ocupar '
+                                                                                            'f2 '
+                                                                                            'assim '
+                                                                                            'que o '
+                                                                                            'cavalo '
+                                                                                            'precisa '
+                                                                                            'se '
+                                                                                            'refugiar '
+                                                                                            'em h1 '
+                                                                                            '— '
+                                                                                            'mesmo '
+                                                                                            'deixando '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'cair, '
+                                                                                            'o '
+                                                                                            'resultado '
+                                                                                            'é '
+                                                                                            'empate: '
+                                                                                            'o rei '
+                                                                                            'preto '
+                                                                                            'fica '
+                                                                                            'preso '
+                                                                                            'no '
+                                                                                            'canto, '
+                                                                                            'bloqueando '
+                                                                                            'o '
+                                                                                            'próprio '
+                                                                                            'peão.'},
+                                                                                {   'titulo': '1...Rd4 '
+                                                                                              '— '
+                                                                                              'variante '
+                                                                                              'com '
+                                                                                              'o '
+                                                                                              'cavalo '
+                                                                                              'recuando '
+                                                                                              'antes',
+                                                                                    'linha': [   'Ng3',
+                                                                                                 'h2',
+                                                                                                 'Kb7',
+                                                                                                 'Kd4',
+                                                                                                 'Kc6',
+                                                                                                 'Ke5',
+                                                                                                 'Nh1',
+                                                                                                 'Ke4',
+                                                                                                 'Kc5'],
+                                                                                    'nota': 'O '
+                                                                                            'cavalo '
+                                                                                            'também '
+                                                                                            'pode '
+                                                                                            'recuar '
+                                                                                            'a h1 '
+                                                                                            'um '
+                                                                                            'pouco '
+                                                                                            'antes, '
+                                                                                            'sem '
+                                                                                            'alterar '
+                                                                                            'o '
+                                                                                            'resultado.'}]},
+                                                        {   'rotulo': 'A outra barreira (final de '
+                                                                      'um estudo de Grigoriev)',
+                                                            'fen': '8/2K5/8/8/4N3/2k5/7p/8 b - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Empate',
+                                                            'linha': [   'Kc2',
+                                                                         'Ng3',
+                                                                         'Kd1',
+                                                                         'Kd6',
+                                                                         'Ke1',
+                                                                         'Ke5',
+                                                                         'Kf2',
+                                                                         'Kf4'],
+                                                            'notas': {   0: 'Começando em e4, o '
+                                                                            'cavalo consegue deter '
+                                                                            'o peão e construir '
+                                                                            'barreiras tanto a '
+                                                                            'partir de f2 quanto '
+                                                                            'de g3 — a escolha '
+                                                                            'depende de para onde '
+                                                                            'o rei preto for.',
+                                                                         1: 'O cavalo escolhe o '
+                                                                            'circuito certo para '
+                                                                            'esta posição do rei '
+                                                                            'preto.'},
+                                                            'alternativas': [   {   'titulo': '2.Nf2? '
+                                                                                              '— o '
+                                                                                              'circuito '
+                                                                                              'errado '
+                                                                                              'perde',
+                                                                                    'linha': [   'Kc2',
+                                                                                                 'Nf2',
+                                                                                                 'Kd2'],
+                                                                                    'nota': 'Com o '
+                                                                                            'rei '
+                                                                                            'já '
+                                                                                            'perto '
+                                                                                            'do '
+                                                                                            'lado '
+                                                                                            'd, '
+                                                                                            'este '
+                                                                                            'circuito '
+                                                                                            'não '
+                                                                                            'segura '
+                                                                                            'mais '
+                                                                                            'nada.'},
+                                                                                {   'titulo': '1...Rd3 '
+                                                                                              '— '
+                                                                                              'transpõe '
+                                                                                              'para '
+                                                                                              'a '
+                                                                                              'barreira '
+                                                                                              'já '
+                                                                                              'conhecida',
+                                                                                    'linha': [   'Kd3',
+                                                                                                 'Ng3',
+                                                                                                 'Kc2',
+                                                                                                 'Kd6',
+                                                                                                 'Kd1',
+                                                                                                 'Ke5',
+                                                                                                 'Ke1',
+                                                                                                 'Kf4'],
+                                                                                    'nota': 'Um '
+                                                                                            'pouco '
+                                                                                            'imprecisa, '
+                                                                                            'mas '
+                                                                                            'transpõe '
+                                                                                            'para '
+                                                                                            'a '
+                                                                                            'mesma '
+                                                                                            'barreira '
+                                                                                            'em L '
+                                                                                            'da '
+                                                                                            'posição '
+                                                                                            'anterior.'},
+                                                                                {   'titulo': '1...Rd4 '
+                                                                                              '— '
+                                                                                              'uma '
+                                                                                              'barreira '
+                                                                                              'diferente',
+                                                                                    'linha': [   'Kd4',
+                                                                                                 'Nf2'],
+                                                                                    'nota': 'Agora '
+                                                                                            'aparece '
+                                                                                            'uma '
+                                                                                            'segunda '
+                                                                                            'barreira, '
+                                                                                            'com '
+                                                                                            'outra '
+                                                                                            'forma '
+                                                                                            'de L '
+                                                                                            '(casas '
+                                                                                            'e5-e4-e3-d3) '
+                                                                                            '— a '
+                                                                                            'mais '
+                                                                                            'incômoda '
+                                                                                            'possível '
+                                                                                            'para '
+                                                                                            'esta '
+                                                                                            'posição '
+                                                                                            'do '
+                                                                                            'rei '
+                                                                                            'preto.'},
+                                                                                {   'titulo': '1...Rd4 '
+                                                                                              '2.Ng3?? '
+                                                                                              '— o '
+                                                                                              'circuito '
+                                                                                              'errado '
+                                                                                              'desta '
+                                                                                              'vez',
+                                                                                    'linha': [   'Kd4',
+                                                                                                 'Ng3',
+                                                                                                 'Ke5',
+                                                                                                 'Kc6',
+                                                                                                 'Kf4',
+                                                                                                 'Nh1',
+                                                                                                 'Kf3'],
+                                                                                    'nota': 'Escolher '
+                                                                                            'o '
+                                                                                            'circuito '
+                                                                                            'errado '
+                                                                                            'aqui '
+                                                                                            'perde: '
+                                                                                            'o '
+                                                                                            'cavalo '
+                                                                                            'acaba '
+                                                                                            'expulso '
+                                                                                            'e o '
+                                                                                            'rei '
+                                                                                            'branco '
+                                                                                            'não '
+                                                                                            'chega '
+                                                                                            'a '
+                                                                                            'tempo '
+                                                                                            'de '
+                                                                                            'ocupar '
+                                                                                            'f2.'},
+                                                                                {   'titulo': '1...Rd4 '
+                                                                                              '2.Nf2 '
+                                                                                              'Rc3 '
+                                                                                              '— '
+                                                                                              'contornando '
+                                                                                              'a '
+                                                                                              'nova '
+                                                                                              'barreira',
+                                                                                    'linha': [   'Kd4',
+                                                                                                 'Nf2',
+                                                                                                 'Kc3',
+                                                                                                 'Kd6',
+                                                                                                 'Kd2',
+                                                                                                 'Ke5',
+                                                                                                 'Ke2',
+                                                                                                 'Nh1',
+                                                                                                 'Kf3',
+                                                                                                 'Kd4',
+                                                                                                 'Kg2',
+                                                                                                 'Ke3',
+                                                                                                 'Kxh1',
+                                                                                                 'Kf2'],
+                                                                                    'nota': 'De '
+                                                                                            'novo '
+                                                                                            'o rei '
+                                                                                            'branco '
+                                                                                            'chega '
+                                                                                            'bem a '
+                                                                                            'tempo, '
+                                                                                            'e a '
+                                                                                            'posição '
+                                                                                            'final '
+                                                                                            'é a '
+                                                                                            'mesma '
+                                                                                            'fortaleza: '
+                                                                                            'rei '
+                                                                                            'preto '
+                                                                                            'preso '
+                                                                                            'no '
+                                                                                            'canto, '
+                                                                                            'bloqueando '
+                                                                                            'o '
+                                                                                            'próprio '
+                                                                                            'peão.'}]}],
+                                        'regras': [   'O cavalo sozinho não detém o peão de torre '
+                                                      'na sétima — mas sua capacidade de erguer '
+                                                      'barreiras (sempre em forma de L) obriga o '
+                                                      'rei adversário a um desvio longo, dando '
+                                                      'tempo ao próprio rei de chegar e salvar o '
+                                                      'empate.']},
+                                    {   'n': 14,
+                                        'titulo': 'O rei e o cavalo dão mate',
+                                        'conceito': 'Existe mesmo um jeito de o lado mais fraco '
+                                                    '(rei e cavalo contra rei e peão) dar '
+                                                    'xeque-mate?',
+                                        'texto': [   'Esta é uma posição rara, mas vale conhecer — '
+                                                     'até para nunca cair nela por excesso de '
+                                                     'ambição. Se o rei do lado do peão fica preso '
+                                                     'na própria casa de canto, à frente do seu '
+                                                     'peão de torre já na sexta ou sétima fila, o '
+                                                     'rei e o cavalo adversários podem dar mate.',
+                                                     'A manobra é sempre curta, mas exige '
+                                                     'precisão: o perigo constante é afogar o rei '
+                                                     'antes de conseguir o xeque-mate.'],
+                                        'posicoes': [   {   'rotulo': 'O mate do canto',
+                                                            'fen': '8/8/8/8/8/p7/2K1N3/k7 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Brancas ganham',
+                                                            'linha': ['Nc1', 'a2', 'Nb3#'],
+                                                            'notas': {   0: 'O cavalo se prepara '
+                                                                            'para o salto '
+                                                                            'decisivo.',
+                                                                         1: 'Único lance legal — '
+                                                                            'qualquer outro '
+                                                                            'deixaria as pretas '
+                                                                            'afogadas, e o '
+                                                                            'resultado seria '
+                                                                            'empate.',
+                                                                         2: 'Xeque-mate.'}}],
+                                        'regras': [   'Se o rei do lado mais fraco fica preso no '
+                                                      'canto, à frente do próprio peão de torre já '
+                                                      'avançado, o rei e o cavalo adversários '
+                                                      'podem dar mate — mas a manobra precisa ser '
+                                                      'exata, para não afogar o rei.']},
+                                    {   'n': 15,
+                                        'titulo': 'A casa boba do cavalo',
+                                        'conceito': 'Existe uma casa em que o próprio cavalo '
+                                                    'atrapalha a defesa do seu rei?',
+                                        'texto': [   'A segunda casa da grande diagonal — b7 (ou, '
+                                                     'por simetria, g7, b2 e g2) — pode ser '
+                                                     'chamada de **casa boba do cavalo**. Já vimos '
+                                                     'no Final 9 que esta mesma casa é fatal na '
+                                                     'luta contra a torre; aqui, contra um simples '
+                                                     'peão passado, o problema é outro: mesmo sem '
+                                                     'estar na borda, a mobilidade do cavalo ali é '
+                                                     'tão pobre que ele não consegue se voltar '
+                                                     'contra o peão que o ataca.',
+                                                     'No caso limite a seguir, o cavalo está na '
+                                                     'pior casa imaginável: não só não detém o '
+                                                     'peão, como **impede o próprio rei de '
+                                                     'fazê-lo**.'],
+                                        'posicoes': [   {   'rotulo': 'O cavalo atrapalha o '
+                                                                      'próprio rei',
+                                                            'fen': '3k4/1n6/8/P7/8/8/7K/8 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Brancas ganham',
+                                                            'linha': ['a6', 'Kc8', 'a7'],
+                                                            'notas': {   0: 'O peão avança '
+                                                                            'livremente — o cavalo '
+                                                                            'em b7 tapa exatamente '
+                                                                            'a casa por onde o '
+                                                                            'próprio rei '
+                                                                            'precisaria passar '
+                                                                            'para ajudar.',
+                                                                         2: 'O peão chega a sétima '
+                                                                            'sem que nada o '
+                                                                            'detenha, e promove no '
+                                                                            'lance seguinte.'}}],
+                                        'regras': [   'A segunda casa da diagonal do canto '
+                                                      "(b7/g7/b2/g2) é a 'casa boba' do cavalo: "
+                                                      'mesmo sem estar na borda, a mobilidade ali '
+                                                      'é tão baixa que o cavalo pode acabar '
+                                                      'atrapalhando a própria defesa.']}]},
+                  {   'id': 'dama-peao',
+                      'titulo': 'Dama contra peão',
+                      'resumo': 'O final mais comum de todos, fruto de corridas de peões: o método '
+                                'geral para a dama ganhar, as exceções por afogamento dos peões de '
+                                'torre e bispo, e as armadilhas mais frequentes na prática.',
+                      'finais': [   {   'n': 16,
+                                        'titulo': 'Dama contra peão na sétima — o método vencedor',
+                                        'conceito': 'Como a dama sozinha consegue parar e depois '
+                                                    'capturar um peão já na sétima fila?',
+                                        'texto': [   'A tarefa das brancas aqui é relativamente '
+                                                     'simples, mas vale a pena ver o método '
+                                                     'completo com atenção, porque ele reaparece, '
+                                                     'com pequenas variações, em quase todos os '
+                                                     'finais deste capítulo.',
+                                                     'A ideia é dar xeques que, aos poucos, '
+                                                     'empurram o rei adversário para a frente do '
+                                                     'próprio peão e, ao mesmo tempo, aproximam o '
+                                                     'rei branco. Uma vez que o rei chega perto o '
+                                                     'suficiente, surge uma posição de mate — '
+                                                     'normalmente facilitada pela borda do '
+                                                     'tabuleiro.'],
+                                        'posicoes': [   {   'rotulo': 'O método completo',
+                                                            'fen': '6K1/8/3Q4/8/8/8/5kp1/8 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Brancas ganham',
+                                                            'linha': [   'Qf4+',
+                                                                         'Ke2',
+                                                                         'Qg3',
+                                                                         'Kf1',
+                                                                         'Qf3+',
+                                                                         'Kg1',
+                                                                         'Kg7',
+                                                                         'Kh2',
+                                                                         'Qf2',
+                                                                         'Kh1',
+                                                                         'Qh4+',
+                                                                         'Kg1',
+                                                                         'Kg6',
+                                                                         'Kf1',
+                                                                         'Qf4+',
+                                                                         'Ke2',
+                                                                         'Qg3',
+                                                                         'Kf1',
+                                                                         'Qf3+',
+                                                                         'Kg1',
+                                                                         'Kg5',
+                                                                         'Kh2',
+                                                                         'Kh4',
+                                                                         'g1=Q',
+                                                                         'Qh3#'],
+                                                            'notas': {   0: 'A dama se aproxima '
+                                                                            'dando xeque.',
+                                                                         2: 'Uma manobra '
+                                                                            'necessária: repetir '
+                                                                            'os xeques não adianta '
+                                                                            'nada se o rei preto '
+                                                                            'apenas oscilar entre '
+                                                                            'e2 e f2.',
+                                                                         4: 'O xeque-chave: agora '
+                                                                            'o rei é obrigado a se '
+                                                                            'colocar na frente do '
+                                                                            'próprio peão.',
+                                                                         6: 'Com o rei preto '
+                                                                            'fixado, o rei branco '
+                                                                            'pode se aproximar.',
+                                                                         8: 'O processo se repete, '
+                                                                            'para continuar '
+                                                                            'aproximando o rei.',
+                                                                         14: 'E tudo se repete '
+                                                                             'mais uma vez — o '
+                                                                             'padrão de xeques é '
+                                                                             'sempre o mesmo.',
+                                                                         21: 'Com o rei branco já '
+                                                                             'perto, é fácil '
+                                                                             'enxergar uma posição '
+                                                                             'de mate — aqui '
+                                                                             'facilitada pela '
+                                                                             'borda do tabuleiro.',
+                                                                         23: 'O peão finalmente '
+                                                                             'promove — mas é '
+                                                                             'tarde demais.',
+                                                                         24: 'Xeque-mate.'},
+                                                            'regra_destaque': 'Em uma posição '
+                                                                              'normal, a dama '
+                                                                              'ganha contra um '
+                                                                              'peão na sétima fila '
+                                                                              '(e com mais razão '
+                                                                              'ainda na sexta ou '
+                                                                              'mais atrás) — mas '
+                                                                              'há exceções, por '
+                                                                              'duas causas: '
+                                                                              'recursos de '
+                                                                              'afogamento, ou o '
+                                                                              'próprio rei forte '
+                                                                              'atrapalhando os '
+                                                                              'xeques da dama. Os '
+                                                                              'próximos finais '
+                                                                              'mostram essas '
+                                                                              'exceções.'},
+                                                        {   'rotulo': 'Quando o próprio rei '
+                                                                      'atrapalha',
+                                                            'fen': '2Q5/3K4/8/8/8/8/3kp3/8 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Empate',
+                                                            'linha': [],
+                                                            'notas': {   0: 'A primeira exceção ao '
+                                                                            'método do final '
+                                                                            'anterior: mesmo com o '
+                                                                            'lance, as brancas não '
+                                                                            'conseguem ganhar '
+                                                                            'aqui, porque **não '
+                                                                            'têm nenhum xeque '
+                                                                            'disponível** — o '
+                                                                            'próprio rei branco, '
+                                                                            'tentando ajudar, '
+                                                                            'acabou tapando as '
+                                                                            'linhas de ataque da '
+                                                                            'dama. É uma situação '
+                                                                            'típica de como '
+                                                                            'terminam corridas de '
+                                                                            'peões.'}}],
+                                        'regras': [   'Em uma posição normal, a dama ganha contra '
+                                                      'um peão nas colunas b, d, e ou g na sétima '
+                                                      'fila (e com mais razão ainda na sexta ou '
+                                                      'mais atrás), se consegue dar xeques.',
+                                                      'Há duas exceções: o próprio rei '
+                                                      'atrapalhando os xeques da dama, ou — com os '
+                                                      'peões de torre e de bispo — o recurso do '
+                                                      'afogamento, vistos nos próximos finais.']},
+                                    {   'n': 17,
+                                        'titulo': 'Dama contra peão de torre na sétima',
+                                        'conceito': 'Por que o peão de torre é mais difícil de '
+                                                    'vencer para a dama do que um peão central?',
+                                        'texto': [   'A segunda exceção ao método geral envolve os '
+                                                     'peões de torre e de bispo: o chamado '
+                                                     '**recurso do afogamento**. Vamos ver '
+                                                     'primeiro o caso do peão de torre.',
+                                                     'Com o peão de torre já apoiado pelo próprio '
+                                                     'rei na sétima fila, o método de xeques do '
+                                                     'final anterior pode simplesmente não '
+                                                     'funcionar — às vezes a defesa correta é bem '
+                                                     'mais direta.'],
+                                        'posicoes': [   {   'rotulo': 'O recurso do afogamento',
+                                                            'fen': '8/6KP/8/4k3/3q4/8/8/8 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Empate',
+                                                            'linha': ['h8=Q'],
+                                                            'notas': {   0: 'A tentação é repetir '
+                                                                            'o método do final '
+                                                                            'anterior, afastando o '
+                                                                            'rei com xeques — mas '
+                                                                            'aqui isso **perde** '
+                                                                            '(veja a variante ao '
+                                                                            'lado): com o rei '
+                                                                            'preto já tão perto, '
+                                                                            'as brancas não teriam '
+                                                                            'tempo de se '
+                                                                            'reorganizar depois. O '
+                                                                            'recurso salvador é '
+                                                                            'outro, e muito mais '
+                                                                            'direto: **coroar '
+                                                                            'imediatamente**. A '
+                                                                            'nova dama nasce numa '
+                                                                            'casa protegida ao '
+                                                                            'mesmo tempo pelos '
+                                                                            'dois reis — o branco '
+                                                                            'tapa a diagonal para '
+                                                                            'ela dar xeque, e o '
+                                                                            'preto tapa a mesma '
+                                                                            'diagonal para a dama '
+                                                                            'inimiga conseguir '
+                                                                            'capturá-la. '
+                                                                            'Resultado: empate na '
+                                                                            'hora, duas damas no '
+                                                                            'tabuleiro sem que '
+                                                                            'nenhum lado consiga '
+                                                                            'progredir.'},
+                                                            'alternativas': [   {   'titulo': '1.Rg8?? '
+                                                                                              '— o '
+                                                                                              'método '
+                                                                                              'do '
+                                                                                              'final '
+                                                                                              'anterior '
+                                                                                              'não '
+                                                                                              'funciona '
+                                                                                              'aqui',
+                                                                                    'linha': [   'Kg8',
+                                                                                                 'Qd8+',
+                                                                                                 'Kg7',
+                                                                                                 'Qg5+'],
+                                                                                    'nota': 'Parece '
+                                                                                            'natural '
+                                                                                            'tentar '
+                                                                                            'o '
+                                                                                            'mesmo '
+                                                                                            'processo '
+                                                                                            'de '
+                                                                                            'xeques '
+                                                                                            'do '
+                                                                                            'Final '
+                                                                                            '16, '
+                                                                                            'mas '
+                                                                                            'com o '
+                                                                                            'rei '
+                                                                                            'preto '
+                                                                                            'já '
+                                                                                            'tão '
+                                                                                            'bem '
+                                                                                            'posicionado '
+                                                                                            'isso '
+                                                                                            'é um '
+                                                                                            'erro '
+                                                                                            'decisivo '
+                                                                                            '— as '
+                                                                                            'brancas '
+                                                                                            'simplesmente '
+                                                                                            'perdem, '
+                                                                                            'sem '
+                                                                                            'chance '
+                                                                                            'de '
+                                                                                            'empate. '
+                                                                                            'A '
+                                                                                            'diferença '
+                                                                                            'para '
+                                                                                            'a '
+                                                                                            'posição '
+                                                                                            'anterior '
+                                                                                            '(diagrama '
+                                                                                            '4.2) '
+                                                                                            'é que '
+                                                                                            'ali '
+                                                                                            'as '
+                                                                                            'brancas '
+                                                                                            'não '
+                                                                                            'tinham '
+                                                                                            'pressa; '
+                                                                                            'aqui, '
+                                                                                            'perder '
+                                                                                            'um '
+                                                                                            'único '
+                                                                                            'tempo '
+                                                                                            'já é '
+                                                                                            'fatal.'}],
+                                                            'regra_destaque': 'Contra um peão de '
+                                                                              'torre já apoiado '
+                                                                              'pelo próprio rei na '
+                                                                              'sétima, às vezes a '
+                                                                              'defesa correta não '
+                                                                              'é o método de '
+                                                                              'xeques de sempre, e '
+                                                                              'sim coroar na hora: '
+                                                                              'a nova dama pode '
+                                                                              'nascer protegida '
+                                                                              'pelos dois reis ao '
+                                                                              'mesmo tempo, '
+                                                                              'travando a posição '
+                                                                              'num empate '
+                                                                              'imediato.'},
+                                                        {   'rotulo': 'A que distância o rei forte '
+                                                                      'precisa estar',
+                                                            'fen': '8/5K1P/8/8/3q4/8/8/2k5 b - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Pretas ganham',
+                                                            'linha': [   'Qh8',
+                                                                         'Kg6',
+                                                                         'Kd2',
+                                                                         'Kf7',
+                                                                         'Qxh7+',
+                                                                         'Ke6'],
+                                                            'notas': {   0: 'Esta posição foi '
+                                                                            'escolhida porque, '
+                                                                            'apesar de o rei preto '
+                                                                            'estar bem longe, '
+                                                                            'ainda dá tempo de '
+                                                                            'ganhar — mas é '
+                                                                            'preciso jogar com '
+                                                                            'cuidado. O primeiro '
+                                                                            'lance já é o mais '
+                                                                            'importante: a dama '
+                                                                            'corta a saída do rei '
+                                                                            'branco antes de '
+                                                                            'qualquer outra coisa.',
+                                                                         4: 'Com o rei branco '
+                                                                            'afastado do canto, a '
+                                                                            'dama já pode '
+                                                                            'simplesmente capturar '
+                                                                            'o peão com xeque.',
+                                                                         5: 'Sem o peão, a posição '
+                                                                            'é uma vitória trivial '
+                                                                            'de dama e rei contra '
+                                                                            'rei solitário — só '
+                                                                            'falta trazer o rei '
+                                                                            'preto para ajudar a '
+                                                                            'dar mate.'},
+                                                            'regra_destaque': 'Contra um peão de '
+                                                                              'torre na sétima, o '
+                                                                              'rei do lado forte '
+                                                                              'não precisa estar '
+                                                                              'tão perto quanto se '
+                                                                              'poderia pensar — '
+                                                                              'mesmo bem longe, '
+                                                                              'muitas vezes ainda '
+                                                                              'dá tempo de vencer, '
+                                                                              'se a dama jogar com '
+                                                                              'precisão para '
+                                                                              'impedir o rei '
+                                                                              'adversário de se '
+                                                                              'estabilizar perto '
+                                                                              'do próprio peão.'}],
+                                        'regras': [   'Contra um peão de torre já apoiado pelo '
+                                                      'próprio rei na sétima, o método de xeques '
+                                                      'do final anterior pode falhar — às vezes a '
+                                                      'defesa correta é coroar na hora, '
+                                                      'aproveitando que a nova dama pode nascer '
+                                                      'protegida pelos dois reis ao mesmo tempo.',
+                                                      'Mesmo com o rei do lado forte bem longe, '
+                                                      'muitas vezes ainda dá tempo de vencer '
+                                                      'contra um peão de torre na sétima, se a '
+                                                      'dama jogar com precisão.']},
+                                    {   'n': 18,
+                                        'titulo': 'Dama contra peão de bispo na sétima — rei forte '
+                                                  'distante',
+                                        'conceito': 'Com o peão de bispo, o recurso do afogamento '
+                                                    'também existe — mas depende de qual lado o '
+                                                    'rei fraco fica?',
+                                        'texto': [   'O peão de bispo também tem seu recurso de '
+                                                     'afogamento, mas a situação é um pouco mais '
+                                                     'complexa: o rei do lado fraco pode ficar de '
+                                                     'um lado ou do outro do peão, e as chances de '
+                                                     'empate mudam bastante entre os dois casos.',
+                                                     'Neste primeiro exemplo vemos os principais '
+                                                     'recursos do lado defensor com o rei do lado '
+                                                     'forte ainda distante.'],
+                                        'posicoes': [   {   'rotulo': 'O rei forte ainda longe',
+                                                            'fen': '8/5P2/3K4/8/8/1k6/8/q7 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Empate',
+                                                            'linha': [   'Ke7',
+                                                                         'Qe5+',
+                                                                         'Kd7',
+                                                                         'Qf6',
+                                                                         'Ke8',
+                                                                         'Qe6+',
+                                                                         'Kf8',
+                                                                         'Kc4',
+                                                                         'Kg7',
+                                                                         'Qe7',
+                                                                         'Kg8',
+                                                                         'Qg5+',
+                                                                         'Kh8',
+                                                                         'Qf6+',
+                                                                         'Kg8',
+                                                                         'Qg6+',
+                                                                         'Kh8'],
+                                                            'notas': {   0: 'O rei apoia a futura '
+                                                                            'promoção. Vale notar '
+                                                                            'que promover na hora '
+                                                                            'não é automático: '
+                                                                            '**1.f8=Q??** perde na '
+                                                                            'hora.',
+                                                                         1: 'A dama inicia a '
+                                                                            'manobra de '
+                                                                            'aproximação que já '
+                                                                            'conhecemos dos finais '
+                                                                            'anteriores.',
+                                                                         8: 'Isso permite ao rei '
+                                                                            'preto se aproximar '
+                                                                            'mais uma casa.',
+                                                                         9: 'Mas agora o rei '
+                                                                            'branco passou para o '
+                                                                            '**outro lado** do '
+                                                                            'peão — que, como '
+                                                                            'veremos, é o lado bom '
+                                                                            '— e as pretas não '
+                                                                            'conseguem mais ganhar '
+                                                                            'tempos para aproximar '
+                                                                            'o próprio rei.',
+                                                                         16: 'Aqui está o detalhe '
+                                                                             'que salva as '
+                                                                             'brancas: ameaça-se '
+                                                                             'promover, e se '
+                                                                             '**9...Dxf7** é '
+                                                                             'afogado.'},
+                                                            'alternativas': [   {   'titulo': '1.f8=Q?? '
+                                                                                              '— '
+                                                                                              'promover '
+                                                                                              'na '
+                                                                                              'hora '
+                                                                                              'perde',
+                                                                                    'linha': [   'f8=Q',
+                                                                                                 'Qa3+'],
+                                                                                    'nota': 'Um '
+                                                                                            'espeto: '
+                                                                                            'o '
+                                                                                            'xeque '
+                                                                                            'obriga '
+                                                                                            'o rei '
+                                                                                            'a se '
+                                                                                            'mexer '
+                                                                                            'e '
+                                                                                            'descobre '
+                                                                                            'o '
+                                                                                            'ataque '
+                                                                                            'da '
+                                                                                            'dama '
+                                                                                            'preta, '
+                                                                                            'na '
+                                                                                            'diagonal '
+                                                                                            'a3-f8, '
+                                                                                            'contra '
+                                                                                            'a '
+                                                                                            'dama '
+                                                                                            'branca '
+                                                                                            'recém-nascida.'}],
+                                                            'regra_destaque': 'Com o peão de '
+                                                                              'bispo, o lado do '
+                                                                              'peão quer trazer o '
+                                                                              'próprio rei para o '
+                                                                              'lado **oposto** ao '
+                                                                              'do rei adversário — '
+                                                                              'esse é o lado bom, '
+                                                                              'onde o recurso do '
+                                                                              'afogamento '
+                                                                              'funciona.'},
+                                                        {   'rotulo': 'A zona vencedora — rei '
+                                                                      'fraco do lado bom',
+                                                            'fen': '8/5PK1/8/6k1/8/8/q7/8 b - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Pretas ganham',
+                                                            'linha': [   'Qa7',
+                                                                         'Kh8',
+                                                                         'Kg6',
+                                                                         'f8=Q',
+                                                                         'Qh7#'],
+                                                            'notas': {   0: 'Com o peão de bispo, '
+                                                                            'a pergunta é a mesma '
+                                                                            'de antes: a que '
+                                                                            'distância o rei forte '
+                                                                            'precisa estar? Mas '
+                                                                            'aqui a resposta '
+                                                                            'depende de qual lado '
+                                                                            'do peão o rei fraco '
+                                                                            'ocupa. Com o rei '
+                                                                            'fraco do **lado bom** '
+                                                                            '(o do canto), a zona '
+                                                                            'vencedora é menor do '
+                                                                            'que no caso do peão '
+                                                                            'de torre — porque não '
+                                                                            'é possível ganhar com '
+                                                                            'um lance calmo de rei '
+                                                                            'depois da promoção: a '
+                                                                            'dama promovida não '
+                                                                            'fica presa pela borda '
+                                                                            'do tabuleiro, então o '
+                                                                            'mate precisa ser '
+                                                                            'imediato.',
+                                                                         2: 'O rei preto chega à '
+                                                                            'casa crítica g6 — mas '
+                                                                            'só tem este único '
+                                                                            'tempo, porque assim '
+                                                                            'que o peão promover a '
+                                                                            'dama branca ataca '
+                                                                            'livremente, sem o '
+                                                                            'amparo do canto.',
+                                                                         3: 'A outra casa crítica '
+                                                                            'seria e7: se o rei '
+                                                                            'forte pudesse, em um '
+                                                                            'lance, controlar a '
+                                                                            'casa de promoção a '
+                                                                            'partir dali, o '
+                                                                            'resultado seria o '
+                                                                            'mesmo.',
+                                                                         4: 'Mate.'},
+                                                            'alternativas': [   {   'titulo': '2.Rg8 '
+                                                                                              '— a '
+                                                                                              'mesma '
+                                                                                              'ideia',
+                                                                                    'linha': [   'Qa7',
+                                                                                                 'Kg8'],
+                                                                                    'nota': 'Dá '
+                                                                                            'exatamente '
+                                                                                            'no '
+                                                                                            'mesmo.'}],
+                                                            'regra_destaque': 'Contra peão de '
+                                                                              'bispo na sétima, '
+                                                                              'com o rei fraco do '
+                                                                              'lado bom (o do '
+                                                                              'canto), o rei forte '
+                                                                              'precisa estar a 1 '
+                                                                              'passo de uma das '
+                                                                              'duas casas '
+                                                                              'críticas, g6 ou '
+                                                                              'e7.'},
+                                                        {   'rotulo': 'A zona vencedora — rei '
+                                                                      'fraco do lado mau',
+                                                            'fen': '8/4KP2/8/1k6/8/8/q7/8 b - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Pretas ganham',
+                                                            'linha': [   'Qa7+',
+                                                                         'Ke8',
+                                                                         'Qb8+',
+                                                                         'Ke7',
+                                                                         'Qe5+',
+                                                                         'Kd7',
+                                                                         'Qf6',
+                                                                         'Ke8',
+                                                                         'Qe6+',
+                                                                         'Kf8'],
+                                                            'notas': {   0: 'Com o peão de bispo e '
+                                                                            'o rei fraco do **lado '
+                                                                            'mau**, a zona '
+                                                                            'vencedora é bem maior '
+                                                                            '— maior até do que no '
+                                                                            'caso do peão de '
+                                                                            'torre. Existem duas '
+                                                                            'imagens de mate: uma '
+                                                                            'com o rei forte '
+                                                                            'defendendo a dama em '
+                                                                            'd2, outra obrigando o '
+                                                                            'rei adversário a '
+                                                                            'passar para o lado '
+                                                                            'bom, a mesma que já '
+                                                                            'vimos (com o rei '
+                                                                            'forte chegando a g6). '
+                                                                            'Aqui mostramos o '
+                                                                            'caminho até g6.',
+                                                                         8: 'A primeira fase é '
+                                                                            'simples de entender: '
+                                                                            'trata-se de obrigar o '
+                                                                            'rei branco a passar '
+                                                                            'para o outro lado.'},
+                                                            'regra_destaque': 'Com a dama cortando '
+                                                                              'o caminho a cada '
+                                                                              'xeque, o rei preto '
+                                                                              'tem tempo de sobra '
+                                                                              'para caminhar até '
+                                                                              'g5 e depois g6, '
+                                                                              'aproveitando cada '
+                                                                              'tempo ganho pelos '
+                                                                              'xeques da dama — a '
+                                                                              'torcida de xeques '
+                                                                              'força o rei branco '
+                                                                              'a gastar lances só '
+                                                                              'defendendo, '
+                                                                              'enquanto o rei '
+                                                                              'preto se aproxima '
+                                                                              'livremente. Uma vez '
+                                                                              'em g6, a posição '
+                                                                              'transpõe para a '
+                                                                              'mesma rede de mate '
+                                                                              'vista na posição '
+                                                                              'anterior. (Se, em '
+                                                                              'vez de se '
+                                                                              'aproximar, o rei '
+                                                                              'preto hesitasse — '
+                                                                              'por exemplo com '
+                                                                              '...Rd7?! — as '
+                                                                              'brancas ainda '
+                                                                              'poderiam, com '
+                                                                              '...Rh8!?, obrigar '
+                                                                              'as pretas a recuar, '
+                                                                              'porque o rei forte '
+                                                                              'não estaria a tempo '
+                                                                              'de se aproximar '
+                                                                              'naquele momento.) '
+                                                                              'Contra peão de '
+                                                                              'bispo na sétima, '
+                                                                              'com o rei fraco do '
+                                                                              'lado mau, o rei '
+                                                                              'forte precisa estar '
+                                                                              'a 2 passos de uma '
+                                                                              'das duas casas '
+                                                                              'críticas (neste '
+                                                                              'caso, d7 e g6).'},
+                                                        {   'rotulo': 'O mate em d7',
+                                                            'fen': '8/4KP2/8/8/6k1/8/q7/8 b - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Pretas ganham',
+                                                            'linha': ['Qa3+', 'Ke8'],
+                                                            'notas': {   0: 'Com o rei forte '
+                                                                            'dentro da zona '
+                                                                            'vencedora, mas a dois '
+                                                                            'passos de d7, é '
+                                                                            'preciso jogar com '
+                                                                            'cuidado para impedir '
+                                                                            'que o rei adversário '
+                                                                            'escape para o lado '
+                                                                            'bom sem perder '
+                                                                            'tempos.',
+                                                                         1: 'Na prática, os outros '
+                                                                            'xeques também ganham, '
+                                                                            'mas exigem mais '
+                                                                            'precisão logo a '
+                                                                            'seguir.'},
+                                                            'alternativas': [   {   'titulo': '1...Qa7+ '
+                                                                                              '— '
+                                                                                              'também '
+                                                                                              'ganha, '
+                                                                                              'com '
+                                                                                              'mais '
+                                                                                              'cuidado',
+                                                                                    'linha': [   'Qa7+',
+                                                                                                 'Kf8',
+                                                                                                 'Qg1'],
+                                                                                    'nota': 'Depois '
+                                                                                            'deste '
+                                                                                            'xeque, '
+                                                                                            'só há '
+                                                                                            'um '
+                                                                                            'lance '
+                                                                                            'que '
+                                                                                            'mantém '
+                                                                                            'a '
+                                                                                            'vantagem.'},
+                                                                                {   'titulo': '1...Qa7+ '
+                                                                                              '2.Rf6?? '
+                                                                                              '— '
+                                                                                              'perde '
+                                                                                              'na '
+                                                                                              'hora',
+                                                                                    'linha': [   'Qa7+',
+                                                                                                 'Kf6',
+                                                                                                 'Qd4+'],
+                                                                                    'nota': 'Simples '
+                                                                                            'demais: '
+                                                                                            'o rei '
+                                                                                            'branco '
+                                                                                            'nunca '
+                                                                                            'deveria '
+                                                                                            'se '
+                                                                                            'afastar '
+                                                                                            'assim '
+                                                                                            'da '
+                                                                                            'zona '
+                                                                                            'de '
+                                                                                            'defesa.'}],
+                                                            'regra_destaque': 'A partir daqui, a '
+                                                                              'dama persegue o rei '
+                                                                              'branco com xeques '
+                                                                              '(…Qa8+, …Qe4+ etc.) '
+                                                                              'enquanto o rei '
+                                                                              'preto caminha até '
+                                                                              'controlar as duas '
+                                                                              'casas-chave do '
+                                                                              'final: d7 (onde o '
+                                                                              'rei forte, apoiando '
+                                                                              'a dama, dá mate '
+                                                                              'direto) e g6 (de '
+                                                                              'onde, como já '
+                                                                              'vimos, o mate '
+                                                                              'também está '
+                                                                              'garantido assim que '
+                                                                              'o peão promove). O '
+                                                                              'cuidado principal é '
+                                                                              'não deixar o rei '
+                                                                              'branco atravessar '
+                                                                              'para o lado bom do '
+                                                                              'peão sem perder '
+                                                                              'tempo algum — por '
+                                                                              'isso a dama escolhe '
+                                                                              'seus xeques com uma '
+                                                                              'ordem precisa, e '
+                                                                              'não qualquer uma.'}],
+                                        'regras': [   'Com o peão de bispo, assim como com o peão '
+                                                      'de torre, para ganhar a dama precisa da '
+                                                      'colaboração do próprio rei.',
+                                                      'O lado do peão quer trazer o rei para o '
+                                                      'lado oposto ao do rei adversário — esse é o '
+                                                      'lado bom, onde o recurso do afogamento '
+                                                      'ainda funciona.',
+                                                      'Com o rei fraco do lado bom, o rei forte '
+                                                      'precisa estar a 1 passo de uma das casas '
+                                                      'críticas g6 ou e7; do lado mau, a 2 passos '
+                                                      'de d7 ou g6.',
+                                                      'Se o lado do peão tem outro peão além do de '
+                                                      'bispo, o recurso do afogamento desaparece '
+                                                      'automaticamente.']},
+                                    {   'n': 19,
+                                        'titulo': 'Uma armadilha comum demais',
+                                        'conceito': 'O rei forte está fora da zona vencedora — '
+                                                    'então por que tanta gente ainda perde esta '
+                                                    'posição?',
+                                        'texto': [   'Este capítulo de dama contra peão já poderia '
+                                                     'terminar aqui — todas as circunstâncias '
+                                                     'essenciais já foram vistas, e não há mais '
+                                                     'exceções de resultado. Mas é comum demais '
+                                                     'ver jogadores caírem na armadilha a seguir, '
+                                                     'então vale a pena dedicar mais dois '
+                                                     'diagramas a ela.',
+                                                     'Nos dois exemplos, o rei forte está fora da '
+                                                     'zona vencedora, e portanto a posição é de '
+                                                     'empate. Mas se quem joga com as brancas for '
+                                                     'experiente, vai tentar nos levar à posição '
+                                                     'crítica depois de alguns lances de pura '
+                                                     'confusão — e aí, sim, é fácil errar.'],
+                                        'posicoes': [   {   'rotulo': 'A armadilha de um lado',
+                                                            'fen': '8/8/8/3K4/8/4Q3/2p5/1k6 w - - '
+                                                                   '0 1',
+                                                            'resultado': 'Empate',
+                                                            'linha': [   'Qb3+',
+                                                                         'Ka1',
+                                                                         'Qe3',
+                                                                         'Kb1',
+                                                                         'Qe4',
+                                                                         'Kb2',
+                                                                         'Qe2',
+                                                                         'Ka1',
+                                                                         'Kc4',
+                                                                         'c1=Q+',
+                                                                         'Kb3',
+                                                                         'Qb1+'],
+                                                            'notas': {   0: 'Primeira fase: só '
+                                                                            'confusão, como já '
+                                                                            'conhecemos de outros '
+                                                                            'finais — por si só, '
+                                                                            'esses xeques não '
+                                                                            'mudam nada.',
+                                                                         6: 'E agora vem a isca.',
+                                                                         7: 'Esquisito, mas é o '
+                                                                            'único lance certo — '
+                                                                            'difícil de encontrar '
+                                                                            'para quem não conhece '
+                                                                            'esta posição a fundo.',
+                                                                         9: 'Depois da promoção '
+                                                                            'com xeque, o único '
+                                                                            'lance que ainda '
+                                                                            'empata é devolver o '
+                                                                            'xeque — mas é '
+                                                                            'suficiente.'},
+                                                            'alternativas': [   {   'titulo': '7...Rb1?? '
+                                                                                              '— o '
+                                                                                              'erro '
+                                                                                              'típico',
+                                                                                    'linha': [   'Qb3+',
+                                                                                                 'Ka1',
+                                                                                                 'Qe3',
+                                                                                                 'Kb1',
+                                                                                                 'Qe4',
+                                                                                                 'Kb2',
+                                                                                                 'Qe2',
+                                                                                                 'Kb1',
+                                                                                                 'Kc4'],
+                                                                                    'nota': 'O '
+                                                                                            'lance '
+                                                                                            'natural, '
+                                                                                            'e o '
+                                                                                            'erro '
+                                                                                            'que '
+                                                                                            'leva '
+                                                                                            'à '
+                                                                                            'conclusão '
+                                                                                            'conhecida: '
+                                                                                            'depois '
+                                                                                            'de '
+                                                                                            '**8.Rc4!!**, '
+                                                                                            'com o '
+                                                                                            'rei '
+                                                                                            'branco '
+                                                                                            'marchando '
+                                                                                            'até o '
+                                                                                            'próprio '
+                                                                                            'peão, '
+                                                                                            'a '
+                                                                                            'promoção '
+                                                                                            'já '
+                                                                                            'não '
+                                                                                            'salva '
+                                                                                            'mais '
+                                                                                            'as '
+                                                                                            'pretas '
+                                                                                            '— '
+                                                                                            'apesar '
+                                                                                            'da '
+                                                                                            'dama '
+                                                                                            'preta '
+                                                                                            'parecer '
+                                                                                            'muito '
+                                                                                            'mais '
+                                                                                            'solta '
+                                                                                            'do '
+                                                                                            'que '
+                                                                                            'ficaria '
+                                                                                            'em '
+                                                                                            'a1, '
+                                                                                            'ela '
+                                                                                            'não '
+                                                                                            'encontra '
+                                                                                            'mais '
+                                                                                            'lance '
+                                                                                            'nenhum '
+                                                                                            'para '
+                                                                                            'evitar '
+                                                                                            'o '
+                                                                                            'mate.'},
+                                                                                {   'titulo': '7...Rc3?? '
+                                                                                              '— '
+                                                                                              'também '
+                                                                                              'não '
+                                                                                              'empata',
+                                                                                    'linha': [   'Qb3+',
+                                                                                                 'Ka1',
+                                                                                                 'Qe3',
+                                                                                                 'Kb1',
+                                                                                                 'Qe4',
+                                                                                                 'Kb2',
+                                                                                                 'Qe2',
+                                                                                                 'Kc3',
+                                                                                                 'Qe5+'],
+                                                                                    'nota': 'Também '
+                                                                                            'não é '
+                                                                                            'suficiente: '
+                                                                                            'depois '
+                                                                                            'deste '
+                                                                                            'xeque, '
+                                                                                            'o rei '
+                                                                                            'preto '
+                                                                                            'é '
+                                                                                            'forçado '
+                                                                                            'a '
+                                                                                            'passar '
+                                                                                            'para '
+                                                                                            'o '
+                                                                                            'lado '
+                                                                                            'mau '
+                                                                                            'do '
+                                                                                            'peão, '
+                                                                                            'e o '
+                                                                                            'rei '
+                                                                                            'branco '
+                                                                                            'entra '
+                                                                                            'automaticamente '
+                                                                                            'na '
+                                                                                            "'nova' "
+                                                                                            'zona '
+                                                                                            'vencedora '
+                                                                                            'que '
+                                                                                            'isso '
+                                                                                            'cria.'}],
+                                                            'regra_destaque': 'Mesmo com o rei '
+                                                                              'forte fora da zona '
+                                                                              'vencedora, um peão '
+                                                                              'de bispo perto da '
+                                                                              'borda ainda guarda '
+                                                                              'uma armadilha: o '
+                                                                              'rei fraco precisa '
+                                                                              'encontrar a única '
+                                                                              'casa certa no '
+                                                                              'momento do truque, '
+                                                                              'ou o rei forte '
+                                                                              'consegue entrar a '
+                                                                              'tempo na zona '
+                                                                              'vencedora.'},
+                                                        {   'rotulo': 'A mesma armadilha do outro '
+                                                                      'lado',
+                                                            'fen': '8/8/8/4K3/8/1Q6/2pk4/8 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Empate',
+                                                            'linha': ['Qa2', 'Kc3', 'Qa1+', 'Kd2'],
+                                                            'notas': {   0: 'O mesmo truque pode '
+                                                                            'ser tentado do outro '
+                                                                            'lado — e na prática '
+                                                                            'funciona ainda '
+                                                                            'melhor, porque a '
+                                                                            'defesa correta é mais '
+                                                                            'difícil de encontrar. '
+                                                                            '(Antes desta posição, '
+                                                                            'as brancas já '
+                                                                            'passaram pela mesma '
+                                                                            'fase de confusão: '
+                                                                            '**1.Db2 Rd1 2.Db3 '
+                                                                            'Rd2**.) Agora vem a '
+                                                                            'isca de novo.',
+                                                                         1: 'De novo, um lance '
+                                                                            'único e bem estranho '
+                                                                            '— quem não conhece '
+                                                                            'esta posição a fundo '
+                                                                            'tem dificuldade em '
+                                                                            'encontrá-lo.',
+                                                                         3: 'E, de novo, devolver '
+                                                                            'o xeque é o único '
+                                                                            'lance que ainda '
+                                                                            'empata.'},
+                                                            'alternativas': [   {   'titulo': '3...Rd1?? '
+                                                                                              '— o '
+                                                                                              'erro '
+                                                                                              'natural',
+                                                                                    'linha': [   'Qa2',
+                                                                                                 'Kd1',
+                                                                                                 'Kd4',
+                                                                                                 'c1=Q',
+                                                                                                 'Kd3'],
+                                                                                    'nota': 'O '
+                                                                                            'lance '
+                                                                                            'natural '
+                                                                                            '— e o '
+                                                                                            'erro '
+                                                                                            'que '
+                                                                                            'leva '
+                                                                                            'à '
+                                                                                            'mesma '
+                                                                                            'conclusão '
+                                                                                            'de '
+                                                                                            'sempre: '
+                                                                                            'o rei '
+                                                                                            'branco '
+                                                                                            'chega '
+                                                                                            'a '
+                                                                                            'tempo, '
+                                                                                            'e a '
+                                                                                            'promoção '
+                                                                                            'não '
+                                                                                            'salva '
+                                                                                            'mais '
+                                                                                            'as '
+                                                                                            'pretas.'},
+                                                                                {   'titulo': '3...Rd3?? '
+                                                                                              '— '
+                                                                                              'também '
+                                                                                              'não '
+                                                                                              'é '
+                                                                                              'suficiente',
+                                                                                    'linha': [   'Qa2',
+                                                                                                 'Kd3',
+                                                                                                 'Qb2',
+                                                                                                 'Kd2',
+                                                                                                 'Ke4'],
+                                                                                    'nota': 'Para '
+                                                                                            'evitar '
+                                                                                            '**Qc1**, '
+                                                                                            'o rei '
+                                                                                            'preto '
+                                                                                            'é '
+                                                                                            'obrigado '
+                                                                                            'a '
+                                                                                            'cravar '
+                                                                                            'o '
+                                                                                            'próprio '
+                                                                                            'peão '
+                                                                                            '— e é '
+                                                                                            'exatamente '
+                                                                                            'esse '
+                                                                                            'momento '
+                                                                                            'que o '
+                                                                                            'rei '
+                                                                                            'branco '
+                                                                                            'aproveita '
+                                                                                            'para '
+                                                                                            'entrar '
+                                                                                            'na '
+                                                                                            'zona '
+                                                                                            'vencedora.'}],
+                                                            'regra_destaque': 'A mesma armadilha, '
+                                                                              'espelhada: contra o '
+                                                                              'peão de bispo perto '
+                                                                              'da borda, o lado '
+                                                                              'fraco sempre '
+                                                                              'precisa conhecer a '
+                                                                              'casa exata de '
+                                                                              'defesa — o lance '
+                                                                              "'natural' quase "
+                                                                              'sempre perde.'}],
+                                        'regras': [   'Mesmo com o rei forte fora da zona '
+                                                      'vencedora, um peão de bispo (ou de torre) '
+                                                      'perto da borda ainda guarda uma armadilha '
+                                                      'de afogamento: o rei fraco precisa '
+                                                      'encontrar a única casa certa no momento do '
+                                                      "truque, porque o lance 'natural' costuma "
+                                                      'perder.']},
+                                    {   'n': 20,
+                                        'titulo': 'Dama contra dama',
+                                        'conceito': 'Quando os dois peões promovem, a partida é '
+                                                    'sempre empate?',
+                                        'texto': [   'Embora não seja estritamente uma batalha de '
+                                                     'dama contra peão, vale a pena estudar esta '
+                                                     'posição — muito útil, e intimamente '
+                                                     'relacionada, porque costuma aparecer como '
+                                                     'desfecho de uma corrida de peões.',
+                                                     'A primeira coisa a observar é que **nem '
+                                                     'sempre que os dois jogadores promovem a dama '
+                                                     'a partida é empate.** Há bastante chance de '
+                                                     'perder, sobretudo se a dama promove bem na '
+                                                     'casa do canto: nos primeiros instantes em '
+                                                     'que ela está na borda, pode ser atrapalhada '
+                                                     'pelo próprio rei e capturada, ou cair numa '
+                                                     'rede de mate. Quando isso acontece, '
+                                                     'geralmente as variantes são simples — já '
+                                                     'vimos vários exemplos assim neste capítulo.',
+                                                     'O caso interessante — e que vale a pena '
+                                                     'estudar a fundo, porque serve de padrão para '
+                                                     'posições parecidas — é quando o rei do lado '
+                                                     'forte está relativamente perto: '
+                                                     'especificamente, na casa do diagrama a '
+                                                     'seguir (d3 ou c4, neste canto; f4 ou e3, se '
+                                                     'a dama tivesse promovido em h1).'],
+                                        'posicoes': [   {   'rotulo': 'O rei forte perto o '
+                                                                      'bastante',
+                                                            'fen': '8/8/8/8/8/k2K4/2Q5/q7 w - - 0 '
+                                                                   '1',
+                                                            'resultado': 'Brancas ganham',
+                                                            'linha': [   'Qc5+',
+                                                                         'Ka2',
+                                                                         'Qc4+',
+                                                                         'Ka3',
+                                                                         'Qa6+',
+                                                                         'Kb2',
+                                                                         'Qb5+',
+                                                                         'Ka3',
+                                                                         'Qa5+',
+                                                                         'Kb2',
+                                                                         'Qb4+',
+                                                                         'Ka2',
+                                                                         'Kc2'],
+                                                            'notas': {   0: 'A réplica mais tenaz.',
+                                                                         12: 'Chegando a uma '
+                                                                             'posição vencedora já '
+                                                                             'conhecida — o mesmo '
+                                                                             'método de aproximar '
+                                                                             'o rei dando xeques '
+                                                                             'que vimos no início '
+                                                                             'deste capítulo.'},
+                                                            'alternativas': [   {   'titulo': '1...Ra4?! '
+                                                                                              '— '
+                                                                                              'pior '
+                                                                                              'ainda',
+                                                                                    'linha': [   'Qc5+',
+                                                                                                 'Ka4',
+                                                                                                 'Qa7+'],
+                                                                                    'nota': 'Perde '
+                                                                                            'a '
+                                                                                            'dama '
+                                                                                            'na '
+                                                                                            'hora.'},
+                                                                                {   'titulo': '1...Rb3 '
+                                                                                              '— '
+                                                                                              'transpõe '
+                                                                                              'para '
+                                                                                              'a '
+                                                                                              'linha '
+                                                                                              'principal',
+                                                                                    'linha': [   'Qc5+',
+                                                                                                 'Kb3',
+                                                                                                 'Qb5+',
+                                                                                                 'Ka3',
+                                                                                                 'Qa5+',
+                                                                                                 'Kb2',
+                                                                                                 'Qb4+'],
+                                                                                    'nota': 'Chega '
+                                                                                            'à '
+                                                                                            'mesma '
+                                                                                            'posição '
+                                                                                            'da '
+                                                                                            'linha '
+                                                                                            'principal, '
+                                                                                            'só '
+                                                                                            'que '
+                                                                                            'mais '
+                                                                                            'cedo.'},
+                                                                                {   'titulo': '1...Rb2 '
+                                                                                              '— '
+                                                                                              'encurta '
+                                                                                              'ainda '
+                                                                                              'mais',
+                                                                                    'linha': [   'Qc5+',
+                                                                                                 'Kb2',
+                                                                                                 'Qb4+'],
+                                                                                    'nota': 'O '
+                                                                                            'caminho '
+                                                                                            'mais '
+                                                                                            'curto '
+                                                                                            'de '
+                                                                                            'todos '
+                                                                                            'até a '
+                                                                                            'mesma '
+                                                                                            'posição.'},
+                                                                                {   'titulo': '2.Da7+? '
+                                                                                              '— o '
+                                                                                              'erro '
+                                                                                              'que '
+                                                                                              'devolve '
+                                                                                              'o '
+                                                                                              'empate',
+                                                                                    'linha': [   'Qc5+',
+                                                                                                 'Ka2',
+                                                                                                 'Qa7+',
+                                                                                                 'Kb1'],
+                                                                                    'nota': 'Esta '
+                                                                                            'variante '
+                                                                                            'ensina '
+                                                                                            'duas '
+                                                                                            'coisas '
+                                                                                            'importantes: '
+                                                                                            'não '
+                                                                                            'se '
+                                                                                            'ganha '
+                                                                                            'com a '
+                                                                                            'dama '
+                                                                                            'branca '
+                                                                                            'em '
+                                                                                            'qualquer '
+                                                                                            'posição '
+                                                                                            'inicial, '
+                                                                                            'e o '
+                                                                                            'lado '
+                                                                                            'fraco '
+                                                                                            'deve '
+                                                                                            'sempre '
+                                                                                            'buscar '
+                                                                                            'esta '
+                                                                                            'posição '
+                                                                                            'relativa '
+                                                                                            'entre '
+                                                                                            'o '
+                                                                                            'próprio '
+                                                                                            'rei e '
+                                                                                            'a '
+                                                                                            'dama, '
+                                                                                            'sempre '
+                                                                                            'que '
+                                                                                            'possível. '
+                                                                                            'Depois '
+                                                                                            'deste '
+                                                                                            'erro, '
+                                                                                            'não é '
+                                                                                            'mais '
+                                                                                            'possível '
+                                                                                            'voltar '
+                                                                                            'à '
+                                                                                            'manobra '
+                                                                                            'correta.'},
+                                                                                {   'titulo': 'Outra '
+                                                                                              'ordem '
+                                                                                              'de '
+                                                                                              'xeques '
+                                                                                              'até '
+                                                                                              'a '
+                                                                                              'mesma '
+                                                                                              'posição',
+                                                                                    'linha': [   'Qc5+',
+                                                                                                 'Ka2',
+                                                                                                 'Qc4+',
+                                                                                                 'Kb2',
+                                                                                                 'Qb4+'],
+                                                                                    'nota': 'Mais '
+                                                                                            'uma '
+                                                                                            'ordem '
+                                                                                            'possível, '
+                                                                                            'levando '
+                                                                                            'ao '
+                                                                                            'mesmo '
+                                                                                            'ponto.'},
+                                                                                {   'titulo': 'Posição '
+                                                                                              'se '
+                                                                                              'repete '
+                                                                                              'se '
+                                                                                              'o '
+                                                                                              'rei '
+                                                                                              'insistir '
+                                                                                              'em '
+                                                                                              'c1',
+                                                                                    'linha': [   'Qc5+',
+                                                                                                 'Ka2',
+                                                                                                 'Qc4+',
+                                                                                                 'Ka3',
+                                                                                                 'Qa6+',
+                                                                                                 'Kb2',
+                                                                                                 'Qb5+',
+                                                                                                 'Kc1',
+                                                                                                 'Qc4+',
+                                                                                                 'Kb2',
+                                                                                                 'Qb4+'],
+                                                                                    'nota': 'O rei '
+                                                                                            'preto '
+                                                                                            'pode '
+                                                                                            'tentar '
+                                                                                            'fugir '
+                                                                                            'para '
+                                                                                            'c1, '
+                                                                                            'mas a '
+                                                                                            'mesma '
+                                                                                            'posição '
+                                                                                            'simplesmente '
+                                                                                            'se '
+                                                                                            'repete.'},
+                                                                                {   'titulo': 'A '
+                                                                                              'outra '
+                                                                                              'imagem '
+                                                                                              'de '
+                                                                                              'mate',
+                                                                                    'linha': [   'Qc5+',
+                                                                                                 'Ka2',
+                                                                                                 'Qc4+',
+                                                                                                 'Ka3',
+                                                                                                 'Qa6+',
+                                                                                                 'Kb2',
+                                                                                                 'Qb5+',
+                                                                                                 'Ka3',
+                                                                                                 'Qa5+',
+                                                                                                 'Kb2',
+                                                                                                 'Qb4+',
+                                                                                                 'Kc1',
+                                                                                                 'Qd2+',
+                                                                                                 'Kb1',
+                                                                                                 'Qc2#'],
+                                                                                    'nota': 'Se, '
+                                                                                            'em '
+                                                                                            'vez '
+                                                                                            'de '
+                                                                                            'voltar '
+                                                                                            'para '
+                                                                                            'a2, o '
+                                                                                            'rei '
+                                                                                            'preto '
+                                                                                            'insistir '
+                                                                                            'em '
+                                                                                            'c1, '
+                                                                                            'surge '
+                                                                                            'uma '
+                                                                                            'segunda '
+                                                                                            'rede '
+                                                                                            'de '
+                                                                                            'mate.'}],
+                                                            'regra_destaque': 'Com o rei forte '
+                                                                              'perto o bastante do '
+                                                                              'canto onde a dama '
+                                                                              'inimiga promoveu, '
+                                                                              'uma sequência '
+                                                                              'precisa de xeques '
+                                                                              'aproxima o próprio '
+                                                                              'rei até criar uma '
+                                                                              'rede de mate — mas '
+                                                                              'a ordem dos xeques '
+                                                                              'importa: um lance '
+                                                                              'impreciso (como '
+                                                                              'Da7+ cedo demais) '
+                                                                              'pode devolver o '
+                                                                              'empate de graça.'}],
+                                        'regras': [   'Nem sempre que os dois jogadores promovem a '
+                                                      'dama a partida é empate — há bastante '
+                                                      'chance de perder, sobretudo se a dama '
+                                                      'promove na casa do canto.',
+                                                      'Com o rei forte perto o bastante do canto, '
+                                                      'uma sequência precisa de xeques aproxima o '
+                                                      'próprio rei até criar uma rede de mate — '
+                                                      'mas a ordem dos xeques importa.']}]}]}
+CAPITULOS = [CAPITULO_1, CAPITULO_2]
