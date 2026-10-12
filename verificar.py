@@ -14,7 +14,7 @@ import chess, chess.engine
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASE)
-from dados import CAPITULO
+from dados import CAPITULOS
 
 
 def localizar_stockfish():
@@ -85,12 +85,13 @@ def profundidade_atingida(info, alvo):
 
 def contar_posicoes():
     total = 0
-    for sec in CAPITULO["secoes"]:
-        for fin in sec["finais"]:
-            total += len(fin["posicoes"])
-            ep = fin.get("exemplo_pratico")
-            if ep:
-                total += len(ep["posicoes"])
+    for cap in CAPITULOS:
+        for sec in cap["secoes"]:
+            for fin in sec["finais"]:
+                total += len(fin["posicoes"])
+                ep = fin.get("exemplo_pratico")
+                if ep:
+                    total += len(ep["posicoes"])
     return total
 
 
@@ -202,14 +203,15 @@ def main():
         imprimir_item(item)
 
     print("=" * 78, flush=True)
-    for sec in CAPITULO["secoes"]:
-        for fin in sec["finais"]:
-            for pos in fin["posicoes"]:
-                checar(pos, f"F{fin['n']} {fin['titulo']}")
-            ep = fin.get("exemplo_pratico")
-            if ep:
-                for pos in ep["posicoes"]:
-                    checar(pos, f"F{fin['n']} {ep['titulo']}")
+    for cap in CAPITULOS:
+        for sec in cap["secoes"]:
+            for fin in sec["finais"]:
+                for pos in fin["posicoes"]:
+                    checar(pos, f"F{fin['n']} {fin['titulo']}")
+                ep = fin.get("exemplo_pratico")
+                if ep:
+                    for pos in ep["posicoes"]:
+                        checar(pos, f"F{fin['n']} {ep['titulo']}")
 
     engine.quit()
 

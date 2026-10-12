@@ -34,7 +34,7 @@ DIAGRAMAS = [
     "1.24.1",         # Final 9 — Kamsky–Bacrot, defesa correta depois de 5.Rf3 (derivada, não é do livro)
 ]
 
-CAPITULO = {
+CAPITULO_1 = {
     "numero": 1,
     "titulo": "Finais básicos",
     "intro": (
@@ -612,3 +612,6 @@ CAPITULO = {
         },
     ],
 }
+
+# Lista de capitulos, na ordem de publicacao. Cada capitulo novo entra aqui.
+CAPITULOS = [CAPITULO_1]
