@@ -54,6 +54,14 @@ SF = localizar_stockfish()
 # dados.py — não precisa mexer aqui nem afetar as outras posições.
 DEPTH = 20
 
+# Teto de tempo por avaliação (segundos). Existe porque profundidade NÃO
+# garante um teto de tempo: finais sem bitbase e ricos em xeques de despique
+# (ex. cavalo contra torre) podem estender a busca muito além da profundidade
+# nominal e travar o processo por minutos numa única posição. Quando esse
+# teto é atingido antes da profundidade pedida, o resultado ainda é impresso,
+# mas marcado como parcial (~) para revisão manual, em vez de travar tudo.
+TEMPO_MAX = 15
+
 
 def classify(info):
     sc = info["score"].pov(chess.WHITE)
@@ -63,6 +71,12 @@ def classify(info):
     if abs(v) < 60:
         return "Empate", f"{v}cp"
     return ("Brancas ganham" if v > 0 else "Pretas ganham"), f"{v}cp"
+
+
+def profundidade_atingida(info, alvo):
+    """True se a busca não chegou na profundidade pedida (parou pelo teto de
+    tempo). info['depth'] é a profundidade que o motor de fato completou."""
+    return info.get("depth", alvo) < alvo
 
 
 def contar_posicoes():
@@ -79,8 +93,8 @@ def contar_posicoes():
 def main():
     total = contar_posicoes()
     print(f"Verificando {total} posições com Stockfish (profundidade padrão {DEPTH},"
-          f" pode variar por posição) — cada linha aparece assim que termina;"
-          f" pode levar alguns minutos no total.")
+          f" pode variar por posição; teto de {TEMPO_MAX}s por avaliação) — cada"
+          f" linha aparece assim que termina; pode levar alguns minutos no total.")
     print(f"Motor: {SF}")
     engine = chess.engine.SimpleEngine.popen_uci(SF)
     engine.configure({"Threads": 4, "Hash": 256})
@@ -89,10 +103,13 @@ def main():
     contador = [0]
 
     def avaliar(board, profundidade=DEPTH):
-        return classify(engine.analyse(board, chess.engine.Limit(depth=profundidade)))
+        info = engine.analyse(board, chess.engine.Limit(depth=profundidade, time=TEMPO_MAX))
+        parcial = profundidade_atingida(info, profundidade)
+        veredito, bruto = classify(info)
+        return veredito, bruto, parcial
 
     def imprimir_item(it):
-        marca = "FALHA" if it["erros"] else "  ok "
+        marca = "FALHA" if it["erros"] else ("ATENCAO" if it.get("avisos") else "  ok ")
         pct = f"{100 * contador[0] / total:5.1f}%"
         prof = f" (d={it['profundidade']})" if "profundidade" in it else ""
         print(f"{marca} [{contador[0]}/{total} {pct}] {it['contexto'][:30]:30s} "
@@ -100,6 +117,8 @@ def main():
               f"sf={it.get('sf','?')} {it.get('sf_bruto','')}{prof}", flush=True)
         for e in it["erros"]:
             print(f"       !! {e}", flush=True)
+        for a in it.get("avisos", []):
+            print(f"       ~~ {a}", flush=True)
 
     def checar(pos, contexto):
         contador[0] += 1
@@ -115,9 +134,14 @@ def main():
             item["erros"].append("FEN não representa posição legal")
             problemas.append(item); relatorio.append(item); imprimir_item(item); return
 
-        veredito, bruto = avaliar(board, profundidade)
+        veredito, bruto, parcial = avaliar(board, profundidade)
         item["sf"] = veredito
         item["sf_bruto"] = bruto
+        if parcial:
+            item.setdefault("avisos", []).append(
+                "avaliação da posição inicial não atingiu a profundidade pedida "
+                f"(teto de {TEMPO_MAX}s atingido antes) — resultado parcial, revisar manualmente"
+            )
         alvo = "Empate" if esperado == "Empate teórico" else esperado
         if veredito != alvo:
             item["erros"].append(f"Stockfish diz '{veredito}' ({bruto}), declarado '{esperado}'")
@@ -136,7 +160,12 @@ def main():
             fens.append(b.fen())
             if b.is_game_over():
                 break
-            v2, r2 = avaliar(b, profundidade)
+            v2, r2, parcial2 = avaliar(b, profundidade)
+            if parcial2:
+                item.setdefault("avisos", []).append(
+                    f"avaliação após {i+1}.{san} não atingiu a profundidade pedida "
+                    f"(teto de {TEMPO_MAX}s atingido antes) — resultado parcial, revisar manualmente"
+                )
             if v2 != alvo:
                 item["erros"].append(f"após {i+1}.{san} o resultado vira '{v2}' ({r2})")
         item["fens"] = fens
