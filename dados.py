@@ -474,6 +474,7 @@ CAPITULO = {
                             "fen": "8/8/8/8/8/3k4/r7/3NK3 w - - 0 1",
                             "resultado": "Empate",
                             "linha": ["Nf2+", "Ke3", "Nd1+", "Kf3", "Nc3", "Rc2", "Nd1", "Re2+", "Kf1", "Rh2", "Ke1", "Rc2", "Kf1"],
+                            "tempo_max": 60,  # cavalo x torre: sem bitbase e rico em xeques, pode precisar de mais que o padrao
                             "notas": {
                                 0: "O primeiro lance é claramente único.",
                                 1: "O segundo também, seguindo o critério de manter cavalo e rei unidos — embora aqui o xeque em g4 não perca.",
@@ -590,6 +591,7 @@ CAPITULO = {
                                 "fen": "5R2/8/8/8/8/6K1/6n1/6k1 w - - 8 5",
                                 "resultado": "Empate teórico",
                                 "linha": ["Kf3", "Nh4+", "Ke3", "Kg2", "Rg8+", "Kh3", "Kf2", "Kh2"],
+                                "tempo_max": 60,  # mesmo material do Final 8: sem bitbase, pode precisar de mais tempo
                                 "notas": {
                                     0: "Na partida, as brancas aproximaram o rei do cavalo na casa boba.",
                                     1: "A defesa correta e estreita: o cavalo dá xeque e ganha o tempo necessário para escapar de g2. "

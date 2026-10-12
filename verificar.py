@@ -60,6 +60,10 @@ DEPTH = 20
 # nominal e travar o processo por minutos numa única posição. Quando esse
 # teto é atingido antes da profundidade pedida, o resultado ainda é impresso,
 # mas marcado como parcial (~) para revisão manual, em vez de travar tudo.
+# 15s é de sobra pra quase tudo (poucas peças, resolve em frações de segundo);
+# para uma posição específica que precise de mais tempo (mesmo problema do
+# "profundidade": N), adicione "tempo_max": 60 (ou o valor que quiser) no
+# dicionário da posição em dados.py.
 TEMPO_MAX = 15
 
 
@@ -102,8 +106,8 @@ def main():
     relatorio, problemas = [], []
     contador = [0]
 
-    def avaliar(board, profundidade=DEPTH):
-        info = engine.analyse(board, chess.engine.Limit(depth=profundidade, time=TEMPO_MAX))
+    def avaliar(board, profundidade=DEPTH, tempo_max=TEMPO_MAX):
+        info = engine.analyse(board, chess.engine.Limit(depth=profundidade, time=tempo_max))
         parcial = profundidade_atingida(info, profundidade)
         veredito, bruto = classify(info)
         return veredito, bruto, parcial
@@ -112,9 +116,10 @@ def main():
         marca = "FALHA" if it["erros"] else ("ATENCAO" if it.get("avisos") else "  ok ")
         pct = f"{100 * contador[0] / total:5.1f}%"
         prof = f" (d={it['profundidade']})" if "profundidade" in it else ""
+        tmax = f" (t={it['tempo_max']}s)" if "tempo_max" in it else ""
         print(f"{marca} [{contador[0]}/{total} {pct}] {it['contexto'][:30]:30s} "
               f"{it['rotulo'][:26]:26s} decl={it['esperado']:16s} "
-              f"sf={it.get('sf','?')} {it.get('sf_bruto','')}{prof}", flush=True)
+              f"sf={it.get('sf','?')} {it.get('sf_bruto','')}{prof}{tmax}", flush=True)
         for e in it["erros"]:
             print(f"       !! {e}", flush=True)
         for a in it.get("avisos", []):
@@ -125,22 +130,25 @@ def main():
         fen = pos["fen"]
         esperado = pos["resultado"]
         profundidade = pos.get("profundidade", DEPTH)
+        tempo_max = pos.get("tempo_max", TEMPO_MAX)
         item = {"contexto": contexto, "rotulo": pos["rotulo"], "fen": fen,
                 "esperado": esperado, "erros": []}
         if profundidade != DEPTH:
             item["profundidade"] = profundidade
+        if tempo_max != TEMPO_MAX:
+            item["tempo_max"] = tempo_max
         board = chess.Board(fen)
         if not board.is_valid():
             item["erros"].append("FEN não representa posição legal")
             problemas.append(item); relatorio.append(item); imprimir_item(item); return
 
-        veredito, bruto, parcial = avaliar(board, profundidade)
+        veredito, bruto, parcial = avaliar(board, profundidade, tempo_max)
         item["sf"] = veredito
         item["sf_bruto"] = bruto
         if parcial:
             item.setdefault("avisos", []).append(
                 "avaliação da posição inicial não atingiu a profundidade pedida "
-                f"(teto de {TEMPO_MAX}s atingido antes) — resultado parcial, revisar manualmente"
+                f"(teto de {tempo_max}s atingido antes) — resultado parcial, revisar manualmente"
             )
         alvo = "Empate" if esperado == "Empate teórico" else esperado
         if veredito != alvo:
@@ -160,11 +168,11 @@ def main():
             fens.append(b.fen())
             if b.is_game_over():
                 break
-            v2, r2, parcial2 = avaliar(b, profundidade)
+            v2, r2, parcial2 = avaliar(b, profundidade, tempo_max)
             if parcial2:
                 item.setdefault("avisos", []).append(
                     f"avaliação após {i+1}.{san} não atingiu a profundidade pedida "
-                    f"(teto de {TEMPO_MAX}s atingido antes) — resultado parcial, revisar manualmente"
+                    f"(teto de {tempo_max}s atingido antes) — resultado parcial, revisar manualmente"
                 )
             if v2 != alvo:
                 item["erros"].append(f"após {i+1}.{san} o resultado vira '{v2}' ({r2})")
