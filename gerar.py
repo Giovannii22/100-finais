@@ -12,7 +12,7 @@ from dados import CAPITULOS, DIAGRAMAS
 from pecas import symbols as pecas_symbols, CREDITO as PECAS_CREDITO
 
 # Versao publicada (git tag correspondente). Atualizar manualmente a cada release.
-VERSAO = "v2.0.2"
+VERSAO = "v3.0"
 
 
 def expandir(pos):
@@ -112,6 +112,14 @@ PID = [0]
 def pos_payload(pos):
     PID[0] += 1
     pid = f"p{PID[0]}"
+    # Número de lance e lado a jogar na posição inicial, lidos do próprio FEN.
+    # Quase sempre é 1/brancas (diagramas do livro partem do zero), mas um
+    # exemplo prático citando uma partida real pode começar no meio
+    # (ex.: "... w - - 2 51" começa no lance 51), e o visualizador precisa
+    # numerar a partir daí, não sempre do 1.
+    campos_fen = pos["fen"].split()
+    turno_inicial = campos_fen[1] if len(campos_fen) > 1 else "w"
+    lance_inicial = int(campos_fen[5]) if len(campos_fen) > 5 else 1
     payload = {
         "id": pid,
         "fens": pos["_fens"],
@@ -121,6 +129,8 @@ def pos_payload(pos):
         "marcas": pos.get("marcas", {}),
         "marcasDesde": pos.get("marcas_desde", 0),
         "marcasAte": pos.get("marcas_ate", 999),
+        "lanceInicial": lance_inicial,
+        "turnoInicial": turno_inicial,
         "alts": [
             {"titulo": a["titulo"], "fens": a["_fens"], "sans": a["_sans"],
              "fim": a["_fim"], "nota": md(a.get("nota", ""))}
@@ -795,10 +805,18 @@ class Viewer {{
     drawBoard(this.boardEl, this.line.fens[this.i], marks, this.i > 0 ? this.line.fens[this.i - 1] : null);
     this.movesEl.textContent = "";
     const frag = document.createDocumentFragment();
+    const lanceIni = this.data.lanceInicial || 1;
+    const turnoIni = this.data.turnoInicial || "w";
     this.line.sans.forEach((san, k) => {{
-      if (k % 2 === 0) {{
+      // Numeração a partir do lance/lado real do FEN inicial, não sempre do
+      // 1: um exemplo prático citando partida real pode começar no meio
+      // (ex.: lance 51), e se a posição começa com as pretas a numeração
+      // do primeiro lance leva "...".
+      const brancasJogam = turnoIni === "w" ? (k % 2 === 0) : (k % 2 === 1);
+      if (brancasJogam || (k === 0 && turnoIni === "b")) {{
+        const numero = lanceIni + Math.floor((k + (turnoIni === "b" ? 1 : 0)) / 2);
         const n = document.createElement("span");
-        n.className = "mv-n"; n.textContent = (k / 2 + 1) + ".";
+        n.className = "mv-n"; n.textContent = numero + (brancasJogam ? "." : "...");
         frag.appendChild(n);
       }}
       const b = document.createElement("button");

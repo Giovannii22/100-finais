@@ -51,6 +51,32 @@ DIAGRAMAS = [
     "4.10–4.11",  # Capitulo 2
     "4.12",  # Capitulo 2
     "4.13",  # Capitulo 2
+    "5.1",  # Capitulo 3
+    "5.1 (pretas)",  # Capitulo 3
+    "5.3",  # Capitulo 3
+    "análise 5.3.1",  # Capitulo 3
+    "análise 5.3.2",  # Capitulo 3
+    "análise 5.3.3",  # Capitulo 3
+    "5.4",  # Capitulo 3
+    "5.5",  # Capitulo 3
+    "5.5 (pretas)",  # Capitulo 3
+    "análise 5.5.1",  # Capitulo 3
+    "análise 5.5.2",  # Capitulo 3
+    "análise 5.5.3",  # Capitulo 3
+    "5.6",  # Capitulo 3
+    "5.7",  # Capitulo 3
+    "5.8",  # Capitulo 3
+    "5.9",  # Capitulo 3
+    "análise 5.10",  # Capitulo 3
+    "5.11",  # Capitulo 3
+    "5.12",  # Capitulo 3
+    "5.13",  # Capitulo 3
+    "5.14",  # Capitulo 3
+    "análise 5.14.1",  # Capitulo 3
+    "análise 5.14.2",  # Capitulo 3
+    "análise 5.14.3",  # Capitulo 3
+    "5.15",  # Capitulo 3
+    "exemplo prático",  # Capitulo 3
 ]
 
 CAPITULO_1 = {
@@ -3079,4 +3105,1397 @@ CAPITULO_2 = {   'numero': 2,
                                                       'uma sequência precisa de xeques aproxima o '
                                                       'próprio rei até criar uma rede de mate — '
                                                       'mas a ordem dos xeques importa.']}]}]}
-CAPITULOS = [CAPITULO_1, CAPITULO_2]
+CAPITULO_3 = {'numero': 3,
+ 'titulo': 'Torre contra peão',
+ 'intro': 'O duelo mais frequente e mais complexo de peça contra peão passado: ao '
+          'contrário do cavalo e da dama, a torre atua o tabuleiro inteiro, então o '
+          'resultado quase sempre depende dos dois reis — contagem de tempos, corte '
+          'horizontal, rodeio, ombrada (empurrar o rei adversário com o próprio rei) e '
+          'zugzwang se cruzam o tempo todo. Muitos finais de torre do meio-jogo acabam '
+          'se transformando em um destes, quando um lado entrega a torre por um peão '
+          'passado.',
+ 'secoes': [{'id': 'torre-peao',
+             'titulo': 'Torre contra peão',
+             'resumo': 'Os nove finais fundamentais de torre contra peão passado: '
+                       'contagem simples de tempos, corte horizontal, rei forte atrás '
+                       'e lateral do peão (com a ombrada e o rodeio), zugzwang, os '
+                       'casos especiais do peão de cavalo e de torre, e o limite em '
+                       'que o peão, sozinho, já vence a torre.',
+             'finais': [{'n': 21,
+                         'titulo': 'Os reis não se incomodam',
+                         'conceito': 'Quando nenhum dos reis consegue atrapalhar o '
+                                     'plano do outro, o resultado se decide por uma '
+                                     'simples contagem de tempos.',
+                         'texto': ['A forma mais simples de abordar esses finais é '
+                                   'contar tempos: quantos lances o lado da torre '
+                                   'precisa para controlar a casa de coroação com o '
+                                   'rei e a torre juntos, contra quantos lances o lado '
+                                   'do peão precisa para levar o rei até perto e '
+                                   'coroar.',
+                                   'Essa contagem simples só funciona quando nenhum '
+                                   'rei consegue atrapalhar o plano do outro no '
+                                   'caminho — e é exatamente essa a situação da '
+                                   'posição a seguir: os reis não se incomodam, os '
+                                   'xeques de torre não ganham tempo, e não há nenhuma '
+                                   'outra circunstância especial.'],
+                         'posicoes': [{'rotulo': 'Simplesmente contando',
+                                       'fen': '4R3/8/7K/8/1kp5/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Kg5',
+                                                 'Kc3',
+                                                 'Kf4',
+                                                 'Kd2',
+                                                 'Rd8+',
+                                                 'Ke2',
+                                                 'Rc8'],
+                                       'notas': {0: 'O rei branco está longe, mas tem '
+                                                    'tempo: ele precisa de 5 lances '
+                                                    'para ajudar a controlar a casa de '
+                                                    'coroação (c1), e as pretas '
+                                                    'precisam de 4 para coroar. '
+                                                    'Jogando as brancas, isso é '
+                                                    'suficiente — **1.Rg5!** começa a '
+                                                    'aproximação.',
+                                                 6: 'A torre já está atrás do peão e o '
+                                                    'rei branco cortou o caminho do '
+                                                    'rei preto: daqui em diante é só '
+                                                    'técnica, o peão cai e a torre '
+                                                    'garante a vitória.'},
+                                       'regra_destaque': 'Quando os reis não '
+                                                         'interferem um no outro, o '
+                                                         'resultado se decide pela '
+                                                         'contagem simples: tempos do '
+                                                         'rei+torre para controlar a '
+                                                         'coroação contra tempos do '
+                                                         'rei+peão para coroar.'},
+                                      {'rotulo': 'A mesma posição, com as pretas a '
+                                                 'jogar',
+                                       'fen': '4R3/8/7K/8/1kp5/8/8/8 b - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': ['c3',
+                                                 'Kg6',
+                                                 'Kb3',
+                                                 'Re6',
+                                                 'Kb2',
+                                                 'Re2+',
+                                                 'c2',
+                                                 'Kf5',
+                                                 'Kb1',
+                                                 'Rxc2'],
+                                       'notas': {0: 'A mesma posição exata, mas agora '
+                                                    'é a vez das pretas jogarem '
+                                                    'primeiro — e isso já basta para '
+                                                    'inverter o resultado: a contagem '
+                                                    'de tempos agora favorece o peão, '
+                                                    'e o melhor que as brancas '
+                                                    'conseguem é um empate.',
+                                                 9: 'O rei branco nunca chega a tempo '
+                                                    'de impedir a coroação por conta '
+                                                    'própria; a torre acaba capturando '
+                                                    'o peão, mas só depois dele já ter '
+                                                    'cumprido seu papel de forçar as '
+                                                    'trocas — posição de tablas.'},
+                                       'regra_destaque': 'A mesma posição, com o lado '
+                                                         'a jogar trocado, muda o '
+                                                         'resultado: a contagem de '
+                                                         'tempos é decisiva até no '
+                                                         'detalhe de quem tem a vez.'}],
+                         'regras': ['Em finais de torre contra peão onde nenhum rei '
+                                    'consegue atrapalhar o plano do outro, o resultado '
+                                    'se decide por uma contagem simples de tempos: '
+                                    'quantos lances o rei e a torre precisam para '
+                                    'controlar a casa de coroação, contra quantos '
+                                    'lances o rei do peão precisa para apoiar a '
+                                    'coroação.']},
+                        {'n': 22,
+                         'titulo': 'Rei defensor na terceira. O corte horizontal',
+                         'conceito': 'Quando o rei e o peão do lado fraco ainda estão '
+                                     'atrasados, cortar o rei adversário '
+                                     'horizontalmente com a torre pode ser, por si só, '
+                                     'suficiente para ganhar — mas só funciona dentro '
+                                     'de certas condições.',
+                         'texto': ['Quando o rei defensor e seu peão ainda estão '
+                                   'bastante atrasados (em geral, se ainda não '
+                                   'cruzaram a metade do tabuleiro), vale a pena '
+                                   'considerar o corte horizontal antes de mais nada: '
+                                   'se esse recurso funcionar, o resto se torna '
+                                   'irrelevante.',
+                                   'O corte horizontal é eficaz quando o rei do lado '
+                                   'fraco fica na terceira fila (contada a partir do '
+                                   'próprio campo) e é completamente decisivo quando o '
+                                   'peão é de torre, ou quando o rei e o peão já se '
+                                   'separaram. Fora dessas condições, o rei defensor '
+                                   'pode simplesmente contornar o corte pelo lado '
+                                   'oposto do peão — perdendo tempo, mas quase sempre '
+                                   'salvando a partida.',
+                                   'Antes de ver a posição principal, vale registrar o '
+                                   'Diagrama 5.2, um estudo de Max Euwe (1934) sobre o '
+                                   'mesmo princípio simples de contagem do Final 21: '
+                                   'com rei e peão pretos fixos e a torre branca em '
+                                   'a1, Euwe mapeou, casa a casa, de qual lugar do '
+                                   'tabuleiro o rei branco ainda consegue chegar a '
+                                   'tempo de ajudar a conter o peão — e de qual lugar '
+                                   'não consegue mais. A lição prática é que essa '
+                                   "'zona de empate' não é um corte limpo e óbvio: ela "
+                                   'depende de detalhes finos de geometria do '
+                                   'tabuleiro, por isso vale sempre conferir com '
+                                   'cálculo (ou com o motor) em vez de confiar só na '
+                                   'intuição de contagem simples.'],
+                         'posicoes': [{'rotulo': 'O corte horizontal decide sozinho',
+                                       'fen': '7K/6R1/1k6/p7/8/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Rg5',
+                                                 'a4',
+                                                 'Kg7',
+                                                 'a3',
+                                                 'Rg3',
+                                                 'a2',
+                                                 'Ra3',
+                                                 'Kb5',
+                                                 'Rxa2'],
+                                       'notas': {0: 'O rei branco está muito longe do '
+                                                    'peão (h8), mas isso não importa: '
+                                                    '**1.Rg5!** corta o rei preto na '
+                                                    'quinta fila, impedindo-o de '
+                                                    'cruzar para apoiar o peão. É a '
+                                                    'única jogada que ganha — 1.Rg8? '
+                                                    'deixa o rei preto escapar por c5 '
+                                                    'ou b5 (ver lance alternativo).',
+                                                 4: 'Com o rei preto definitivamente '
+                                                    'cortado, a torre ainda precisa '
+                                                    'fechar o cerco: **3.Rg3!** ameaça '
+                                                    'ir a a3 e capturar o peão, já que '
+                                                    'o rei preto não pode atravessar a '
+                                                    'terceira fila para defendê-lo.',
+                                                 6: 'A torre ocupa a coluna a: a '
+                                                    'partir daqui, qualquer avanço do '
+                                                    'peão termina em captura, e o rei '
+                                                    'preto nunca conseguiu se '
+                                                    'aproximar o suficiente para '
+                                                    'ajudar.'},
+                                       'regra_destaque': 'Com o rei do lado fraco '
+                                                         'ainda na terceira fila (a '
+                                                         'partir do seu próprio campo) '
+                                                         'e separado do peão pelo '
+                                                         'corte, a torre resolve '
+                                                         'sozinha — não é preciso '
+                                                         'esperar pelo rei forte.',
+                                       'alternativas': [{'titulo': '1.Rg8?? — erro: '
+                                                                   'deixa o rei preto '
+                                                                   'escapar',
+                                                         'linha': ['Rg8',
+                                                                   'Kc5',
+                                                                   'Kg7',
+                                                                   'a4',
+                                                                   'Kf6',
+                                                                   'a3',
+                                                                   'Ke5',
+                                                                   'Kc4',
+                                                                   'Ke4',
+                                                                   'a2',
+                                                                   'Ra8',
+                                                                   'Kb3',
+                                                                   'Kd3',
+                                                                   'Kb2'],
+                                                         'nota': 'Sem cortar a quinta '
+                                                                 'fila, o rei preto '
+                                                                 'passa por c5/b5 e '
+                                                                 'acompanha o peão até '
+                                                                 'a coroação com '
+                                                                 'tranquilidade — o '
+                                                                 'resultado cai de '
+                                                                 'vitória para empate '
+                                                                 '(confirmado pelo '
+                                                                 'Stockfish em 0.00 do '
+                                                                 'lance 1 em diante). '
+                                                                 'Essa mesma posição '
+                                                                 'de empate vai '
+                                                                 'reaparecer mais '
+                                                                 'adiante (Final 28).',
+                                                         'espera_resultado': 'erro'}]},
+                                      {'rotulo': 'Série do corte horizontal — corte '
+                                                 'contundente',
+                                       'fen': '7K/6R1/2k5/1p6/8/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': [],
+                                       'notas': {0: 'Mesma ideia do diagrama '
+                                                    'principal, com o peão uma coluna '
+                                                    'mais perto do centro (b, não a): '
+                                                    'o corte na quinta fila continua '
+                                                    'sendo, sozinho, suficiente para '
+                                                    'ganhar — **1.Rg5!** é a única '
+                                                    'jogada vencedora.'}},
+                                      {'rotulo': 'Série do corte horizontal — corte '
+                                                 'pouco à frente',
+                                       'fen': '7K/8/8/2k5/1p4R1/8/8/8 w - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': [],
+                                       'notas': {0: 'O livro classifica esta posição '
+                                                    "como 'o corte não é contundente, "
+                                                    'mas ainda assim 1.Rg5 é a única '
+                                                    "que ganha'. A verificação "
+                                                    'exaustiva com Stockfish (todos os '
+                                                    'lances legais das brancas, '
+                                                    'incluindo 1.Rg5, com profundidade '
+                                                    'até 40) mostra 0.00 em qualquer '
+                                                    'um deles: a posição exata da '
+                                                    'torre, do rei e do peão foi '
+                                                    'conferida pixel a pixel contra a '
+                                                    'imagem do livro e está correta, '
+                                                    'então aqui preferimos o veredito '
+                                                    'do motor ao do livro — um rei e '
+                                                    'peão já nessa fila, com o rei '
+                                                    'forte ainda na casa do canto, '
+                                                    'bastam para segurar o empate.'}},
+                                      {'rotulo': 'Série do corte horizontal — corte '
+                                                 'inútil',
+                                       'fen': '7R/8/2K5/8/1pk5/8/8/8 w - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': [],
+                                       'notas': {0: 'Mesmo com o rei branco já bem '
+                                                    'adiantado (c6, perto da ação) e a '
+                                                    'torre pronta para qualquer corte, '
+                                                    'uma fila mais adiantada do rei e '
+                                                    'do peão pretos já basta para '
+                                                    'anular completamente o recurso — '
+                                                    'as brancas não ganham nem '
+                                                    'jogando, confirmando por que o '
+                                                    'corte horizontal só funciona '
+                                                    'enquanto o lado fraco ainda está '
+                                                    'atrasado.'}}],
+                         'regras': ['Com o rei do lado fraco ainda na terceira fila '
+                                    '(contada a partir do seu próprio campo) e '
+                                    'separado do seu peão, o corte horizontal da torre '
+                                    'já é suficiente, sozinho, para ganhar — sobretudo '
+                                    'com peão de torre.',
+                                    'Uma fila mais adiantado o corte perde força '
+                                    'rapidamente: pode ainda decidir a partida '
+                                    '(dependendo de detalhes finos que vale conferir '
+                                    'com cálculo), mas deixa de ser um recurso '
+                                    'automático, e mais uma fila à frente deixa de '
+                                    'funcionar por completo.']},
+                        {'n': 23,
+                         'titulo': 'O rei forte na zona de trás do peão',
+                         'conceito': 'Empurrar o rei adversário só de frente, pela '
+                                     'retaguarda, não funciona contra a maioria dos '
+                                     'peões: a coroação de cavalo salva o lado fraco. '
+                                     'O recurso realmente eficaz é o rodeio — '
+                                     'contornar o peão e aparecer do lado oposto.',
+                         'texto': ['Quando o rei forte pressiona o adversário pela '
+                                   'retaguarda (na mesma coluna do peão, vindo de '
+                                   'trás) e o rei inimigo lhe barra o caminho, pode '
+                                   'parecer que basta continuar empurrando com xeques '
+                                   'de torre. Mas, com a maioria dos peões, essa '
+                                   'pressão simples não funciona: o lado fraco sempre '
+                                   'tem o recurso da coroação de cavalo, mantendo o '
+                                   'cavalo grudado ao próprio rei para nunca ser '
+                                   'capturado.',
+                                   'O procedimento realmente eficaz, quando o rei '
+                                   'forte está atrás do peão, é o rodeio: dar a volta '
+                                   'e aparecer do lado oposto do peão, abandonando a '
+                                   'pressão direta que não leva a nada.',
+                                   'Há uma exceção de tempo: o rei forte não tem tempo '
+                                   'de completar o rodeio se o peão já estiver na '
+                                   'quinta fila — a menos que a torre já esteja '
+                                   'posicionada atrás do peão. Por isso, uma fila mais '
+                                   'adiantado (Diagrama 5.5), o rodeio já funciona; '
+                                   'ver a comparação completa na série de diagramas a '
+                                   'seguir.'],
+                         'posicoes': [{'rotulo': 'A coroação de cavalo salva as pretas',
+                                       'fen': '8/8/3K3R/8/2pk4/8/8/8 w - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': ['Rh4+',
+                                                 'Kd3',
+                                                 'Kd5',
+                                                 'c3',
+                                                 'Rh3+',
+                                                 'Kd2',
+                                                 'Kc4',
+                                                 'c2',
+                                                 'Rh2+',
+                                                 'Kd1',
+                                                 'Kd3',
+                                                 'c1=N+',
+                                                 'Ke3',
+                                                 'Nb3',
+                                                 'Rb2',
+                                                 'Nc1'],
+                                       'notas': {0: 'O rei branco empurra pela '
+                                                    'retaguarda e a torre vai dando '
+                                                    'xeques, mas isso não basta: o '
+                                                    'peão sempre consegue chegar à '
+                                                    'primeira fila a tempo de coroar '
+                                                    'em cavalo.',
+                                                 11: '**12...c1=N+!** É só '
+                                                     'aparentemente um choque: coroar '
+                                                     'em dama perderia a peça '
+                                                     'imediatamente ao xeque de mate '
+                                                     'ameaçado, mas o cavalo, com '
+                                                     'xeque, é perfeitamente '
+                                                     'suficiente para empatar.',
+                                                 13: 'A partir daqui, a tarefa das '
+                                                     'pretas é só manter o cavalo '
+                                                     'sempre o mais perto possível do '
+                                                     'próprio rei, quase sempre com '
+                                                     'lances únicos — exatamente o '
+                                                     'mesmo recurso do Final 8. '
+                                                     '(Atenção: esse recurso só '
+                                                     'funciona com o peão coroando em '
+                                                     'colunas centrais ou de '
+                                                     'cavalo/bispo; com peão de torre '
+                                                     'o cavalo se perderia — ver Final '
+                                                     '27.)'},
+                                       'regra_destaque': 'A pressão do rei forte vindo '
+                                                         'só pela retaguarda é '
+                                                         'ineficaz contra peões das '
+                                                         'colunas b a g, graças à '
+                                                         'coroação de cavalo — o '
+                                                         'recurso que realmente ganha '
+                                                         'é o rodeio.'},
+                                      {'rotulo': 'Uma fila mais adiantado, o rodeio já '
+                                                 'funciona',
+                                       'fen': '8/3K3R/8/2pk4/8/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Rh5+',
+                                                 'Kd4',
+                                                 'Kc6',
+                                                 'c4',
+                                                 'Kb5',
+                                                 'c3',
+                                                 'Rc5',
+                                                 'Kd3',
+                                                 'Kb4',
+                                                 'c2',
+                                                 'Kb3',
+                                                 'c1=Q',
+                                                 'Rxc1',
+                                                 'Kd4',
+                                                 'Kb4',
+                                                 'Kd5'],
+                                       'notas': {0: 'Com os reis e o peão uma fila '
+                                                    'mais adiantados em relação ao '
+                                                    'diagrama anterior, o rei branco '
+                                                    'já tem tempo de completar o '
+                                                    'rodeio: **1.Rh5+!** primeiro '
+                                                    'afasta o rei preto do caminho, e '
+                                                    '**2.Kc6!** já inicia a volta por '
+                                                    'trás do peão.',
+                                                 11: 'Dessa vez a coroação não salva: '
+                                                     'sem o apoio do próprio rei (que '
+                                                     'ficou para trás, cortado pelo '
+                                                     'rodeio), a torre simplesmente '
+                                                     'captura a dama assim que ela '
+                                                     'nasce.'},
+                                       'regra_destaque': 'Com o peão uma fila mais '
+                                                         'adiantado (mas ainda não na '
+                                                         'quinta), o rei forte já tem '
+                                                         'tempo de completar o rodeio '
+                                                         'e ganhar, mesmo que o rei '
+                                                         'fraco tente bloquear pela '
+                                                         'frente.'},
+                                      {'rotulo': 'A mesma posição, com as pretas a '
+                                                 'jogar',
+                                       'fen': '8/3K3R/8/2pk4/8/8/8/8 b - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': ['c4',
+                                                 'Rh1',
+                                                 'c3',
+                                                 'Rh3',
+                                                 'Kc4',
+                                                 'Rxc3+',
+                                                 'Kxc3'],
+                                       'notas': {0: 'A mesma posição exata do diagrama '
+                                                    'anterior, mas agora com a vez de '
+                                                    'jogar trocada: as pretas ganham '
+                                                    'justamente o tempo que faltava '
+                                                    'para o rei preto se manter em '
+                                                    'oposição e segurar o empate — o '
+                                                    'rodeio deixa de dar tempo.'},
+                                       'regra_destaque': 'A mesma posição, só com o '
+                                                         'lado a mover trocado, já não '
+                                                         'é suficiente para as '
+                                                         'brancas: o rodeio depende do '
+                                                         'tempo exato disponível.'},
+                                      {'rotulo': 'Série da oposição do rei por trás — '
+                                                 'coroação de cavalo',
+                                       'fen': '8/8/3K3R/8/2pk4/8/8/8 w - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': [],
+                                       'notas': {0: 'A mesma posição do primeiro '
+                                                    'diagrama deste final: tablas '
+                                                    'jogue quem jogar, graças à '
+                                                    'coroação de cavalo (ver análise '
+                                                    'completa acima). Única observação '
+                                                    'extra: com a torre já em h1 em '
+                                                    'vez de h6, as brancas ganham de '
+                                                    'corrida — a contagem simples de '
+                                                    'tempos (Final 21) volta a valer '
+                                                    'quando a torre já está '
+                                                    'posicionada.'}},
+                                      {'rotulo': 'Série da oposição do rei por trás — '
+                                                 'rodeio',
+                                       'fen': '8/3K3R/8/2pk4/8/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': [],
+                                       'notas': {0: 'A mesma posição do segundo '
+                                                    'diagrama deste final: as brancas '
+                                                    'ganham jogando elas, mas as '
+                                                    'pretas empatam se tiverem a vez — '
+                                                    'o rodeio funciona, mas só com o '
+                                                    'tempo certo (ver análise completa '
+                                                    'acima).'}},
+                                      {'rotulo': 'Série da oposição do rei por trás — '
+                                                 'rodeio garantido',
+                                       'fen': '3K3R/8/2pk4/8/8/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': [],
+                                       'notas': {0: 'Mais uma fila adiantados, o '
+                                                    'resultado já não depende de quem '
+                                                    'tem a vez: o rodeio é tão rápido '
+                                                    'que as brancas ganham jogando '
+                                                    'qualquer um dos dois lados '
+                                                    '(confirmado pelo Stockfish: '
+                                                    'nitidamente a favor das brancas '
+                                                    'tanto com elas quanto com as '
+                                                    'pretas a mover). A torre funciona '
+                                                    'bem em quase qualquer casa, mas '
+                                                    'as casas do extremo da coluna '
+                                                    'favorecem ainda mais o rodeio.'}}],
+                         'regras': ['A pressão do rei forte só pela retaguarda é '
+                                    'ineficaz contra a maioria dos peões, graças à '
+                                    'coroação de cavalo — o recurso que realmente '
+                                    'ganha é o rodeio: dar a volta e atacar o peão '
+                                    'pelo lado oposto.',
+                                    'O rei forte só não tem tempo de rodear se o peão '
+                                    'já estiver na quinta fila — exceto se a torre já '
+                                    'estiver posicionada atrás dele.']},
+                        {'n': 24,
+                         'titulo': 'O rei forte numa zona lateral',
+                         'conceito': 'O lado da torre depende da colaboração do '
+                                     'próprio rei para cercar o peão adversário — por '
+                                     'isso é vantajoso para o rei inimigo se meter no '
+                                     'caminho, obstruindo essa aproximação. Quando os '
+                                     'reis se encontram de frente, o recurso chave é '
+                                     'empurrar com o ombro (a ombrada).',
+                         'texto': ['Como já vimos, o lado da torre precisa que seu '
+                                   'próprio rei ajude a controlar e capturar o peão '
+                                   'adversário. Por isso é vantajoso para o rei '
+                                   'inimigo se colocar no caminho, obstruindo essa '
+                                   'aproximação — um recurso sempre interessante, mas '
+                                   'especialmente crítico quando o rei forte se '
+                                   'aproxima por um lado lateral.',
+                                   'Em muitas posições, a única forma de a torre '
+                                   'receber apoio é colocar o próprio rei em oposição '
+                                   "ao rival, com o objetivo de dar xeque e 'empurrar' "
+                                   'o rei inimigo uma coluna (ou fila) para alcançar '
+                                   'dois objetivos: aproximar o próprio rei e limitar '
+                                   'a mobilidade do rei e/ou do peão adversários. A '
+                                   'esse procedimento de disputa por uma casa-chave '
+                                   "chamaremos 'empurrar com o ombro', ou simplesmente "
+                                   '**ombrada**. O lado da torre tem todas as '
+                                   'vantagens a seu favor nessa disputa, mas só a '
+                                   'longo prazo — às vezes não há tempo de '
+                                   'aproveitá-la.',
+                                   'Outro recurso típico, especialmente quando o rei '
+                                   'forte vem de um lado lateral, é o xeque oportuno '
+                                   'de torre para ganhar um tempo importante, '
+                                   'permitindo que a própria torre se posicione '
+                                   'controlando o peão.'],
+                         'posicoes': [{'rotulo': 'Os reis se empurram',
+                                       'fen': '8/8/8/7K/3pk3/8/8/3R4 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Kg4',
+                                                 'd3',
+                                                 'Re1+',
+                                                 'Kd4',
+                                                 'Kf3',
+                                                 'd2',
+                                                 'Rd1',
+                                                 'Kd3',
+                                                 'Kf2',
+                                                 'Kd4',
+                                                 'Rxd2+',
+                                                 'Ke4',
+                                                 'Rd1',
+                                                 'Kf4',
+                                                 'Re1',
+                                                 'Kg5'],
+                                       'notas': {0: '**1.Kg4!** é a jogada mais '
+                                                    'gráfica para empurrar o rei '
+                                                    'adversário (embora não seja a '
+                                                    'única que ganha — 1.Kh4! também '
+                                                    'funciona): a ideia é chegar a g3 '
+                                                    'no lance seguinte e, a partir '
+                                                    'daí, empurrar o rei preto '
+                                                    '(ombrada) para fora da zona-chave '
+                                                    'e4-g3. Já se ameaça Re1, já que a '
+                                                    'torre está em d1.',
+                                                 2: 'O rei branco continua a oposição '
+                                                    'para empurrar com eficácia '
+                                                    '(ombrada): as pretas não '
+                                                    'conseguem mais evitá-la, porque '
+                                                    'precisam permanecer ao lado do '
+                                                    'próprio peão.'},
+                                       'regra_destaque': 'Quando os dois reis estão do '
+                                                         'mesmo lado do peão, os '
+                                                         'recursos principais são a '
+                                                         'ombrada mútua entre os reis '
+                                                         'e os xeques de torre para '
+                                                         'ganhar tempo.'},
+                                      {'rotulo': 'Ganhando um tempo com xeque',
+                                       'fen': '7R/8/8/8/2K3p1/8/5k2/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Rf8+',
+                                                 'Ke3',
+                                                 'Rg8',
+                                                 'Kf3',
+                                                 'Kd3',
+                                                 'Kf4',
+                                                 'Rg7',
+                                                 'g3',
+                                                 'Rg8',
+                                                 'Kf3',
+                                                 'Rf8+',
+                                                 'Kg4'],
+                                       'notas': {0: 'O rei preto já está pronto para '
+                                                    'apoiar o peão até a oitava fila e '
+                                                    'não tem mais como melhorar de '
+                                                    'posição — por isso a torre se '
+                                                    'coloca atrás do peão sem perder '
+                                                    'tempo: **1.Rf8+!** Cuidado para '
+                                                    'não dar este xeque numa posição '
+                                                    'em que o rei preto ainda possa '
+                                                    'melhorar, e atenção para nunca '
+                                                    'avançar o próprio rei antes do '
+                                                    'peão.',
+                                                 4: '**3.Kd3!** Empurrando com o ombro '
+                                                    '(ombrada): o rei branco se '
+                                                    'aproxima pelo lado, limitando '
+                                                    'cada vez mais o espaço do rei '
+                                                    'preto.'}},
+                                      {'rotulo': 'Combinando xeque de torre e ombrada',
+                                       'fen': '8/8/8/8/4p3/7K/5k2/R7 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Ra2+',
+                                                 'Kf3',
+                                                 'Ra7',
+                                                 'e3',
+                                                 'Rf7+',
+                                                 'Ke2',
+                                                 'Kg2',
+                                                 'Kd1',
+                                                 'Kf3',
+                                                 'e2',
+                                                 'Rd7+',
+                                                 'Kc2'],
+                                       'notas': {0: 'Este exemplo combina os dois '
+                                                    'recursos dominantes quando os '
+                                                    'reis estão do mesmo lado do peão: '
+                                                    'de novo o rei preto já está na '
+                                                    'posição ideal em relação ao '
+                                                    'próprio peão, e por isso '
+                                                    '**1.Ra2!** (o xeque) é muito '
+                                                    'incômodo para ele. Outras jogadas '
+                                                    'não ganham.',
+                                                 4: 'Agora os reis ficam de frente um '
+                                                    'para o outro — a situação mais '
+                                                    'favorável para um xeque vindo de '
+                                                    'trás e a consequente ombrada do '
+                                                    'rei forte.'}}],
+                         'regras': ['Quando os dois reis estão do mesmo lado do peão, '
+                                    'os recursos principais do lado forte são empurrar '
+                                    'o rei inimigo com o próprio rei (a ombrada) e '
+                                    'usar xeques de torre para ganhar tempo.',
+                                    'Em posições normais da torre, o lado forte ganha '
+                                    'se conseguir a oposição lateral dos reis antes de '
+                                    'o peão chegar à sexta fila.']},
+                        {'n': 25,
+                         'titulo': 'A torre na frente do peão',
+                         'conceito': 'Ao contrário dos finais de peões (ou de peças '
+                                     'menos poderosas), com uma torre no tabuleiro é '
+                                     'raro encontrar zugzwang — mas, quando a torre '
+                                     'controla o peão pela frente, o zugzwang pode ser '
+                                     'exatamente o que decide a partida.',
+                         'texto': ['Diferentemente dos finais de peões ou de outras '
+                                   'peças menos poderosas, com uma torre no tabuleiro '
+                                   'é pouco frequente encontrar posições de zugzwang, '
+                                   'já que a torre costuma ter muitos lances '
+                                   'disponíveis e dificilmente todos eles são '
+                                   'prejudiciais ao próprio lado.',
+                                   'Apesar disso, no final de torre contra peão o '
+                                   'zugzwang desempenha um papel essencial quando a '
+                                   'torre controla o peão pela frente — como neste '
+                                   'famoso estudo composto por Reti em 1928, que '
+                                   'ilustra bem essa importância teórica.'],
+                         'posicoes': [{'rotulo': 'Reti, 1928 — o duplo zugzwang',
+                                       'fen': '8/5K2/8/4pk2/4R3/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Re2',
+                                                 'e4',
+                                                 'Re1',
+                                                 'Kf4',
+                                                 'Ke6',
+                                                 'e3',
+                                                 'Kd5',
+                                                 'Kf3',
+                                                 'Kd4',
+                                                 'e2',
+                                                 'Kd3',
+                                                 'Kf4',
+                                                 'Rxe2',
+                                                 'Kf5'],
+                                       'notas': {0: '**1.Re2!** (ou 1.Re3) é a jogada '
+                                                    'correta. A tentação natural seria '
+                                                    '1.Re1?, mas depois de 1...e4! a '
+                                                    'posição vira zugzwang: a oposição '
+                                                    'dos reis impede o rei branco de '
+                                                    'se aproximar, qualquer lance de '
+                                                    'torre pela primeira fila libera o '
+                                                    'avanço do peão, e os lances de '
+                                                    'torre a e2/e3 ou o xeque em f1 só '
+                                                    'dão tempo às pretas — é '
+                                                    'exatamente a posição do Diagrama '
+                                                    'de análise 5.10, mostrado a '
+                                                    'seguir, onde o resultado já é '
+                                                    'apenas empate.',
+                                                 3: 'Com a torre bem colocada desde o '
+                                                    'início, agora sim tudo fica fácil '
+                                                    'de entender: as pretas não '
+                                                    'conseguem manter a posição, e '
+                                                    'confirma-se que esta é uma '
+                                                    'posição de duplo zugzwang — ruim '
+                                                    'para qualquer um dos dois lados '
+                                                    'que tenha de jogar.',
+                                                 5: 'O rei preto agora precisa ceder '
+                                                    'passagem ao rival e permitir o '
+                                                    'rodeio.'},
+                                       'regra_destaque': 'Com a torre já bem postada '
+                                                         'na frente do peão '
+                                                         '(controlando-o sem ficar '
+                                                         'presa a xeques), a posição '
+                                                         'pode virar um duplo '
+                                                         'zugzwang: tanto faz quem tem '
+                                                         'de jogar, é sempre ruim para '
+                                                         'quem joga.'},
+                                      {'rotulo': 'Diagrama de análise 5.10 — depois do '
+                                                 'erro 1.Re1? e4!',
+                                       'fen': '8/5K2/8/5k2/4p3/8/8/4R3 w - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': ['Ke7',
+                                                 'Ke5',
+                                                 'Ra1',
+                                                 'e3',
+                                                 'Rb1',
+                                                 'Kd4',
+                                                 'Ra1',
+                                                 'e2',
+                                                 'Ke6',
+                                                 'Ke4',
+                                                 'Rb1',
+                                                 'Ke3',
+                                                 'Ke5',
+                                                 'Kd2'],
+                                       'notas': {0: 'É exatamente a posição de '
+                                                    'zugzwang que o livro quer '
+                                                    'discutir: a oposição dos reis '
+                                                    'impede o rei branco de se '
+                                                    'aproximar, qualquer lance de '
+                                                    'torre pela primeira fila deixa o '
+                                                    'peão avançar, e mover a torre '
+                                                    'para e2/e3 (ou dar xeque em f1) '
+                                                    'só serve para as pretas ganharem '
+                                                    'tempo no futuro.',
+                                                 1: '**2.Ke7** é a tentativa mais '
+                                                    'lógica: o rei branco tenta '
+                                                    'completar o rodeio. As pretas '
+                                                    'respondem mantendo a oposição dos '
+                                                    'reis — de novo uma posição de '
+                                                    'zugzwang, sem progresso possível '
+                                                    'para as brancas.'},
+                                       'regra_destaque': 'Um único lance de diferença '
+                                                         'na posição da torre (e1 em '
+                                                         'vez de e2/e3) transforma uma '
+                                                         'vitória clara num empate — '
+                                                         'prova de como o zugzwang '
+                                                         'pode ser decisivo mesmo em '
+                                                         'finais de torre.'}],
+                         'regras': ['Com a torre controlando o peão pela frente, o '
+                                    'zugzwang pode decidir a partida: vale a pena '
+                                    'sempre verificar se a posição não é, na verdade, '
+                                    'de duplo zugzwang antes de escolher o lance da '
+                                    'torre.',
+                                    'A casa exata em que a torre se coloca na frente '
+                                    'do peão importa — uma diferença de uma única casa '
+                                    'pode transformar vitória em empate.']},
+                        {'n': 26,
+                         'titulo': 'Temas especiais do peão de cavalo',
+                         'conceito': 'O peão de cavalo tem personalidade própria: além '
+                                     'de abrir possibilidades de afogamento que '
+                                     'favorecem o lado do peão, ele cria um corredor '
+                                     'estreito — a coluna de torre — que pode obrigar '
+                                     'o rei fraco a se colocar na frente do próprio '
+                                     'peão repetidas vezes, quase sempre fatal.',
+                         'texto': ['Como já sabemos, os peões das colunas extremas '
+                                   'costumam ter personalidade própria. O mais '
+                                   "'caprichoso' é quase sempre o peão de torre, ao "
+                                   'qual dedicamos uma seção especial mais adiante. '
+                                   'Mas o peão de cavalo também tem suas '
+                                   'particularidades.',
+                                   'Além de algumas posições de afogamento que '
+                                   'favorecem o lado do peão, existe uma circunstância '
+                                   'importante que favorece o lado da torre: se o rei '
+                                   'fraco é obrigado a se colocar na frente do próprio '
+                                   'peão e depois aparece pelo lado da coluna de '
+                                   'torre, ele pode facilmente ser obrigado a se '
+                                   'colocar na frente do peão outra vez — e a coluna '
+                                   'de torre é um corredor muito estreito para escapar '
+                                   'dessa armadilha.',
+                                   'A posição a seguir é um estudo de Kopaev que, além '
+                                   'de ilustrar os temas especiais do peão de cavalo, '
+                                   'serve para revisar quase todos os temas dos finais '
+                                   'de torre contra peão vistos até aqui.'],
+                         'posicoes': [{'rotulo': 'Kopaev, 1954',
+                                       'fen': '3K4/4R3/8/1p6/8/2k5/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Rc7+',
+                                                 'Kb3',
+                                                 'Kd7',
+                                                 'b4',
+                                                 'Kd6',
+                                                 'Ka2',
+                                                 'Kc5',
+                                                 'b3',
+                                                 'Kb4',
+                                                 'b2',
+                                                 'Ra7+',
+                                                 'Kb1',
+                                                 'Kb3',
+                                                 'Kc1',
+                                                 'Rc7+',
+                                                 'Kb1',
+                                                 'Rb7',
+                                                 'Kc1',
+                                                 'Ka2'],
+                                       'notas': {0: '**1.Rc7+!** ganha um tempo com o '
+                                                    'xeque. A posição relativa do rei '
+                                                    'e do peão pretos é a mesma do '
+                                                    'Diagrama 5.6 — a mais favorável '
+                                                    'para preparar o avanço —, por '
+                                                    'isso este xeque é especialmente '
+                                                    'incômodo.',
+                                                 2: '**2.Kd7** — o sentido de 1...Kb3 '
+                                                    '(em vez de 1...Kd3) está '
+                                                    'exatamente em ganhar um tempo em '
+                                                    'relação à variante 2.Rb7? b4 '
+                                                    '3.Kc7 Kc3!, onde as pretas já '
+                                                    'teriam ganhado um tempo a mais.',
+                                                 4: '**3.Kd6!** Um detalhe importante: '
+                                                    'o rei branco continua se '
+                                                    'aproximando, mas evitando que o '
+                                                    "rei preto escape pelo 'lado bom' "
+                                                    'do peão de cavalo. Um erro típico '
+                                                    'seria 3.Kc6?, que cai direto para '
+                                                    'empate (ver lance alternativo).',
+                                                 5: '**3...Ka2** — aqui reside o '
+                                                    'desastre. É claro que o rei preto '
+                                                    'precisa se afastar do caminho do '
+                                                    'próprio peão, mas a coluna de '
+                                                    'torre é um corredor muito '
+                                                    'estreito para fazer isso com '
+                                                    'segurança.',
+                                                 6: '**4.Kc5!** Já não importa mais '
+                                                    'ocupar a coluna c — 4.Kd5 também '
+                                                    'ganha. Até mesmo 4.Ra7+?! (mais '
+                                                    'desajeitado) ganha, o que só '
+                                                    'confirma o quanto é incômodo para '
+                                                    'as pretas ter o rei na frente do '
+                                                    'peão de cavalo.',
+                                                 8: '**5.Kb4!** O rei branco se '
+                                                    'aproveita — e até abusa — da '
+                                                    'posição desajeitada do '
+                                                    'adversário. Aqui 5.Ra7 ou 5.Kc4 '
+                                                    'também ganham.',
+                                                 10: '**6.Ra7+** — com qualquer outro '
+                                                     'peão o rei preto poderia fugir '
+                                                     'para a esquerda, mas aqui ele é '
+                                                     'obrigado a voltar a obstruir o '
+                                                     'próprio peão.',
+                                                 16: 'Agora aparece outro tema '
+                                                     'específico do peão de cavalo, '
+                                                     'desta vez a favor do '
+                                                     '**defensor**: a possibilidade de '
+                                                     'um afogamento. Mas aqui as '
+                                                     'brancas conseguem evitá-lo — é '
+                                                     'preciso cuidado: 9.Rc2?? '
+                                                     'permitiria 9...Ka1! e as pretas '
+                                                     'escapariam para o empate.',
+                                                 18: '**10.Ka2+-** Conclusão prática '
+                                                     'confirmada: quando o rei fraco é '
+                                                     'forçado a se colocar '
+                                                     'repetidamente na frente do '
+                                                     'próprio peão de cavalo (ou de '
+                                                     'torre), suas opções de defesa '
+                                                     'diminuem drasticamente.'},
+                                       'regra_destaque': 'Se for possível obrigar o '
+                                                         'rei fraco a ficar na frente '
+                                                         'do próprio peão de cavalo '
+                                                         '(ou de torre) mais de uma '
+                                                         'vez, as opções de defesa '
+                                                         'desaparecem rapidamente — '
+                                                         'vale a pena jogar para esse '
+                                                         'tema.',
+                                       'alternativas': [{'titulo': '3.Kc6? — erro: '
+                                                                   'ombrada das pretas '
+                                                                   'salva o empate',
+                                                         'linha': ['Rc7+',
+                                                                   'Kb3',
+                                                                   'Kd7',
+                                                                   'b4',
+                                                                   'Kc6',
+                                                                   'Kc4',
+                                                                   'Kb6+',
+                                                                   'Kd3',
+                                                                   'Ka5',
+                                                                   'b3',
+                                                                   'Rb7',
+                                                                   'Kc2',
+                                                                   'Ka4',
+                                                                   'b2'],
+                                                         'nota': 'Depois de 3.Kc6?, as '
+                                                                 'pretas respondem '
+                                                                 '3...Kc4! empurrando '
+                                                                 'com o ombro '
+                                                                 '(ombrada) — e, uma '
+                                                                 'vez desfeitas todas '
+                                                                 'as interferências '
+                                                                 'entre os reis, basta '
+                                                                 'contar: as pretas '
+                                                                 'precisam de 4 tempos '
+                                                                 'para coroar e as '
+                                                                 'brancas de 5 para '
+                                                                 'controlar b1 com rei '
+                                                                 'e torre juntos. '
+                                                                 'Resultado: empate '
+                                                                 '(confirmado pelo '
+                                                                 'Stockfish em 0.00 do '
+                                                                 'lance 5 em diante).',
+                                                         'espera_resultado': 'erro'}]}],
+                         'regras': ['O peão de cavalo cria um corredor estreito (a '
+                                    'coluna de torre) perto do canto: se o rei fraco '
+                                    'for obrigado a se colocar repetidamente na frente '
+                                    'do próprio peão, suas chances de defesa '
+                                    'desaparecem rapidamente.',
+                                    'O peão de cavalo também guarda, a favor do '
+                                    'defensor, possibilidades de afogamento — um '
+                                    'detalhe que o lado forte precisa sempre verificar '
+                                    'antes de cada lance de torre.']},
+                        {'n': 27,
+                         'titulo': 'Peão de torre — o empurrão desde trás',
+                         'conceito': 'O cavalo no canto sempre se perde — por isso, '
+                                     'com peão de torre, a pressão do rei forte vindo '
+                                     'pela retaguarda (que falhava com qualquer outro '
+                                     'peão) volta a ser muito eficaz.',
+                         'texto': ['No estudo do Final 9 já vimos que o cavalo no '
+                                   'canto do tabuleiro se perde. Por isso, a mesma '
+                                   'posição do Diagrama 5.4 — mas com peão de torre em '
+                                   'vez de peão de cavalo — tem um desfecho bem '
+                                   'diferente: essa circunstância torna muito eficaz a '
+                                   'pressão do rei por trás contra o peão de torre, já '
+                                   'que a coroação de cavalo deixa de ser um recurso '
+                                   'salvador.',
+                                   'Mas o peão de torre tem outro truque na manga: '
+                                   'embora não consiga coroar em cavalo com segurança, '
+                                   'ele compensa um pouco essa limitação com a '
+                                   'possibilidade de afogar o próprio rei — o tema do '
+                                   'segundo diagrama deste final.'],
+                         'posicoes': [{'rotulo': 'O cavalo no canto se perde: o '
+                                                 'empurrão funciona',
+                                       'fen': '7R/8/1K6/8/pk6/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Rh4+',
+                                                 'Kb3',
+                                                 'Kb5',
+                                                 'a3',
+                                                 'Rh3+',
+                                                 'Kb2',
+                                                 'Kb4',
+                                                 'a2',
+                                                 'Rh2+',
+                                                 'Kb1',
+                                                 'Kb3',
+                                                 'a1=N+',
+                                                 'Kc3'],
+                                       'notas': {0: 'As brancas ganham de corrida, sem '
+                                                    'sutilezas: **1.Th4+!** inicia uma '
+                                                    'sequência de xeques combinados '
+                                                    'com a aproximação do rei.',
+                                                 11: 'Mesmo coroando em cavalo com '
+                                                     'xeque, o cavalo nasce preso no '
+                                                     'canto — e, como sempre acontece '
+                                                     'com o cavalo no canto, se perde '
+                                                     'imediatamente. (Coroar em dama '
+                                                     'seria ainda pior: 12...a1=Q '
+                                                     'permite 13.Th1#, mate.)'},
+                                       'regra_destaque': 'O empurrão do rei desde a '
+                                                         'retaguarda (combinado com '
+                                                         'xeques de torre) é eficaz '
+                                                         'contra o peão de torre — '
+                                                         'justamente porque, ao '
+                                                         'contrário dos demais peões, '
+                                                         'o cavalo no canto não '
+                                                         'oferece defesa real.',
+                                       'alternativas': [{'titulo': '12...a1=Q?? '
+                                                                   'permite mate '
+                                                                   'imediato',
+                                                         'linha': ['Rh4+',
+                                                                   'Kb3',
+                                                                   'Kb5',
+                                                                   'a3',
+                                                                   'Rh3+',
+                                                                   'Kb2',
+                                                                   'Kb4',
+                                                                   'a2',
+                                                                   'Rh2+',
+                                                                   'Kb1',
+                                                                   'Kb3',
+                                                                   'a1=Q',
+                                                                   'Rh1'],
+                                                         'nota': 'Coroar em dama '
+                                                                 'parece mais forte '
+                                                                 'que coroar em '
+                                                                 'cavalo, mas aqui é '
+                                                                 'pior: o rei preto '
+                                                                 'fica preso no canto '
+                                                                 'e **13.Th1** é '
+                                                                 'xeque-mate imediato.',
+                                                         'espera_resultado': 'valido'}]},
+                                      {'rotulo': 'Afogado no canto: a posição limite',
+                                       'fen': '7R/8/8/8/8/8/pk1K4/8 w - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': ['Rb8+',
+                                                 'Ka1',
+                                                 'Ra8',
+                                                 'Kb2',
+                                                 'Rb8+',
+                                                 'Ka1',
+                                                 'Rc8',
+                                                 'Kb2'],
+                                       'notas': {0: '**1.Tb8+ Ka1!** O rei se esconde '
+                                                    'na frente do próprio peão e fica '
+                                                    'afogado — por isso o rei branco '
+                                                    'não tem tempo de se aproximar, e '
+                                                    'a posição é tablas. Com qualquer '
+                                                    'outro peão, a1 seria a casa '
+                                                    'escolhida para buscar o empate do '
+                                                    'mesmo jeito, mas aqui a beirada '
+                                                    'do tabuleiro impede qualquer '
+                                                    'tentativa de coroar com '
+                                                    'conforto.'},
+                                       'regra_destaque': 'O peão de torre não é pior '
+                                                         'que os demais peões contra o '
+                                                         'empurrão lateral, graças à '
+                                                         'possibilidade de afogamento '
+                                                         '— mesmo quando a pressão por '
+                                                         'trás (como no diagrama '
+                                                         'anterior) é devastadora.',
+                                       'alternativas': [{'titulo': '1...Ka3? — erro: '
+                                                                   'abre mão do '
+                                                                   'afogamento',
+                                                         'linha': ['Rb8+',
+                                                                   'Ka3',
+                                                                   'Kc2'],
+                                                         'nota': 'Com outro peão, a3 '
+                                                                 'seria a casa certa '
+                                                                 'para buscar o empate '
+                                                                 '— mas aqui a beirada '
+                                                                 'do tabuleiro impede '
+                                                                 'o rei de coroar com '
+                                                                 'conforto, e '
+                                                                 '**2.Kc2!** já ganha: '
+                                                                 'a peça que coroar '
+                                                                 'será capturada, '
+                                                                 'porque o cavalo no '
+                                                                 'canto sempre se '
+                                                                 'perde (como no '
+                                                                 'diagrama anterior).',
+                                                         'espera_resultado': 'erro'}]}],
+                         'regras': ['O cavalo no canto do tabuleiro sempre se perde — '
+                                    'por isso, com peão de torre, o empurrão do rei '
+                                    'forte desde a retaguarda volta a ser eficaz '
+                                    '(diferente do que acontece com qualquer outro '
+                                    'peão).',
+                                    'Mesmo assim, o peão de torre guarda um último '
+                                    'recurso que os demais peões não têm: a '
+                                    'possibilidade de afogar o próprio rei na beirada '
+                                    'do tabuleiro, escondendo-se na frente do peão.']},
+                        {'n': 28,
+                         'titulo': 'Peão de torre — o empurrão lateral',
+                         'conceito': 'O peão de torre não é pior que os demais contra '
+                                     'o empurrão lateral do rei forte, graças à '
+                                     'possibilidade de afogamento — mas essa defesa é '
+                                     'uma posição-limite: tudo depende de quem tem a '
+                                     'vez de jogar, e até de uma única casa do rei '
+                                     'branco.',
+                         'texto': ['Embora o peão de torre não possa aspirar a coroar '
+                                   'em cavalo, ele parece compensar um pouco essa '
+                                   'deficiência com a possibilidade de afogar o '
+                                   'próprio rei. Por isso alguns jogadores confiam '
+                                   'mais no peão de torre para buscar o empate contra '
+                                   'a torre — mas isso é um erro, como mostra esta '
+                                   'posição-chave que vale a pena memorizar.',
+                                   'A maioria das posições que não estão claramente '
+                                   'decididas a favor de um lado acaba passando por '
+                                   'esta, mais cedo ou mais tarde. É uma '
+                                   'posição-limite: jogando as pretas, fazem tablas; '
+                                   'jogando as brancas, ganham (simplesmente com Tb8). '
+                                   'A posição da torre branca (com exceção da casa b8) '
+                                   'é indiferente.',
+                                   'Como mostram os diagramas gêmeos da série a '
+                                   'seguir, a situação muda completamente se '
+                                   'deslocarmos as peças uma fila para cima ou para '
+                                   'baixo: os mesmos enunciados valeriam também '
+                                   'deslocando reis e peão uma coluna para a direita, '
+                                   'embora alguns lances defensivos exatos mudassem.'],
+                         'posicoes': [{'rotulo': 'Posição-limite do empurrão lateral',
+                                       'fen': '7R/8/8/8/8/pk1K4/8/8 b - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': ['Kb2',
+                                                 'Rb8+',
+                                                 'Kc1',
+                                                 'Kc3',
+                                                 'a2',
+                                                 'Ra8',
+                                                 'Kb1',
+                                                 'Rb8+',
+                                                 'Kc1'],
+                                       'notas': {0: '**1...Kb2!** evita o empurrão do '
+                                                    'rei rival. Avançar o peão direto '
+                                                    '(1...a2?) perde: 2.Tb8+ Ka3 '
+                                                    '3.Kc2! — o cavalo no canto sempre '
+                                                    'se perde, como já vimos no Final '
+                                                    '27.',
+                                                 2: '**2...Kc1!** Seria tolice '
+                                                    'obstruir o próprio peão agora — '
+                                                    'não há tempo de buscar o '
+                                                    'afogamento ainda.',
+                                                 8: 'As pretas repetem a mesma ideia e '
+                                                    'seguram o empate — mas atenção: '
+                                                    'tentar o afogamento com 5...Ka1?? '
+                                                    'aqui seria um erro fatal (ver '
+                                                    'lance alternativo), porque o rei '
+                                                    'branco está em d3, não em d2.'},
+                                       'regra_destaque': 'O peão de torre contra o '
+                                                         'empurrão lateral só empata '
+                                                         'se o defensor souber '
+                                                         'exatamente quando NÃO se '
+                                                         'esconder na frente do peão — '
+                                                         'confiar cegamente no '
+                                                         'afogamento pode custar a '
+                                                         'partida.',
+                                       'alternativas': [{'titulo': '1...a2? — erro: o '
+                                                                   'cavalo no canto '
+                                                                   'volta a se perder',
+                                                         'linha': ['a2',
+                                                                   'Rb8+',
+                                                                   'Ka3',
+                                                                   'Kc2',
+                                                                   'a1=N+',
+                                                                   'Kc3'],
+                                                         'nota': 'Avançar o peão de '
+                                                                 'imediato entrega a '
+                                                                 'partida: depois de '
+                                                                 '2.Tb8+ Ka3, '
+                                                                 '**3.Kc2!** já ganha, '
+                                                                 'porque — como no '
+                                                                 'Final 27 — qualquer '
+                                                                 'peça que coroe no '
+                                                                 'canto será capturada '
+                                                                 'em seguida.',
+                                                         'espera_resultado': 'erro'},
+                                                        {'titulo': '5...Ka1?? — erro: '
+                                                                   'aqui o afogamento '
+                                                                   'NÃO salva',
+                                                         'linha': ['Kb2',
+                                                                   'Rb8+',
+                                                                   'Kc1',
+                                                                   'Kc3',
+                                                                   'a2',
+                                                                   'Ra8',
+                                                                   'Kb1',
+                                                                   'Rb8+',
+                                                                   'Ka1',
+                                                                   'Rf8'],
+                                                         'nota': 'Cuidado para não '
+                                                                 'confiar demais no '
+                                                                 'afogamento: essa '
+                                                                 'ideia funcionava com '
+                                                                 'o rei branco em d2 '
+                                                                 '(ver Diagrama 5.13, '
+                                                                 'Final 27), mas aqui, '
+                                                                 'com o rei branco em '
+                                                                 'd3, **6.Tf8** já é '
+                                                                 'xeque-mate.',
+                                                         'espera_resultado': 'erro'}]},
+                                      {'rotulo': 'Série do empurrão lateral — tablas '
+                                                 'com afogamento',
+                                       'fen': '7R/8/8/8/8/8/pk1K4/8 w - - 0 1',
+                                       'resultado': 'Empate',
+                                       'linha': [],
+                                       'notas': {0: 'Uma fila mais atrás do diagrama '
+                                                    'principal deste final (rei branco '
+                                                    'em d2 em vez de d3): tablas jogue '
+                                                    'quem jogar, graças ao afogamento '
+                                                    '— é exatamente a mesma posição do '
+                                                    'Diagrama 5.13 (Final 27).'}},
+                                      {'rotulo': 'Série do empurrão lateral — '
+                                                 'posição-limite',
+                                       'fen': '7R/8/8/8/8/pk1K4/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': [],
+                                       'notas': {0: 'A posição principal deste final: '
+                                                    'jogando as brancas, ganham '
+                                                    'simplesmente com Tb8; jogando as '
+                                                    'pretas, empatam (ver análise '
+                                                    'completa acima).'}},
+                                      {'rotulo': 'Série do empurrão lateral — ganham '
+                                                 'sempre',
+                                       'fen': '7R/8/8/8/pk1K4/8/8/8 w - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': [],
+                                       'notas': {0: 'Mais uma fila à frente, o '
+                                                    'resultado já não depende de quem '
+                                                    'tem a vez: as brancas ganham '
+                                                    'jogando qualquer um dos dois '
+                                                    'lados (confirmado pelo Stockfish: '
+                                                    'nitidamente a favor das brancas '
+                                                    'tanto com elas quanto com as '
+                                                    'pretas a mover) — o rei fraco já '
+                                                    'não tem mais tempo de buscar o '
+                                                    'afogamento.'}}],
+                         'regras': ['O peão de torre contra o empurrão lateral guarda '
+                                    'a possibilidade de afogamento, mas essa defesa é '
+                                    'delicada: funciona só em certas posições exatas '
+                                    'do rei branco, e confiar nela sem calcular pode '
+                                    'custar a partida.',
+                                    'Avançar o peão de torre cedo demais, sem apoio do '
+                                    'próprio rei, costuma perder: o cavalo (ou a dama) '
+                                    'que nasce no canto se perde do mesmo jeito que no '
+                                    'empurrão por trás.']},
+                        {'n': 29,
+                         'titulo': 'O peão ganha da torre',
+                         'conceito': 'Até aqui vimos sempre a torre tentando ganhar do '
+                                     'peão — mas há posições em que a torre tem '
+                                     'problemas reais para detê-lo, e pode até perder. '
+                                     'Dada a posição dos reis e do peão, só há duas '
+                                     'casas no tabuleiro onde a torre perde: aqui '
+                                     'estão elas.',
+                         'texto': ['Até agora estudamos sempre exemplos em que a torre '
+                                   'tentava ganhar do peão. Mas existe uma situação em '
+                                   'que a torre tem dificuldades reais para deter o '
+                                   'peão — e pode até perder a partida. O exemplo mais '
+                                   'conhecido é a posição chamada de Barbier e '
+                                   'Saavedra, que envolve temas de afogamento e uma '
+                                   'sub-promoção; mas o fenômeno também pode acontecer '
+                                   'de forma mais simples e direta, como mostra este '
+                                   'diagrama.',
+                                   'Dada a posição dos reis e do peão, e jogando o '
+                                   'lado da torre, só existem duas casas no tabuleiro '
+                                   'em que a torre perde: são as duas marcadas no '
+                                   'diagrama, f5 e b5. A manobra é longa, mas bastante '
+                                   'clara. Para começar, a torre precisa dar xeque '
+                                   'para evitar a coroação imediata.'],
+                         'posicoes': [{'rotulo': 'As duas casas onde a torre perde: f5 '
+                                                 'e b5',
+                                       'fen': '8/2P2k2/3K4/5r2/8/8/8/8 b - - 0 1',
+                                       'resultado': 'Brancas ganham',
+                                       'linha': ['Rf6+',
+                                                 'Kd5',
+                                                 'Rf5+',
+                                                 'Kd4',
+                                                 'Rf4+',
+                                                 'Kd3',
+                                                 'Rf3+',
+                                                 'Kc2',
+                                                 'Rf2+',
+                                                 'Kb3',
+                                                 'Rf3+',
+                                                 'Kb4',
+                                                 'Rf4+',
+                                                 'Kb5',
+                                                 'Rf5+',
+                                                 'Kb6',
+                                                 'Rf6+',
+                                                 'Kb7'],
+                                       'notas': {0: '**1...Tf6+** é obrigatório: sem o '
+                                                    'xeque, o peão simplesmente coroa. '
+                                                    '**2.Rd5!** é a primeira sutileza '
+                                                    '— é preciso evitar 2.Rd7? Tf1!=, '
+                                                    'quando o rei já não consegue mais '
+                                                    'escapar dos xeques.',
+                                                 2: '**2...Tf5+ 3.Rd4!** De novo é '
+                                                    'preciso cuidado: 3.Rc4? Tf1! '
+                                                    'também empataria. Pode parecer '
+                                                    'que o rei branco não vai '
+                                                    'conseguir escapar dos xeques '
+                                                    'eternos, mas existe uma casa '
+                                                    'segura para se esconder — e o '
+                                                    'segredo está em atravessar a '
+                                                    'coluna c.',
+                                                 9: '**6.Rb3!** É a maneira certa: '
+                                                    'agora o rei branco consegue se '
+                                                    'esconder em b7 sem mais '
+                                                    'problemas, fora do alcance dos '
+                                                    'xeques pela coluna f.',
+                                                 17: 'O rei branco chegou com '
+                                                     'segurança a b7. A partir daqui o '
+                                                     'peão coroa sem mais obstáculos, '
+                                                     'e a dama nova decide a partida '
+                                                     'com folga.'},
+                                       'regra_destaque': 'Contra um rei e peão bem '
+                                                         'coordenados, a torre sozinha '
+                                                         'pode não bastar: o rei forte '
+                                                         'precisa apenas encontrar uma '
+                                                         'rota segura — atravessando '
+                                                         'para o lado oposto dos '
+                                                         'xeques — para escoltar o '
+                                                         'próprio peão até a '
+                                                         'coroação.'}],
+                         'regras': ['Nem sempre a torre ganha do peão passado: em '
+                                    'certas posições (aqui, com a torre exatamente em '
+                                    'f5 ou b5), o rei do peão consegue se esconder dos '
+                                    'xeques e escoltar a coroação.',
+                                    'A manobra de fuga do rei costuma exigir '
+                                    'atravessar para o lado oposto de onde a torre '
+                                    'está dando os xeques — procurando sempre a '
+                                    'primeira casa segura disponível.'],
+                         'exemplo_pratico': {'titulo': 'Svidler x Topalov, '
+                                                       'Morelia-Linares 2006',
+                                             'texto': ['O livro cita, sem reproduzir, '
+                                                       "'uma reciente partida "
+                                                       "Svidler-Topalov de Morelia' "
+                                                       'como exemplo de aplicação '
+                                                       'prática destas ideias em uma '
+                                                       'posição mais complexa. A '
+                                                       'partida é real — Svidler x '
+                                                       'Topalov, Morelia-Linares 2006, '
+                                                       '1ª rodada — e a notação '
+                                                       'completa está disponível, '
+                                                       'então vale a pena acompanhá-la '
+                                                       'a partir do lance 51, quando a '
+                                                       'disputa de torre contra peão '
+                                                       'passado (o tema deste '
+                                                       'capítulo) realmente começa.'],
+                                             'posicoes': [{'rotulo': 'Depois de '
+                                                                     '50...Txh5+, o '
+                                                                     'final de torre '
+                                                                     'contra peão '
+                                                                     'começa de '
+                                                                     'verdade',
+                                                           'fen': '8/8/2k2Pp1/p1p1R1Kr/p1p5/2P5/1P6/8 '
+                                                                  'w - - 2 51',
+                                                           'resultado': 'Brancas '
+                                                                        'ganham',
+                                                           'linha': ['Kxg6',
+                                                                     'Rxe5',
+                                                                     'f7',
+                                                                     'Re6+',
+                                                                     'Kg5',
+                                                                     'Re5+',
+                                                                     'Kg4',
+                                                                     'Re4+',
+                                                                     'Kg3',
+                                                                     'Re3+',
+                                                                     'Kf2',
+                                                                     'a3',
+                                                                     'f8=Q',
+                                                                     'axb2',
+                                                                     'Qc8+',
+                                                                     'Kb5',
+                                                                     'Qb7+',
+                                                                     'Ka4',
+                                                                     'Kxe3',
+                                                                     'Ka3',
+                                                                     'Qb5',
+                                                                     'a4',
+                                                                     'Qxc5+',
+                                                                     'Kb3',
+                                                                     'Qb4+',
+                                                                     'Kc2',
+                                                                     'Qxa4+',
+                                                                     'Kxc3',
+                                                                     'Qa5+',
+                                                                     'Kc2',
+                                                                     'Qf5+',
+                                                                     'Kc1',
+                                                                     'Qf1+'],
+                                                           'notas': {0: 'Partida real '
+                                                                        'entre dois '
+                                                                        'dos melhores '
+                                                                        'jogadores do '
+                                                                        'mundo da '
+                                                                        'época. Depois '
+                                                                        'da captura '
+                                                                        '**51...Txe5**, '
+                                                                        'sobra '
+                                                                        'exatamente o '
+                                                                        'tipo de final '
+                                                                        'deste '
+                                                                        'capítulo: rei '
+                                                                        'e peão '
+                                                                        'passado '
+                                                                        'contra rei e '
+                                                                        'torre (com '
+                                                                        'alguns peões '
+                                                                        'laterais '
+                                                                        'ainda no '
+                                                                        'tabuleiro, '
+                                                                        'que não mudam '
+                                                                        'a ideia '
+                                                                        'central).',
+                                                                     2: 'O peão branco '
+                                                                        'já chega a '
+                                                                        '**f7**, e as '
+                                                                        'pretas tentam '
+                                                                        'o único '
+                                                                        'recurso '
+                                                                        'disponível: '
+                                                                        'uma série de '
+                                                                        'xeques de '
+                                                                        'torre para '
+                                                                        'atrasar a '
+                                                                        'coroação.',
+                                                                     11: 'Como no '
+                                                                         'Final 29, a '
+                                                                         'torre não '
+                                                                         'consegue '
+                                                                         'impedir a '
+                                                                         'coroação '
+                                                                         'sozinha: o '
+                                                                         'rei branco '
+                                                                         'encontra uma '
+                                                                         'casa segura '
+                                                                         '(**f2**) e '
+                                                                         'escapa dos '
+                                                                         'xeques.',
+                                                                     12: 'O peão '
+                                                                         'coroa. A '
+                                                                         'partir '
+                                                                         'daqui, dama '
+                                                                         'e rei ganham '
+                                                                         'com folga '
+                                                                         'contra a '
+                                                                         'torre e os '
+                                                                         'peões '
+                                                                         'remanescentes '
+                                                                         'das pretas — '
+                                                                         'é só questão '
+                                                                         'de '
+                                                                         'técnica.'}}],
+                                             'fecho': 'A partir da coroação, dama e '
+                                                      'rei ganham com folga contra a '
+                                                      'torre e os peões remanescentes '
+                                                      'das pretas — é só questão de '
+                                                      'técnica, exatamente como nos '
+                                                      'finais teóricos deste '
+                                                      'capítulo.'}}]}]}
+CAPITULOS = [CAPITULO_1, CAPITULO_2, CAPITULO_3]
