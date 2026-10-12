@@ -9,12 +9,54 @@
    resultado objetivo tem que continuar sendo o declarado. É isso que
    pega uma linha "quase certa".
 """
-import sys, os, json, shutil
+import sys, os, json, shutil, argparse
 import chess, chess.engine
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASE)
-from dados import CAPITULO
+from dados import CAPITULOS
+
+
+def parse_args():
+    p = argparse.ArgumentParser(
+        description="Verifica posicoes do livro com Stockfish. Sem filtros, roda tudo.")
+    p.add_argument("--capitulo", type=int, default=None,
+                    help="Verifica só este número de capítulo (ex.: --capitulo 2).")
+    p.add_argument("--final", type=str, default=None,
+                    help="Verifica só este final, ou um intervalo (ex.: --final 17 ou --final 17-20).")
+    return p.parse_args()
+
+
+def finais_no_intervalo(spec, n):
+    if spec is None:
+        return True
+    if "-" in spec:
+        a, b = spec.split("-", 1)
+        return int(a) <= n <= int(b)
+    return n == int(spec)
+
+
+def filtrar_capitulos(capitulos, args):
+    out = []
+    for cap in capitulos:
+        if args.capitulo is not None and cap.get("numero") != args.capitulo:
+            continue
+        if args.final is None:
+            out.append(cap)
+            continue
+        novo_cap = dict(cap)
+        novas_secoes = []
+        for sec in cap["secoes"]:
+            finais_filtrados = [fin for fin in sec["finais"]
+                                 if finais_no_intervalo(args.final, fin["n"])]
+            if finais_filtrados:
+                nova_sec = dict(sec)
+                nova_sec["finais"] = finais_filtrados
+                novas_secoes.append(nova_sec)
+        if novas_secoes:
+            novo_cap["secoes"] = novas_secoes
+            out.append(novo_cap)
+    return out
 
 
 def localizar_stockfish():
@@ -85,17 +127,31 @@ def profundidade_atingida(info, alvo):
 
 def contar_posicoes():
     total = 0
-    for sec in CAPITULO["secoes"]:
-        for fin in sec["finais"]:
-            total += len(fin["posicoes"])
-            ep = fin.get("exemplo_pratico")
-            if ep:
-                total += len(ep["posicoes"])
+    for cap in CAPITULOS:
+        for sec in cap["secoes"]:
+            for fin in sec["finais"]:
+                total += len(fin["posicoes"])
+                ep = fin.get("exemplo_pratico")
+                if ep:
+                    total += len(ep["posicoes"])
     return total
 
 
 def main():
+    args = parse_args()
+    global CAPITULOS
+    CAPITULOS = filtrar_capitulos(CAPITULOS, args)
+    if not CAPITULOS:
+        print("Nenhuma posição corresponde aos filtros informados (--capitulo/--final).")
+        return
     total = contar_posicoes()
+    if args.capitulo is not None or args.final is not None:
+        filtros = []
+        if args.capitulo is not None:
+            filtros.append(f"capítulo {args.capitulo}")
+        if args.final is not None:
+            filtros.append(f"final {args.final}")
+        print(f"Filtro ativo: {', '.join(filtros)}")
     print(f"Verificando {total} posições com Stockfish (profundidade padrão {DEPTH},"
           f" pode variar por posição; teto de {TEMPO_MAX}s por avaliação) — cada"
           f" linha aparece assim que termina; pode levar alguns minutos no total.")
@@ -202,14 +258,15 @@ def main():
         imprimir_item(item)
 
     print("=" * 78, flush=True)
-    for sec in CAPITULO["secoes"]:
-        for fin in sec["finais"]:
-            for pos in fin["posicoes"]:
-                checar(pos, f"F{fin['n']} {fin['titulo']}")
-            ep = fin.get("exemplo_pratico")
-            if ep:
-                for pos in ep["posicoes"]:
-                    checar(pos, f"F{fin['n']} {ep['titulo']}")
+    for cap in CAPITULOS:
+        for sec in cap["secoes"]:
+            for fin in sec["finais"]:
+                for pos in fin["posicoes"]:
+                    checar(pos, f"F{fin['n']} {fin['titulo']}")
+                ep = fin.get("exemplo_pratico")
+                if ep:
+                    for pos in ep["posicoes"]:
+                        checar(pos, f"F{fin['n']} {ep['titulo']}")
 
     engine.quit()
 

@@ -373,6 +373,10 @@ Não há dependências de Node/JavaScript para desenvolvimento — só Python.
   - `v1.0.1` — correções de título, favicon, créditos ao livro de
     referência, indicador de versão no rodapé e infraestrutura de SVGs
     versionada em `sets/`.
+  - `v1.0.2`–`v1.0.6` — correções pontuais no capítulo 1 (ver histórico de
+    commits para detalhes de cada uma).
+  - `v2.0` — capítulo 2 completo (Finais 10 a 20: cavalo contra peão e dama
+    contra peão), 11 finais, 19 posições novas (43 no total).
 
 ## Deploy
 
