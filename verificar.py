@@ -88,15 +88,26 @@ def main():
     relatorio, problemas = [], []
     contador = [0]
 
-    def avaliar(board, profundidade=DEPTH):
+    def progresso(texto):
+        # Linha transitoria (sobrescrita pela proxima), para mostrar que o
+        # motor esta calculando mesmo quando uma posicao demora.
+        linha = f"      [{contador[0]}/{total}] calculando: {texto}"
+        print("\r" + linha.ljust(78), end="", flush=True)
+
+    def avaliar(board, profundidade=DEPTH, label=""):
+        if label:
+            progresso(label)
         return classify(engine.analyse(board, chess.engine.Limit(depth=profundidade)))
 
     def imprimir_item(it):
         marca = "FALHA" if it["erros"] else "  ok "
         prof = f" (d={it['profundidade']})" if "profundidade" in it else ""
-        print(f"{marca} [{contador[0]}/{total}] {it['contexto'][:30]:30s} "
-              f"{it['rotulo'][:26]:26s} decl={it['esperado']:16s} "
-              f"sf={it.get('sf','?')} {it.get('sf_bruto','')}{prof}", flush=True)
+        linha = (f"{marca} [{contador[0]}/{total}] {it['contexto'][:30]:30s} "
+                 f"{it['rotulo'][:26]:26s} decl={it['esperado']:16s} "
+                 f"sf={it.get('sf','?')} {it.get('sf_bruto','')}{prof}")
+        # "\r" + preenchimento apaga a linha de progresso transitoria antes
+        # de imprimir o resultado final, que fica registrado de verdade.
+        print("\r" + linha.ljust(78), flush=True)
         for e in it["erros"]:
             print(f"       !! {e}", flush=True)
 
@@ -114,7 +125,7 @@ def main():
             item["erros"].append("FEN não representa posição legal")
             problemas.append(item); relatorio.append(item); imprimir_item(item); return
 
-        veredito, bruto = avaliar(board, profundidade)
+        veredito, bruto = avaliar(board, profundidade, label="posição inicial")
         item["sf"] = veredito
         item["sf_bruto"] = bruto
         alvo = "Empate" if esperado == "Empate teórico" else esperado
@@ -135,7 +146,7 @@ def main():
             fens.append(b.fen())
             if b.is_game_over():
                 break
-            v2, r2 = avaliar(b, profundidade)
+            v2, r2 = avaliar(b, profundidade, label=f"após {i+1}.{san}")
             if v2 != alvo:
                 item["erros"].append(f"após {i+1}.{san} o resultado vira '{v2}' ({r2})")
         item["fens"] = fens
