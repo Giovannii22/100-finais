@@ -30,7 +30,8 @@ DIAGRAMAS = [
     "1.21",           # Final 9 — cavalo no canto
     "1.22",           # Final 9 — rei no canto
     "1.23",           # Final 9 — casa boba do cavalo
-    "1.24",           # Final 9 — Kamsky–Bacrot
+    "1.24",           # Final 9 — Kamsky–Bacrot (posição do diagrama)
+    "1.24.1",         # Final 9 — Kamsky–Bacrot, defesa correta depois de 5.Rf3 (derivada, não é do livro)
 ]
 
 CAPITULO = {
@@ -476,11 +477,20 @@ CAPITULO = {
                             "notas": {
                                 0: "O primeiro lance é claramente único.",
                                 1: "O segundo também, seguindo o critério de manter cavalo e rei unidos — embora aqui o xeque em g4 não perca.",
-                                4: "Para o terceiro lance há duas opções que levam à mesma posição alguns lances depois. "
-                                   "**3.Rf1 Re2 4.Cc3** é a alternativa, e é o único momento em que rei e cavalo se separam momentaneamente.",
+                                4: "Para o terceiro lance há duas opções que levam à mesma posição alguns lances depois — veja a linha alternativa abaixo.",
                                 7: "Única forma de afastar o rei do cavalo — mas só por um instante.",
                                 10: "O rei volta imediatamente. A posição se repete e o empate está garantido.",
                             },
+                            "alternativas": [
+                                {
+                                    "titulo": "A separação momentânea do rei e do cavalo",
+                                    "linha": ["Nf2+", "Ke3", "Nd1+", "Kf3", "Kf1", "Re2", "Nc3"],
+                                    "nota": "Em vez de reagrupar na hora (3.Cc3), as brancas podem adiar um lance: 3.Rf1 obriga "
+                                            "a torre preta a ir para e2, e só então o cavalo vai para c3. É o único momento em que "
+                                            "rei e cavalo ficam temporariamente separados — mas c3 continua uma casa segura, e a "
+                                            "posição volta a cair no mesmo tipo de fortaleza.",
+                                },
+                            ],
                         },
                         {
                             "rotulo": "Diagrama de análise: o que acontece se o cavalo se afasta",
@@ -563,13 +573,37 @@ CAPITULO = {
                                 "notas": {
                                     0: "Até aqui tudo é forçado.",
                                     7: "Agora aparece o primeiro incômodo: o cavalo tem que ir para a casa boba ou se afastar do rei. "
-                                       "A mais intuitiva, **4...Cd3?**, perde por 5.Rf3 Ce1+ 6.Re2. Já **4...Cc2** empata e é a forma mais simples, "
-                                       "embora afastar tanto o cavalo cause desconforto.",
+                                       "**4...Cd3?** perde por 5.Rf3 Ce1+ 6.Re2. A linha principal segue com o cavalo indo mesmo "
+                                       "para a casa boba — veja a posição seguinte para o que aconteceu depois disso na partida.",
                                 },
+                                "alternativas": [
+                                    {
+                                        "titulo": "A defesa mais simples: cavalo para c2",
+                                        "linha": ["Kg3", "Nd3", "Rd2", "Ne1", "Rf2+", "Kg1", "Rf8", "Nc2"],
+                                        "nota": "Mais simples do que ir para a casa boba: afastar bastante o cavalo também empata, "
+                                                "embora separar tanto as duas peças cause desconforto.",
+                                    },
+                                ],
+                            },
+                            {
+                                "rotulo": "A defesa correta depois de 5.Rf3",
+                                "fen": "5R2/8/8/8/8/6K1/6n1/6k1 w - - 8 5",
+                                "resultado": "Empate teórico",
+                                "linha": ["Kf3", "Nh4+", "Ke3", "Kg2", "Rg8+", "Kh3", "Kf2", "Kh2"],
+                                "notas": {
+                                    0: "Na partida, as brancas aproximaram o rei do cavalo na casa boba.",
+                                    1: "A defesa correta e estreita: o cavalo dá xeque e ganha o tempo necessário para escapar de g2. "
+                                       "Na partida real, as pretas erraram aqui com **5...Rf1??** — e com o cavalo na casa boba, "
+                                       "esse erro quase sempre perde.",
+                                    3: "O rei preto também precisa fugir da zona perigosa.",
+                                    4: "A torre troca de coluna para dar o xeque que faltava.",
+                                    7: "Posição-tipo de novo: cavalo e rei pretos lado a lado, perto da borda mas fora do canto — o mesmo padrão do Final 8.",
+                                },
+                                "profundidade": 30,
                             },
                         ],
-                        "fecho": "Na partida seguiu-se 5.Rf3 Rf1?, o lance realmente perdedor — com o cavalo naquela casa, perde-se quase sempre. "
-                                 "A defesa correta, muito estreita, era 5...Ch4+ 6.Re3 Rg2 7.Tg8+ Rh3 8.Rf2 Rh2, repetindo a posição inicial na prática.",
+                        "fecho": "Na partida seguiu-se 5.Rf3 Rf1??, o lance realmente perdedor — com o cavalo na casa boba, "
+                                 "esse erro quase sempre perde. A defesa correta está na posição interativa acima.",
                     },
                 },
             ],

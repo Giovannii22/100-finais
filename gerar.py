@@ -502,7 +502,7 @@ def main():
 <p class="dek">{html.escape(CAPITULO['intro'])}</p>
 <div class="meta">
 <span class="chip">9 finais</span>
-<span class="chip">23 posições</span>
+<span class="chip">24 posições</span>
 <span class="chip chip-ok">Verificado por Stockfish&nbsp;19</span>
 <span class="meta-controls">
 <span class="seg-group"><span>Notação</span>
@@ -532,7 +532,7 @@ que saber</em>, de Jesús de la Villa García, para conferência lado a lado. On
 o segundo é uma posição que aparece dentro da mesma linha de lances — avance os lances para
 chegar nela.</p>
 <p>As posições vieram dos diagramas do capítulo; os textos e as linhas de análise foram escritos
-para esta página. Cada uma das 23 posições foi avaliada pelo Stockfish 19 em profundidade 20, e
+para esta página. Cada uma das 24 posições foi avaliada pelo Stockfish 19 em profundidade 20, e
 cada lance das linhas principais foi reavaliado individualmente para confirmar que o resultado
 objetivo não muda no caminho. Nos finais de rei e peão contra rei o Stockfish consulta a sua
 bitbase interna de KPK, que é exaustiva — não é estimativa.</p>
