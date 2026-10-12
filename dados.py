@@ -1364,7 +1364,8 @@ CAPITULO_2 = {   'numero': 2,
                                                                                             'acaba '
                                                                                             'preso '
                                                                                             'e '
-                                                                                            'perdido.'}]}],
+                                                                                            'perdido.',
+                                                                                    'espera_resultado': 'erro'}]}],
                                         'regras': [   'O cavalo empata contra o peão de torre na '
                                                       'sexta se consegue se colocar à frente dele.',
                                                       'Se só controla a casa de avanço, precisa '

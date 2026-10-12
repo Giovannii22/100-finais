@@ -9,7 +9,7 @@
    resultado objetivo tem que continuar sendo o declarado. É isso que
    pega uma linha "quase certa".
 """
-import sys, os, json, shutil, argparse
+import sys, os, json, shutil, argparse, re
 import chess, chess.engine
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -123,6 +123,32 @@ def profundidade_atingida(info, alvo):
     """True se a busca não chegou na profundidade pedida (parou pelo teto de
     tempo). info['depth'] é a profundidade que o motor de fato completou."""
     return info.get("depth", alvo) < alvo
+
+
+def eh_alternativa_de_erro(alt):
+    """Decide se uma 'alternativas' é para demonstrar um ERRO (espera-se que o
+    resultado objetivo mude para o lado contrário) ou um CAMINHO VÁLIDO
+    alternativo (espera-se que o resultado declarado da posição se mantenha
+    em toda a linha, igual à linha principal).
+
+    Heurística pelo título: "??", "?!", a palavra "erro" ou a palavra "perde"
+    indicam erro. Confirmado necessário neste projeto (Final 10, diagrama 3.2):
+    uma alternativa sem nenhum desses marcadores no título ("A outra forma de
+    alcançar a2") era na verdade uma linha que perdia por força — só não dava
+    xeque num lance-chave — e isso NÃO era checado pelo verificar.py antes
+    desta função existir, porque alternativas só passavam por checagem de
+    legalidade (parse_san), nunca por avaliação do Stockfish.
+
+    Quando a heurística erra (já aconteceu: um título com um único "?" e a
+    frase "O erro que salva as brancas"), use a chave explícita
+    "espera_resultado": "erro" ou "espera_resultado": "valido" no dicionário
+    da alternativa em dados.py para forçar a classificação certa.
+    """
+    explicito = alt.get("espera_resultado")
+    if explicito in ("erro", "valido"):
+        return explicito == "erro"
+    titulo = alt.get("titulo", "")
+    return bool(re.search(r"\?\?|\?!|\berro\b|\bperde\b", titulo, re.IGNORECASE))
 
 
 def contar_posicoes():
@@ -239,15 +265,46 @@ def main():
                          "promocao" if len(sans) and sans[-1].find("=") >= 0 else "")
 
         for alt in pos.get("alternativas", []):
+            erro_esperado = eh_alternativa_de_erro(alt)
             b2 = chess.Board(fen)
             afens, asans = [b2.fen()], []
+            veredito_alt = None
             for i, san in enumerate(alt["linha"]):
                 try:
                     mv = b2.parse_san(san)
                 except Exception as e:
-                    item["erros"].append(f"[alternativa] lance {i+1} '{san}' ILEGAL ({e})")
+                    item["erros"].append(f"[alternativa: {alt['titulo'][:40]}] lance {i+1} '{san}' ILEGAL ({e})")
                     break
                 asans.append(b2.san(mv)); b2.push(mv); afens.append(b2.fen())
+                if b2.is_game_over():
+                    break
+                v_alt, r_alt, parcial_alt = avaliar(b2, profundidade, tempo_max)
+                veredito_alt = v_alt
+                if parcial_alt:
+                    item.setdefault("avisos", []).append(
+                        f"[alternativa: {alt['titulo'][:40]}] avaliação após {i+1}.{san} não "
+                        f"atingiu a profundidade pedida (teto de {tempo_max}s atingido antes) — "
+                        "resultado parcial, revisar manualmente"
+                    )
+                if not erro_esperado and v_alt != alvo:
+                    item["erros"].append(
+                        f"[alternativa: {alt['titulo'][:40]}] após {i+1}.{san} o resultado vira "
+                        f"'{v_alt}' ({r_alt}), mas o título não indica erro — esta alternativa "
+                        f"deveria manter '{alvo}' (como a linha principal) em toda a linha"
+                    )
+            if erro_esperado and veredito_alt is not None and veredito_alt == alvo:
+                # Apenas aviso, não FALHA: um lance "??"/"?!" pode continuar dentro da
+                # mesma categoria de resultado (ex.: ainda "Pretas ganham", só que mais
+                # lento, ou perdendo material sem mudar quem ganha) — isso não é por si
+                # só evidência de bug, diferente do caso "sem erro" acima (esse sim é
+                # sempre uma FALHA real, porque ali não deveria haver NENHUM desvio do
+                # resultado declarado).
+                item.setdefault("avisos", []).append(
+                    f"[alternativa: {alt['titulo'][:40]}] título indica erro, mas o resultado "
+                    f"final do Stockfish ('{veredito_alt}') ainda bate com o declarado da posição "
+                    f"('{alvo}') — pode ser só um erro que não muda quem ganha (ok) ou um título "
+                    "impreciso; revisar manualmente"
+                )
             alt["fens"] = afens
             alt["sans"] = asans
             alt["final"] = "afogamento" if b2.is_stalemate() else ("mate" if b2.is_checkmate() else "")
